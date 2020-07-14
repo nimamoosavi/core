@@ -1,0 +1,42 @@
+package ir.webold.framework.utility;
+
+import ir.webold.framework.domain.dto.BaseDTO;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+import static ir.webold.framework.service.GeneralService.successCustomListResponse;
+import static ir.webold.framework.service.GeneralService.successCustomResponse;
+
+@Component
+public class ApplicationKafka {
+
+    @Autowired
+    private KafkaTemplate<String, String> kafkaTemplate;
+    private final List<String> kafkaMessages = new CopyOnWriteArrayList<>();
+
+    @Async
+    public void sendMessage(String topic, String message) {
+        kafkaTemplate.send(topic, message);
+    }
+
+    @KafkaListener(topics = "${kafka.audit.topic}", groupId = "${spring.kafka.consumer.group-id}")
+    public void listen(ConsumerRecord<String, String> record){
+        kafkaMessages.add(record.value());
+    }
+
+    public BaseDTO<List<String>> getMessage(){
+        return successCustomListResponse(kafkaMessages);
+    }
+
+    public BaseDTO<Boolean> deleteMessages(){
+        kafkaMessages.clear();
+        return successCustomResponse(true);
+    }
+}
