@@ -1,4 +1,4 @@
-package ir.webold.framework.config.kafka;
+package ir.webold.framework.config.async;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import java.util.concurrent.Executor;
 
 @Configuration
 @EnableAsync
-public class KafkaConfig {
+public class AsyncConfig {
     @Value("${kafka.thread.core.poolSize}")
     private Integer corePollSize;
 
@@ -20,13 +20,13 @@ public class KafkaConfig {
     @Value("${kafka.thread.core.query.capacity}")
     private Integer queryCapacity;
 
-    @Bean
+    @Bean("treadPoolAsync")
     public Executor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(corePollSize);
         executor.setMaxPoolSize(maxPoolSize);
         executor.setQueueCapacity(queryCapacity);
-        executor.setThreadNamePrefix("KafkaMsgExecutor-");
+        executor.setThreadNamePrefix("AsyncMsgExecutor-");
         executor.initialize();
         return executor;
     }

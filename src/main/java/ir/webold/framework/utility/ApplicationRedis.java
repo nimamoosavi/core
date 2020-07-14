@@ -5,6 +5,7 @@ import ir.webold.framework.exception.ApplicationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
@@ -32,6 +33,18 @@ public class ApplicationRedis {
 
 
     public BaseDTO<Boolean> setIn(String key, Object o, Long expireTime) {
+        redisTemplate.opsForValue().set(generateKey(key), o, expireTime, TimeUnit.MILLISECONDS);
+        return successCustomResponse(true);
+    }
+
+    @Async("treadPoolAsync")
+    public BaseDTO<Boolean> setAsyncIn(String key, Object o) {
+        redisTemplate.opsForValue().set(generateKey(key), o);
+        return successCustomResponse(true);
+    }
+
+    @Async("treadPoolAsync")
+    public BaseDTO<Boolean> setAsyncIn(String key, Object o, Long expireTime) {
         redisTemplate.opsForValue().set(generateKey(key), o, expireTime, TimeUnit.MILLISECONDS);
         return successCustomResponse(true);
     }

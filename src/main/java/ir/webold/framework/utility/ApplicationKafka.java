@@ -21,7 +21,7 @@ public class ApplicationKafka {
     private KafkaTemplate<String, String> kafkaTemplate;
     private final List<String> kafkaMessages = new CopyOnWriteArrayList<>();
 
-    @Async
+    @Async("treadPoolAsync")
     public void sendMessage(String topic, String message) {
         kafkaTemplate.send(topic, message);
     }
