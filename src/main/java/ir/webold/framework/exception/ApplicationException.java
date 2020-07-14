@@ -1,6 +1,6 @@
 package ir.webold.framework.exception;
 
-import ir.webold.framework.enums.ExceptionEnum;
+import ir.webold.framework.enums.exception.ExceptionEnum;
 import ir.webold.framework.utility.ApplicationResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

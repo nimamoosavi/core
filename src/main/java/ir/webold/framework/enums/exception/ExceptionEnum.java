@@ -1,4 +1,4 @@
-package ir.webold.framework.enums;
+package ir.webold.framework.enums.exception;
 
 import lombok.Getter;
 

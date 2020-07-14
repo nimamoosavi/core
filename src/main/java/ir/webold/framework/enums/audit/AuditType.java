@@ -1,4 +1,4 @@
-package ir.webold.framework.enums;
+package ir.webold.framework.enums.audit;
 
 import lombok.Getter;
 

@@ -1,7 +1,6 @@
 package ir.webold.framework.domain.viewmodel;
 
-import ir.webold.framework.domain.dto.BaseDTO;
-import ir.webold.framework.enums.AuditType;
+import ir.webold.framework.enums.audit.AuditType;
 import lombok.Builder;
 import lombok.Data;
 

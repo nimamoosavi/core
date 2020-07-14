@@ -2,7 +2,7 @@ package ir.webold.framework.utility;
 
 
 import ir.webold.framework.domain.dto.BaseDTO;
-import ir.webold.framework.enums.ExceptionEnum;
+import ir.webold.framework.enums.exception.ExceptionEnum;
 import ir.webold.framework.enums.ResultStatus;
 import ir.webold.framework.exception.ApplicationException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -8,7 +8,7 @@ import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 
-public class BaseAggClientHystrix<S, R, ID extends Serializable> implements BaseAggClient<S, R, ID> {
+public class BaseAggClientHystrix<S, R, I extends Serializable> implements BaseAggClient<S, R, I> {
 
     @Override
     public ResponseEntity<BaseDTO<R>> save(String rrn, S s) {
@@ -21,12 +21,12 @@ public class BaseAggClientHystrix<S, R, ID extends Serializable> implements Base
     }
 
     @Override
-    public ResponseEntity<BaseDTO<R>> deleteById(String rrn, @Valid ID id) {
+    public ResponseEntity<BaseDTO<R>> deleteById(String rrn, @Valid I id) {
         return null;
     }
 
     @Override
-    public ResponseEntity<BaseDTO<R>> getByID(String rrn, @Valid ID id) {
+    public ResponseEntity<BaseDTO<R>> getByID(String rrn, @Valid I id) {
         return null;
     }
 
@@ -36,7 +36,7 @@ public class BaseAggClientHystrix<S, R, ID extends Serializable> implements Base
     }
 
     @Override
-    public ResponseEntity<BaseDTO<List<R>>> getAllById(String rrn, @Valid List<ID> id) {
+    public ResponseEntity<BaseDTO<List<R>>> getAllById(String rrn, @Valid List<I> id) {
         return null;
     }
 
@@ -46,7 +46,7 @@ public class BaseAggClientHystrix<S, R, ID extends Serializable> implements Base
     }
 
     @Override
-    public ResponseEntity<BaseDTO<Boolean>> existsById(String rrn, @Valid ID id) {
+    public ResponseEntity<BaseDTO<Boolean>> existsById(String rrn, @Valid I id) {
         return null;
     }
 

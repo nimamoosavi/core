@@ -26,7 +26,7 @@ public class ApplicationKafka {
         kafkaTemplate.send(topic, message);
     }
 
-    @KafkaListener(topics = "${kafka.audit.topic}", groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "${kafka.audit.topic}", groupId = "${spring.kafka.consumer.group-id}",autoStartup="${kafka.listener.enabled}")
     public void listen(ConsumerRecord<String, String> record){
         kafkaMessages.add(record.value());
     }

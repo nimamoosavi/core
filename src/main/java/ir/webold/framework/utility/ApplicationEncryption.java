@@ -5,7 +5,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import ir.webold.framework.domain.dto.BaseDTO;
-import ir.webold.framework.enums.ExceptionEnum;
+import ir.webold.framework.enums.exception.ExceptionEnum;
 import ir.webold.framework.exception.ApplicationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

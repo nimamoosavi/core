@@ -11,11 +11,11 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 
-@MappedSuperclass
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@MappedSuperclass
 public class BaseEntity<I extends Serializable> implements Serializable {
     @Transient
     private static final long serialVersionUID = 6488252903669024162L;
