@@ -1,4 +1,4 @@
-package ir.webold.framework.config.framework;
+package ir.webold.framework.config.general;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ghasemkiani.util.icu.PersianCalendar;
@@ -21,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 @PropertySource(value = "classpath:applicationException.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 @PropertySource(value = "classpath:/SWFrameWork.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 @ComponentScan(basePackages = {"ir.webold.framework"})
-public class FrameWorkConfig {
+public class GenralConfig {
 
     @Value("${redis.host}")
     String redisHost;
