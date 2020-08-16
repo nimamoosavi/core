@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.util.*;
 
+import static ir.webold.framework.config.general.GeneralStatic.*;
+
 @Component
 public class ApplicationRequest {
 
@@ -183,7 +185,7 @@ public class ApplicationRequest {
         HttpHeaders httpHeaders = new HttpHeaders();
         if (headers != null)
             httpHeaders.setAll(headers);
-        httpHeaders.set("rrn", getHeader("rrn"));
+        httpHeaders.set(RRN, getHeader(RRN));
         HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
         return restTemplate.exchange(domain, httpMethod, httpEntity, targetClass);
     }
@@ -194,10 +196,10 @@ public class ApplicationRequest {
             httpHeaders.setAll(headers);
         if (basicAuthentication != null) {
             String basic = basicAuthentication.getUserName() + ":" + basicAuthentication.getPassWord();
-            String authorization = "Basic " + javax.xml.bind.DatatypeConverter.printBase64Binary(basic.getBytes());
-            httpHeaders.set("Authorization", authorization);
+            String authorization = BASIC + javax.xml.bind.DatatypeConverter.printBase64Binary(basic.getBytes());
+            httpHeaders.set(AUTHORIZATION, authorization);
         }
-        httpHeaders.set("rrn", getHeader("rrn"));
+        httpHeaders.set(RRN, getHeader(RRN));
         HttpEntity<?> httpEntity = new HttpEntity<>(body, httpHeaders);
         return restTemplate.exchange(domain, httpMethod, httpEntity, targetClass);
     }

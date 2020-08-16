@@ -19,6 +19,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 import static ir.webold.framework.aop.AuditService.DATE_PATTERN;
+import static ir.webold.framework.config.general.GeneralStatic.RRN;
 import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
 @Component
@@ -50,7 +51,7 @@ public class ApplicationLogger {
 
     @Async
     public void around(LogLevel level, String clazz, String method, String message) {
-        String rrn = applicationRequest.getHeader("rrn");
+        String rrn = applicationRequest.getHeader(RRN);
         AuditReqVM auditReqVM = AuditReqVM.builder()
                 .method(method)
                 .clazz(clazz)

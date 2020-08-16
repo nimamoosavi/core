@@ -19,7 +19,6 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @PropertySource(value = "classpath:applicationException.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
-@PropertySource(value = "classpath:/SWFrameWork.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 @ComponentScan(basePackages = {"ir.webold.framework"})
 public class GenralConfig {
 

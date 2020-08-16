@@ -18,6 +18,9 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
 
+import static ir.webold.framework.config.general.GeneralStatic.AUTHORIZATION;
+import static ir.webold.framework.config.general.GeneralStatic.RRN;
+
 @Aspect
 @Component
 public class AuditService {
@@ -34,6 +37,7 @@ public class AuditService {
 
     public static final String DATE_PATTERN = "yyyy/MM/dd HH:mm:ss";
 
+
     @Pointcut("within(@org.springframework.stereotype.Service *)")
     public void service() {
     }
@@ -48,15 +52,13 @@ public class AuditService {
         String methodName = joinPoint.getSignature().getName();
         String clazz = joinPoint.getSignature().getDeclaringTypeName();
         List<Object> input = Arrays.asList(joinPoint.getArgs());
-        String rrn = applicationRequest.getHeader("rrn");
-        String authorization = applicationRequest.getHeader("Authorization");
         AuditReqVM auditReqVM = AuditReqVM.builder().input(input)
                 .method(methodName)
                 .clazz(clazz)
                 .microServiceName(microserviceName)
                 .result(result)
-                .rrn(rrn)
-                .token(authorization)
+                .rrn(applicationRequest.getHeader(RRN))
+                .token(applicationRequest.getHeader(AUTHORIZATION))
                 .type(AuditType.AFTERRETURNING)
                 .level(LogLevel.INFO.name())
                 .time(new SimpleDateFormat(DATE_PATTERN).format(new Timestamp(System.currentTimeMillis())))
@@ -69,14 +71,12 @@ public class AuditService {
         String methodName = joinPoint.getSignature().getName();
         String clazz = joinPoint.getSignature().getDeclaringTypeName();
         List<Object> input = Arrays.asList(joinPoint.getArgs());
-        String rrn = applicationRequest.getHeader("rrn");
-        String authorization = applicationRequest.getHeader("Authorization");
         AuditReqVM auditReqVM = AuditReqVM.builder().input(input)
                 .method(methodName)
                 .clazz(clazz)
                 .microServiceName(microserviceName)
-                .rrn(rrn)
-                .token(authorization)
+                .rrn(applicationRequest.getHeader(RRN))
+                .token(applicationRequest.getHeader(AUTHORIZATION))
                 .type(AuditType.BEFORE)
                 .level(LogLevel.INFO.name())
                 .time(new SimpleDateFormat(DATE_PATTERN).format(new Timestamp(System.currentTimeMillis())))
@@ -89,8 +89,6 @@ public class AuditService {
         String methodName = joinPoint.getSignature().getName();
         String clazz = joinPoint.getSignature().getDeclaringTypeName();
         List<Object> input = Arrays.asList(joinPoint.getArgs());
-        String rrn = applicationRequest.getHeader("rrn");
-        String authorization = applicationRequest.getHeader("Authorization");
         AuditException auditException;
         if (exception instanceof ServiceException) {
             auditException = AuditException.builder().excClazz(exception.getStackTrace()[0].getClassName())
@@ -107,8 +105,8 @@ public class AuditService {
                 .method(methodName)
                 .clazz(clazz)
                 .microServiceName(microserviceName)
-                .rrn(rrn)
-                .token(authorization)
+                .rrn(applicationRequest.getHeader(RRN))
+                .token(applicationRequest.getHeader(AUTHORIZATION))
                 .type(AuditType.AFTERTROWING)
                 .level(LogLevel.ERROR.name())
                 .exception(auditException)
