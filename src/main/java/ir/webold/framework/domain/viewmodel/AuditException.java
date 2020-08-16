@@ -10,4 +10,5 @@ public class AuditException {
     private String excMethod;
     private Integer excLine;
     private String excMessage;
+    private Integer excCode;
 }

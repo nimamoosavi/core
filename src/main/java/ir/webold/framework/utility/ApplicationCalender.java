@@ -6,14 +6,11 @@ import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ApplicationCalender {
 
-    @Autowired
-    PersianCalendar persianCalender;
     public static DateFormat dateFormat = null;
     public static DateFormat dateFormatWithTime = null;
 

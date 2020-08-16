@@ -4,6 +4,7 @@ import ir.webold.framework.domain.viewmodel.AuditException;
 import ir.webold.framework.domain.viewmodel.AuditReqVM;
 import ir.webold.framework.enums.audit.AuditType;
 import ir.webold.framework.enums.audit.LogLevel;
+import ir.webold.framework.exception.ServiceException;
 import ir.webold.framework.utility.ApplicationLogger;
 import ir.webold.framework.utility.ApplicationRequest;
 import org.aspectj.lang.JoinPoint;
@@ -48,12 +49,14 @@ public class AuditService {
         String clazz = joinPoint.getSignature().getDeclaringTypeName();
         List<Object> input = Arrays.asList(joinPoint.getArgs());
         String rrn = applicationRequest.getHeader("rrn");
+        String authorization = applicationRequest.getHeader("Authorization");
         AuditReqVM auditReqVM = AuditReqVM.builder().input(input)
                 .method(methodName)
                 .clazz(clazz)
                 .microServiceName(microserviceName)
                 .result(result)
                 .rrn(rrn)
+                .token(authorization)
                 .type(AuditType.AFTERRETURNING)
                 .level(LogLevel.INFO.name())
                 .time(new SimpleDateFormat(DATE_PATTERN).format(new Timestamp(System.currentTimeMillis())))
@@ -68,11 +71,13 @@ public class AuditService {
         String clazz = joinPoint.getSignature().getDeclaringTypeName();
         List<Object> input = Arrays.asList(joinPoint.getArgs());
         String rrn = applicationRequest.getHeader("rrn");
+        String authorization = applicationRequest.getHeader("Authorization");
         AuditReqVM auditReqVM = AuditReqVM.builder().input(input)
                 .method(methodName)
                 .clazz(clazz)
                 .microServiceName(microserviceName)
                 .rrn(rrn)
+                .token(authorization)
                 .type(AuditType.BEFORE)
                 .level(LogLevel.INFO.name())
                 .time(new SimpleDateFormat(DATE_PATTERN).format(new Timestamp(System.currentTimeMillis())))
@@ -86,15 +91,25 @@ public class AuditService {
         String clazz = joinPoint.getSignature().getDeclaringTypeName();
         List<Object> input = Arrays.asList(joinPoint.getArgs());
         String rrn = applicationRequest.getHeader("rrn");
-        AuditException auditException = AuditException.builder().excClazz(exception.getStackTrace()[0].getClassName())
-                .excMethod(exception.getStackTrace()[0].getMethodName())
-                .excLine(exception.getStackTrace()[0].getLineNumber())
-                .excMessage(exception.getMessage()).build();
+        String authorization = applicationRequest.getHeader("Authorization");
+        AuditException auditException;
+        if (exception instanceof ServiceException){
+            auditException = AuditException.builder().excClazz(exception.getStackTrace()[0].getClassName())
+                    .excMethod(exception.getStackTrace()[0].getMethodName())
+                    .excLine(exception.getStackTrace()[0].getLineNumber())
+                    .excMessage(((ServiceException) exception).getExceptionMessage()).excCode(((ServiceException) exception).getExceptionCode()).build();
+        }else {
+            auditException = AuditException.builder().excClazz(exception.getStackTrace()[0].getClassName())
+                    .excMethod(exception.getStackTrace()[0].getMethodName())
+                    .excLine(exception.getStackTrace()[0].getLineNumber())
+                    .excMessage(exception.getMessage()).build();
+        }
         AuditReqVM auditReqVM = AuditReqVM.builder().input(input)
                 .method(methodName)
                 .clazz(clazz)
                 .microServiceName(microserviceName)
                 .rrn(rrn)
+                .token(authorization)
                 .type(AuditType.AFTERTROWING)
                 .level(LogLevel.ERROR.name())
                 .exception(auditException)
