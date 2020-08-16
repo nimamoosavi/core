@@ -8,15 +8,15 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 import org.springframework.stereotype.Component;
 
+import static ir.webold.framework.config.general.GeneralStatic.DEFAULT_PERSIAN_DATE_PATTERN;
+import static ir.webold.framework.config.general.GeneralStatic.DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME;
+
 @Component
 public class ApplicationCalender {
 
     public static DateFormat dateFormat = null;
     public static DateFormat dateFormatWithTime = null;
 
-    public static final String DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME = "yyyy/MM/dd hh:mm";
-
-    public static final String DEFAULT_PERSIAN_DATE_PATTERN = "yyyy/MM/dd";
 
     public static DateFormat getDateFormat() {
         if (dateFormat == null) {
