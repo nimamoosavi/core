@@ -62,7 +62,6 @@ public class AuditService {
                 .time(new SimpleDateFormat(DATE_PATTERN).format(new Timestamp(System.currentTimeMillis())))
                 .build();
         applicationLogger.log(auditReqVM, LogLevel.INFO);
-
     }
 
     @Before("service() || log()")
@@ -93,12 +92,12 @@ public class AuditService {
         String rrn = applicationRequest.getHeader("rrn");
         String authorization = applicationRequest.getHeader("Authorization");
         AuditException auditException;
-        if (exception instanceof ServiceException){
+        if (exception instanceof ServiceException) {
             auditException = AuditException.builder().excClazz(exception.getStackTrace()[0].getClassName())
                     .excMethod(exception.getStackTrace()[0].getMethodName())
                     .excLine(exception.getStackTrace()[0].getLineNumber())
                     .excMessage(((ServiceException) exception).getExceptionMessage()).excCode(((ServiceException) exception).getExceptionCode()).build();
-        }else {
+        } else {
             auditException = AuditException.builder().excClazz(exception.getStackTrace()[0].getClassName())
                     .excMethod(exception.getStackTrace()[0].getMethodName())
                     .excLine(exception.getStackTrace()[0].getLineNumber())

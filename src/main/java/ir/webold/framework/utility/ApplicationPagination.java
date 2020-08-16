@@ -33,7 +33,7 @@ public class ApplicationPagination {
         } else if (sortEnum.name().equals("desc")) {
             return PageRequest.of(page - 1, pageSize != null ? pageSize : pageSizeDefault, Sort.by(sortField).descending());
         } else {
-            throw applicationException.createApplicationException(ExceptionEnum.INTERNALSERVER_APPLICATIONPAGINATION, HttpStatus.INTERNAL_SERVER_ERROR);
+            throw applicationException.createApplicationException(ExceptionEnum.INTERNALSERVER, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
