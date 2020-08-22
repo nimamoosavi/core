@@ -22,13 +22,16 @@ import static ir.webold.framework.config.general.GeneralStatic.*;
 @Component
 public class ApplicationRequest {
 
-    @Autowired
     RestTemplate restTemplate;
-    @Autowired
     ApplicationResource applicationResource;
-    @Autowired
     ApplicationException applicationException;
 
+    @Autowired
+    public ApplicationRequest(RestTemplate restTemplate, ApplicationResource applicationResource, ApplicationException applicationException) {
+        this.restTemplate = restTemplate;
+        this.applicationResource = applicationResource;
+        this.applicationException = applicationException;
+    }
 
     protected static final String[] IP_HEADER_CANDIDATES = {
             "X-Forwarded-For",

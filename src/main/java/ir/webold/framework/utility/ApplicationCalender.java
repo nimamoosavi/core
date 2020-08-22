@@ -14,22 +14,22 @@ import static ir.webold.framework.config.general.GeneralStatic.DEFAULT_PERSIAN_D
 @Component
 public class ApplicationCalender {
 
-    public static DateFormat dateFormat = null;
-    public static DateFormat dateFormatWithTime = null;
+    public static DateFormat DATEFORMAT = null;
+    public static DateFormat DATEFORMATWITHTIME = null;
 
 
     public static DateFormat getDateFormat() {
-        if (dateFormat == null) {
-            dateFormat = getDateFormat(DEFAULT_PERSIAN_DATE_PATTERN);
+        if (DATEFORMAT == null) {
+            DATEFORMAT = getDateFormat(DEFAULT_PERSIAN_DATE_PATTERN);
         }
-        return dateFormat;
+        return DATEFORMAT;
     }
 
     public static DateFormat getDateFormatWithTime() {
-        if (dateFormatWithTime == null) {
-            dateFormatWithTime = getDateFormat(DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME);
+        if (DATEFORMATWITHTIME == null) {
+            DATEFORMATWITHTIME = getDateFormat(DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME);
         }
-        return dateFormatWithTime;
+        return DATEFORMATWITHTIME;
     }
 
 

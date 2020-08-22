@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ApplicationException {
 
-    @Autowired
     ApplicationResource applicationResource;
     @Value("${ENVIREMENTNOTFOUNDE.code}")
     private String environmentNotFoundCode;
@@ -24,6 +23,10 @@ public class ApplicationException {
     String code;
     String text;
 
+    @Autowired
+    public ApplicationException(ApplicationResource applicationResource) {
+        this.applicationResource = applicationResource;
+    }
 
     public ServiceException createApplicationException(String exceptionKey) {
         try {

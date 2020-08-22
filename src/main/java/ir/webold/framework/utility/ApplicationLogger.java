@@ -27,8 +27,17 @@ public class ApplicationLogger {
 
     private static final Logger APP_LOG = LoggerFactory.getLogger("APP_LOG");
 
-    @Autowired
     AuditService auditService;
+    ObjectMapper objectMapper;
+    ApplicationKafka applicationKafka;
+    ApplicationRequest applicationRequest;
+
+    public ApplicationLogger(AuditService auditService, ObjectMapper objectMapper, ApplicationKafka applicationKafka, ApplicationRequest applicationRequest) {
+        this.auditService = auditService;
+        this.objectMapper = objectMapper;
+        this.applicationKafka = applicationKafka;
+        this.applicationRequest = applicationRequest;
+    }
 
     @Value("${kafka.audit.topic}")
     private String logTopic;
@@ -38,15 +47,6 @@ public class ApplicationLogger {
 
     @Value("${log.location}")
     private String logLocation;
-
-    @Autowired
-    ObjectMapper objectMapper;
-
-    @Autowired
-    ApplicationKafka applicationKafka;
-
-    @Autowired
-    ApplicationRequest applicationRequest;
 
 
     @Async

@@ -19,8 +19,12 @@ import java.util.List;
 public class BaseController<T extends BaseEntity<I>, S, R, I extends Serializable> {
 
 
-    @Autowired
     GeneralService<T, S, R, I> generalService;
+
+    @Autowired
+    public BaseController(GeneralService<T, S, R, I> generalService) {
+        this.generalService = generalService;
+    }
 
     @ApiImplicitParams({@ApiImplicitParam(name = "Authorization", value = "Authorization", required = true, dataType = "string", paramType = "header")})
     @PostMapping

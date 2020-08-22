@@ -15,12 +15,12 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 @Component
 public class ApplicationRedis {
 
-    @Autowired
-    ApplicationException applicationException;
-
-    @Autowired
     RedisTemplate<String, Object> redisTemplate;
 
+    @Autowired
+    public ApplicationRedis(RedisTemplate<String, Object> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
 
     @Value("${spring.application.name}")
     private String microserviceName;

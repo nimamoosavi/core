@@ -29,11 +29,14 @@ public class AuditService {
     @Value("${spring.application.name}")
     private String microserviceName;
 
-    @Autowired
     ApplicationRequest applicationRequest;
-    @Autowired
     ApplicationLogger applicationLogger;
 
+    @Autowired
+    public AuditService(ApplicationRequest applicationRequest, ApplicationLogger applicationLogger) {
+        this.applicationRequest = applicationRequest;
+        this.applicationLogger = applicationLogger;
+    }
 
     public static final String DATE_PATTERN = "yyyy/MM/dd HH:mm:ss";
 

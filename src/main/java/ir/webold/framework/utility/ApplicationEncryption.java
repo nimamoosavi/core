@@ -23,10 +23,12 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
 @Component
 public class ApplicationEncryption {
-    @Autowired
     ApplicationException applicationException;
+
     @Autowired
-    ApplicationResource applicationResource;
+    public ApplicationEncryption(ApplicationException applicationException) {
+        this.applicationException = applicationException;
+    }
 
     @Value("${jwtSecretKey}")
     static String secretAppKeys;

@@ -14,8 +14,13 @@ import static ir.webold.framework.config.general.GeneralStatic.RRN;
 
 @WebFilter(urlPatterns = {"/*"})
 public class AppFilter implements Filter {
-    @Autowired
+
     ApplicationRequest applicationRequest;
+
+    @Autowired
+    public AppFilter(ApplicationRequest applicationRequest) {
+        this.applicationRequest = applicationRequest;
+    }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

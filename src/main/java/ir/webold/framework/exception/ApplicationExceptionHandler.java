@@ -20,8 +20,12 @@ import javax.validation.ConstraintViolationException;
 @ControllerAdvice
 public class ApplicationExceptionHandler {
 
-    @Autowired
     ApplicationResource applicationResource;
+
+    @Autowired
+    public ApplicationExceptionHandler(ApplicationResource applicationResource) {
+        this.applicationResource = applicationResource;
+    }
 
     @ExceptionHandler(ServiceException.class)
     protected ResponseEntity<BaseDTO<Object>> serviceException(ServiceException e) {

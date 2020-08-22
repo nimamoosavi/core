@@ -17,9 +17,16 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 @Component
 public class ApplicationKafka {
 
-    @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
+
+    @Autowired
+    public ApplicationKafka(KafkaTemplate<String, String> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
     private final List<String> kafkaMessages = new CopyOnWriteArrayList<>();
+
+
 
     @Async("treadPoolAsync")
     public void sendMessage(String topic, String message) {

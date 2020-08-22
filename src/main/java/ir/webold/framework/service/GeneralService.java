@@ -4,14 +4,13 @@ import ir.webold.framework.anotations.Log;
 import ir.webold.framework.domain.dto.BaseDTO;
 import ir.webold.framework.domain.dto.PageDTO;
 import ir.webold.framework.domain.entity.BaseEntity;
-import ir.webold.framework.enums.exception.ExceptionEnum;
 import ir.webold.framework.enums.ResultStatus;
+import ir.webold.framework.enums.exception.ExceptionEnum;
 import ir.webold.framework.exception.ApplicationException;
 import ir.webold.framework.mapper.GeneralMapper;
 import ir.webold.framework.repository.GeneralRepository;
 import ir.webold.framework.utility.ApplicationPagination;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
@@ -30,18 +29,18 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 @Log
 public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Serializable> {
 
-    @Autowired
     GeneralRepository<T, I> generalRepository;
-    @Autowired
-    public ApplicationException applicationException;
-    @Autowired
+    ApplicationException applicationException;
     ApplicationPagination applicationPagination;
-
-
+    GeneralMapper<T, S, R> generalMapper;
 
     @Autowired
-    @Lazy
-    GeneralMapper<T, S, R> generalMapper;
+    public GeneralService(GeneralRepository<T, I> generalRepository, ApplicationException applicationException, ApplicationPagination applicationPagination, GeneralMapper<T, S, R> generalMapper) {
+        this.generalRepository = generalRepository;
+        this.applicationException = applicationException;
+        this.applicationPagination = applicationPagination;
+        this.generalMapper = generalMapper;
+    }
 
     @PersistenceContext
     EntityManager entityManager;
