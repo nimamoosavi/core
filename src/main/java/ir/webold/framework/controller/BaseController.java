@@ -18,13 +18,8 @@ import java.util.List;
 //R response view model
 public class BaseController<T extends BaseEntity<I>, S, R, I extends Serializable> {
 
-
-    GeneralService<T, S, R, I> generalService;
-
     @Autowired
-    public BaseController(GeneralService<T, S, R, I> generalService) {
-        this.generalService = generalService;
-    }
+    GeneralService<T, S, R, I> generalService;
 
     @ApiImplicitParams({@ApiImplicitParam(name = "Authorization", value = "Authorization", required = true, dataType = "string", paramType = "header")})
     @PostMapping

@@ -16,14 +16,11 @@ import static ir.webold.framework.config.general.GeneralStatic.RRN;
 public abstract class BaseAggService<S, R, I extends Serializable> {
 
 
+    @Autowired
     BaseAggClient<S, R, I> baseAggClient;
+    @Autowired
     ApplicationRequest applicationRequest;
 
-    @Autowired
-    public BaseAggService(BaseAggClient<S, R, I> baseAggClient, ApplicationRequest applicationRequest) {
-        this.baseAggClient = baseAggClient;
-        this.applicationRequest = applicationRequest;
-    }
 
     public BaseDTO<R> save(S s) {
         return baseAggClient.save(getRrn(), s).getBody();

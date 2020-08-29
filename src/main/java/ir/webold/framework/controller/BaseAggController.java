@@ -14,12 +14,8 @@ import java.util.List;
 
 public class BaseAggController<S, R, I extends Serializable> {
 
-    BaseAggService<S, R, I> baseAggService;
-
     @Autowired
-    public BaseAggController(BaseAggService<S, R, I> baseAggService) {
-        this.baseAggService = baseAggService;
-    }
+    BaseAggService<S, R, I> baseAggService;
 
     @PostMapping
     public ResponseEntity<BaseDTO<R>> save(@Valid @RequestBody S s) {
