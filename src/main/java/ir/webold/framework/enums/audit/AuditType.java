@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum AuditType {
     BEFORE,
-    AFTERRETURNING,
-    AFTERTROWING,
+    AFTER_RETURNING,
+    AFTER_TROWING,
     AROUND
 }

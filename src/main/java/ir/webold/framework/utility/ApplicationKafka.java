@@ -17,7 +17,7 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 @Component
 public class ApplicationKafka {
 
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     @Autowired
     public ApplicationKafka(KafkaTemplate<String, String> kafkaTemplate) {

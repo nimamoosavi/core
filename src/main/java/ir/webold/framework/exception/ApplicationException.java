@@ -17,11 +17,11 @@ public class ApplicationException {
     @Value("${ENVIREMENTNOTFOUNDE.message}")
     private String environmentNotFoundMessage;
 
-    public static final String CODE = ".code";
-    public static final String MESSAGE = ".message";
+    private static final String CODE = ".code";
+    private static final String MESSAGE = ".message";
 
-    String code;
-    String text;
+    private String code;
+    private String text;
 
     @Autowired
     public ApplicationException(ApplicationResource applicationResource) {

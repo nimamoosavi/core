@@ -23,7 +23,7 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
 @Component
 public class ApplicationEncryption {
-    ApplicationException applicationException;
+    private final ApplicationException applicationException;
 
     @Autowired
     public ApplicationEncryption(ApplicationException applicationException) {
@@ -31,7 +31,7 @@ public class ApplicationEncryption {
     }
 
     @Value("${jwtSecretKey}")
-    static String secretAppKeys;
+    private static String secretAppKeys;
 
 
     public BaseDTO<String> generateJwt(Map<String, String> put, String secretKey, @NotNull Long exp) {
@@ -137,7 +137,7 @@ public class ApplicationEncryption {
         }
     }
 
-    public BaseDTO<Object> getJwtParamWithCheckExpireTime(String jwt, String paramName) {
+    public BaseDTO<Object> getJwtParamWithCheckExpireTime(String jwt) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
             if (Boolean.TRUE.equals(checkExpireTime(claims).getData()))
@@ -158,7 +158,7 @@ public class ApplicationEncryption {
         }
     }
 
-    public BaseDTO<Object> getJwtParamWithCheckExpireTime(String jwt, String secretKey, String paramName) {
+    public BaseDTO<Object> getJwtParamWithCheckExpireTime(String jwt, String secretKey) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
             if (Boolean.TRUE.equals(checkExpireTime(claims).getData()))

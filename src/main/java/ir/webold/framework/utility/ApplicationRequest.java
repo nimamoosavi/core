@@ -1,7 +1,6 @@
 package ir.webold.framework.utility;
 
 import ir.webold.framework.domain.viewmodel.BasicAuthentication;
-import ir.webold.framework.exception.ApplicationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -22,15 +21,11 @@ import static ir.webold.framework.config.general.GeneralStatic.*;
 @Component
 public class ApplicationRequest {
 
-    RestTemplate restTemplate;
-    ApplicationResource applicationResource;
-    ApplicationException applicationException;
+    private final RestTemplate restTemplate;
 
     @Autowired
-    public ApplicationRequest(RestTemplate restTemplate, ApplicationResource applicationResource, ApplicationException applicationException) {
+    public ApplicationRequest(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.applicationResource = applicationResource;
-        this.applicationException = applicationException;
     }
 
     protected static final String[] IP_HEADER_CANDIDATES = {

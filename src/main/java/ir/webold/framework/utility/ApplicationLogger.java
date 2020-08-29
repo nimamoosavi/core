@@ -3,7 +3,6 @@ package ir.webold.framework.utility;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ir.webold.framework.aop.AuditService;
 import ir.webold.framework.domain.viewmodel.AuditReqVM;
 import ir.webold.framework.enums.audit.AuditLocation;
 import ir.webold.framework.enums.audit.AuditType;
@@ -27,13 +26,12 @@ public class ApplicationLogger {
 
     private static final Logger APP_LOG = LoggerFactory.getLogger("APP_LOG");
 
-    AuditService auditService;
-    ObjectMapper objectMapper;
-    ApplicationKafka applicationKafka;
-    ApplicationRequest applicationRequest;
+    private final ObjectMapper objectMapper;
+    private final ApplicationKafka applicationKafka;
+    private final ApplicationRequest applicationRequest;
 
-    public ApplicationLogger(AuditService auditService, ObjectMapper objectMapper, ApplicationKafka applicationKafka, ApplicationRequest applicationRequest) {
-        this.auditService = auditService;
+    @Autowired
+    public ApplicationLogger(ObjectMapper objectMapper, ApplicationKafka applicationKafka, ApplicationRequest applicationRequest) {
         this.objectMapper = objectMapper;
         this.applicationKafka = applicationKafka;
         this.applicationRequest = applicationRequest;
@@ -62,7 +60,7 @@ public class ApplicationLogger {
                 .result(successCustomResponse(message))
                 .time(new SimpleDateFormat(DATE_PATTERN).format(new Timestamp(System.currentTimeMillis())))
                 .build();
-        log(auditReqVM,LogLevel.INFO);
+        log(auditReqVM, LogLevel.INFO);
 
     }
 

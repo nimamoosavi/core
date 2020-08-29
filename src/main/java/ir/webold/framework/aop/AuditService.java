@@ -29,8 +29,8 @@ public class AuditService {
     @Value("${spring.application.name}")
     private String microserviceName;
 
-    ApplicationRequest applicationRequest;
-    ApplicationLogger applicationLogger;
+    private final ApplicationRequest applicationRequest;
+    private final ApplicationLogger applicationLogger;
 
     @Autowired
     public AuditService(ApplicationRequest applicationRequest, ApplicationLogger applicationLogger) {
@@ -62,7 +62,7 @@ public class AuditService {
                 .result(result)
                 .rrn(applicationRequest.getHeader(RRN))
                 .token(applicationRequest.getHeader(AUTHORIZATION))
-                .type(AuditType.AFTERRETURNING)
+                .type(AuditType.AFTER_RETURNING)
                 .level(LogLevel.INFO.name())
                 .time(new SimpleDateFormat(DATE_PATTERN).format(new Timestamp(System.currentTimeMillis())))
                 .build();
@@ -110,7 +110,7 @@ public class AuditService {
                 .microServiceName(microserviceName)
                 .rrn(applicationRequest.getHeader(RRN))
                 .token(applicationRequest.getHeader(AUTHORIZATION))
-                .type(AuditType.AFTERTROWING)
+                .type(AuditType.AFTER_TROWING)
                 .level(LogLevel.ERROR.name())
                 .exception(auditException)
                 .time(new SimpleDateFormat(DATE_PATTERN).format(new Timestamp(System.currentTimeMillis())))

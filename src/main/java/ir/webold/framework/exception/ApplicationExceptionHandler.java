@@ -20,7 +20,7 @@ import javax.validation.ConstraintViolationException;
 @ControllerAdvice
 public class ApplicationExceptionHandler {
 
-    ApplicationResource applicationResource;
+    private final ApplicationResource applicationResource;
 
     @Autowired
     public ApplicationExceptionHandler(ApplicationResource applicationResource) {

@@ -2,8 +2,8 @@ package ir.webold.framework.utility;
 
 
 import ir.webold.framework.domain.dto.BaseDTO;
-import ir.webold.framework.enums.exception.ExceptionEnum;
 import ir.webold.framework.enums.ResultStatus;
+import ir.webold.framework.enums.exception.ExceptionEnum;
 import ir.webold.framework.exception.ApplicationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,8 +16,8 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 @Component
 public class ApplicationResource {
 
-    Environment environment;
-    ApplicationException applicationException;
+    private final Environment environment;
+    private final ApplicationException applicationException;
 
     @Autowired
     public ApplicationResource(Environment environment, ApplicationException applicationException) {
@@ -52,7 +52,7 @@ public class ApplicationResource {
         try {
             text = environment.getProperty(resourceText);
         } catch (Exception e) {
-           throw  applicationException.createApplicationException(ExceptionEnum.ENVIREMENTNOTFOUNDE,HttpStatus.BAD_GATEWAY);
+            throw applicationException.createApplicationException(ExceptionEnum.ENVIREMENTNOTFOUNDE, HttpStatus.BAD_GATEWAY);
         }
         return successCustomResponse(text);
     }

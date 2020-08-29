@@ -14,8 +14,8 @@ import static ir.webold.framework.config.general.GeneralStatic.DEFAULT_PERSIAN_D
 @Component
 public class ApplicationCalender {
 
-    public static DateFormat DATEFORMAT = null;
-    public static DateFormat DATEFORMATWITHTIME = null;
+    private static DateFormat DATEFORMAT = null;
+    private static DateFormat DATEFORMATWITHTIME = null;
 
 
     public static DateFormat getDateFormat() {

@@ -1,7 +1,6 @@
 package ir.webold.framework.utility;
 
 import ir.webold.framework.domain.dto.BaseDTO;
-import ir.webold.framework.exception.ApplicationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,7 +14,7 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 @Component
 public class ApplicationRedis {
 
-    RedisTemplate<String, Object> redisTemplate;
+    private final RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
     public ApplicationRedis(RedisTemplate<String, Object> redisTemplate) {

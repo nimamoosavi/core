@@ -14,9 +14,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ApplicationPagination {
-    ApplicationException applicationException;
+
+    private final ApplicationException applicationException;
+
+    @Autowired
+    public ApplicationPagination(ApplicationException applicationException) {
+        this.applicationException = applicationException;
+    }
+
     @Value("${pagable.size.response}")
-    Integer pageSizeDefault;
+    private Integer pageSizeDefault;
 
     public Pageable pagination(Integer page, Integer pageSize) {
         return PageRequest.of(page - 1, pageSize != null ? pageSize : pageSizeDefault);
