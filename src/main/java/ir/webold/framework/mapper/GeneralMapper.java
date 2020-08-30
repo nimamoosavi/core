@@ -9,23 +9,25 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
-public interface GeneralMapper<T extends BaseEntity, R, S> {
+public interface GeneralMapper<T extends BaseEntity, S, R> {
 
-    T requestToEntity(R source);
+    T requestToEntity(S source);
 
-    R toRequestModel(T target);
+    S toRequestModel(T target);
 
-    List<T> requestToEntity(List<R> sourceList);
+    List<T> requestToEntity(List<S> sourceList);
 
     List<S> toRequestModel(List<R> targetList);
 
-    T responseToEntity(S source);
+    List<S> entityToRequestModel(List<T> targetList);
 
-    S toResponseModel(T target);
+    T responseToEntity(R source);
 
-    List<T> responseToEntity(List<S> sourceList);
+    R toResponseModel(T target);
 
-    List<S> toResponseModel(List<T> targetList);
+    List<T> responseToEntity(List<R> sourceList);
+
+    List<R> toResponseModel(List<T> targetList);
 
 
     @Named("stringToDate")

@@ -115,6 +115,46 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
         return successCustomResponse(count);
     }
 
+    public BaseDTO<T> mapRequestToEntity(S s){
+        T t = generalMapper.requestToEntity(s);
+        return successCustomResponse(t);
+    }
+
+    public BaseDTO<List<T>> mapListRequestToEntity(List<S> s){
+        List<T> t = generalMapper.requestToEntity(s);
+        return successCustomListResponse(t);
+    }
+
+    public BaseDTO<S> mapEntityToRequest(T t){
+        S s = generalMapper.toRequestModel(t);
+        return successCustomResponse(s);
+    }
+
+    public BaseDTO<List<S>> mapListEntityToRequest(List<T> t){
+        List<S> s = generalMapper.entityToRequestModel(t);
+        return successCustomResponse(s);
+    }
+
+    public BaseDTO<R> mapEntityToResponse(T t){
+        R r = generalMapper.toResponseModel(t);
+        return successCustomResponse(r);
+    }
+
+    public BaseDTO<List<R>> mapListEntityToResponse(List<T> t){
+        List<R> r = generalMapper.toResponseModel(t);
+        return successCustomListResponse(r);
+    }
+
+    public BaseDTO<T> mapResponseToEntity(R r){
+        T t = generalMapper.responseToEntity(r);
+        return successCustomResponse(t);
+    }
+
+    public BaseDTO<List<T>> mapListResponseToEntity(List<R> r){
+        List<T> t = generalMapper.responseToEntity(r);
+        return successCustomListResponse(t);
+    }
+
 
     //...Response Methodes................................................................................................................................................
 
