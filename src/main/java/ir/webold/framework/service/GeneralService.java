@@ -6,7 +6,7 @@ import ir.webold.framework.domain.dto.PageDTO;
 import ir.webold.framework.domain.entity.BaseEntity;
 import ir.webold.framework.enums.ResultStatus;
 import ir.webold.framework.enums.exception.ExceptionEnum;
-import ir.webold.framework.exception.ApplicationException;
+import ir.webold.framework.utility.ApplicationException;
 import ir.webold.framework.mapper.GeneralMapper;
 import ir.webold.framework.repository.GeneralRepository;
 import ir.webold.framework.utility.ApplicationPagination;

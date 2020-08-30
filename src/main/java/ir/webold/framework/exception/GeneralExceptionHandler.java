@@ -10,22 +10,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
 
-@ControllerAdvice
-public class ApplicationExceptionHandler {
-
-    private final ApplicationResource applicationResource;
+public class GeneralExceptionHandler{
 
     @Autowired
-    public ApplicationExceptionHandler(ApplicationResource applicationResource) {
-        this.applicationResource = applicationResource;
-    }
+    private ApplicationResource applicationResource;
 
     @ExceptionHandler(ServiceException.class)
     protected ResponseEntity<BaseDTO<Object>> serviceException(ServiceException e) {
@@ -69,6 +63,5 @@ public class ApplicationExceptionHandler {
                 ).status(ResultStatus.ERROR).build();
         return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
     }
-
 
 }

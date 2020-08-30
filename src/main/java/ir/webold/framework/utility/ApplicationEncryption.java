@@ -6,7 +6,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import ir.webold.framework.domain.dto.BaseDTO;
 import ir.webold.framework.enums.exception.ExceptionEnum;
-import ir.webold.framework.exception.ApplicationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -34,7 +33,7 @@ public class ApplicationEncryption {
     private static String secretAppKeys;
 
 
-    public BaseDTO<String> generateJwt(Map<String, String> put, String secretKey, @NotNull Long exp) {
+    public BaseDTO<String> generateJwt(Map<String, Object> put, String secretKey, @NotNull Long exp) {
         Claims claims = Jwts.claims();
         setExpireTime(exp, claims);
         claims.putAll(put);
@@ -42,7 +41,7 @@ public class ApplicationEncryption {
         return successCustomResponse(compact);
     }
 
-    public BaseDTO<String> generateJwt(Map<String, String> put, @NotNull Long exp) {
+    public BaseDTO<String> generateJwt(Map<String, Object> put, @NotNull Long exp) {
         Claims claims = Jwts.claims();
         setExpireTime(exp, claims);
         claims.putAll(put);
