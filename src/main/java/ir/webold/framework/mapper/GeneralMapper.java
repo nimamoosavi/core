@@ -9,7 +9,7 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
-public interface GeneralMapper<T extends BaseEntity, S, R> {
+public interface GeneralMapper<T extends BaseEntity<Long>, S, R> {
 
     T requestToEntity(S source);
 
