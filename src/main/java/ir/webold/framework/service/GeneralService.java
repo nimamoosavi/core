@@ -6,9 +6,9 @@ import ir.webold.framework.domain.dto.PageDTO;
 import ir.webold.framework.domain.entity.BaseEntity;
 import ir.webold.framework.enums.ResultStatus;
 import ir.webold.framework.enums.exception.ExceptionEnum;
-import ir.webold.framework.utility.ApplicationException;
 import ir.webold.framework.mapper.GeneralMapper;
 import ir.webold.framework.repository.GeneralRepository;
+import ir.webold.framework.utility.ApplicationException;
 import ir.webold.framework.utility.ApplicationPagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -111,42 +111,42 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
         return successCustomResponse(count);
     }
 
-    public BaseDTO<T> mapRequestToEntity(S s){
+    public BaseDTO<T> mapRequestToEntity(S s) {
         T t = generalMapper.requestToEntity(s);
         return successCustomResponse(t);
     }
 
-    public BaseDTO<List<T>> mapListRequestToEntity(List<S> s){
+    public BaseDTO<List<T>> mapListRequestToEntity(List<S> s) {
         List<T> t = generalMapper.requestToEntity(s);
         return successCustomListResponse(t);
     }
 
-    public BaseDTO<S> mapEntityToRequest(T t){
+    public BaseDTO<S> mapEntityToRequest(T t) {
         S s = generalMapper.toRequestModel(t);
         return successCustomResponse(s);
     }
 
-    public BaseDTO<List<S>> mapListEntityToRequest(List<T> t){
+    public BaseDTO<List<S>> mapListEntityToRequest(List<T> t) {
         List<S> s = generalMapper.entityToRequestModel(t);
         return successCustomResponse(s);
     }
 
-    public BaseDTO<R> mapEntityToResponse(T t){
+    public BaseDTO<R> mapEntityToResponse(T t) {
         R r = generalMapper.toResponseModel(t);
         return successCustomResponse(r);
     }
 
-    public BaseDTO<List<R>> mapListEntityToResponse(List<T> t){
+    public BaseDTO<List<R>> mapListEntityToResponse(List<T> t) {
         List<R> r = generalMapper.toResponseModel(t);
         return successCustomListResponse(r);
     }
 
-    public BaseDTO<T> mapResponseToEntity(R r){
+    public BaseDTO<T> mapResponseToEntity(R r) {
         T t = generalMapper.responseToEntity(r);
         return successCustomResponse(t);
     }
 
-    public BaseDTO<List<T>> mapListResponseToEntity(List<R> r){
+    public BaseDTO<List<T>> mapListResponseToEntity(List<R> r) {
         List<T> t = generalMapper.responseToEntity(r);
         return successCustomListResponse(t);
     }
