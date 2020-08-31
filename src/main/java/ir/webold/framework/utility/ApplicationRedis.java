@@ -37,15 +37,13 @@ public class ApplicationRedis {
     }
 
     @Async("treadPoolAsync")
-    public BaseDTO<Boolean> setAsyncIn(String key, Object o) {
+    public void setAsyncIn(String key, Object o) {
         redisTemplate.opsForValue().set(generateKey(key), o);
-        return successCustomResponse(true);
     }
 
     @Async("treadPoolAsync")
-    public BaseDTO<Boolean> setAsyncIn(String key, Object o, Long expireTime) {
+    public void setAsyncIn(String key, Object o, Long expireTime) {
         redisTemplate.opsForValue().set(generateKey(key), o, expireTime, TimeUnit.MILLISECONDS);
-        return successCustomResponse(true);
     }
 
 

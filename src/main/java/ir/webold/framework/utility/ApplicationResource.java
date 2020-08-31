@@ -47,11 +47,11 @@ public class ApplicationResource {
     }
 
     public BaseDTO<String> getResourcesData(String resourceText) {
-        String text = "";
+        String text;
         try {
             text = environment.getProperty(resourceText);
         } catch (Exception e) {
-            throw applicationException.createApplicationException(ExceptionEnum.ENVIREMENTNOTFOUNDE, HttpStatus.BAD_GATEWAY);
+            throw applicationException.createApplicationException(ExceptionEnum.ENVIRONMENT_NOT_FOUND, HttpStatus.BAD_GATEWAY);
         }
         return successCustomResponse(text);
     }

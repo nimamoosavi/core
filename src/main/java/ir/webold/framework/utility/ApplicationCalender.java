@@ -6,30 +6,31 @@ import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
-import org.springframework.stereotype.Component;
 
 import static ir.webold.framework.config.general.GeneralStatic.DEFAULT_PERSIAN_DATE_PATTERN;
 import static ir.webold.framework.config.general.GeneralStatic.DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME;
 
-@Component
 public class ApplicationCalender {
 
-    private static DateFormat DATEFORMAT = null;
-    private static DateFormat DATEFORMATWITHTIME = null;
+    private ApplicationCalender() {
+    }
+
+    private static DateFormat dateFormat = null;
+    private static DateFormat dateFormatWithTime = null;
 
 
     public static DateFormat getDateFormat() {
-        if (DATEFORMAT == null) {
-            DATEFORMAT = getDateFormat(DEFAULT_PERSIAN_DATE_PATTERN);
+        if (dateFormat == null) {
+            dateFormat = getDateFormat(DEFAULT_PERSIAN_DATE_PATTERN);
         }
-        return DATEFORMAT;
+        return dateFormat;
     }
 
     public static DateFormat getDateFormatWithTime() {
-        if (DATEFORMATWITHTIME == null) {
-            DATEFORMATWITHTIME = getDateFormat(DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME);
+        if (dateFormatWithTime == null) {
+            dateFormatWithTime = getDateFormat(DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME);
         }
-        return DATEFORMATWITHTIME;
+        return dateFormatWithTime;
     }
 
 

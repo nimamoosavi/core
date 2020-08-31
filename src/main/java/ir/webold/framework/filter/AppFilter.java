@@ -15,7 +15,7 @@ import static ir.webold.framework.config.general.GeneralStatic.RRN;
 @WebFilter(urlPatterns = {"/*"})
 public class AppFilter implements Filter {
 
-    ApplicationRequest applicationRequest;
+    private final ApplicationRequest applicationRequest;
 
     @Autowired
     public AppFilter(ApplicationRequest applicationRequest) {

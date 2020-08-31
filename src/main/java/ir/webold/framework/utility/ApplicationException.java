@@ -2,7 +2,6 @@ package ir.webold.framework.utility;
 
 import ir.webold.framework.enums.exception.ExceptionEnum;
 import ir.webold.framework.exception.ServiceException;
-import ir.webold.framework.utility.ApplicationResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
