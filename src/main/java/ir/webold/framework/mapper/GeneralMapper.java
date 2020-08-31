@@ -4,12 +4,13 @@ import ir.webold.framework.domain.entity.BaseEntity;
 import ir.webold.framework.utility.ApplicationCalender;
 import org.mapstruct.Named;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
-public interface GeneralMapper<T extends BaseEntity, S, R> {
+public interface GeneralMapper<T extends BaseEntity<I>, S, R, I extends Serializable> {
 
     T requestToEntity(S source);
 
@@ -19,7 +20,7 @@ public interface GeneralMapper<T extends BaseEntity, S, R> {
 
     List<S> toRequestModel(List<R> targetList);
 
-    List<S> entityToRequestModel(List<T> targetList);
+    List<S> toRequestModels(List<T> targetList);
 
     T responseToEntity(R source);
 

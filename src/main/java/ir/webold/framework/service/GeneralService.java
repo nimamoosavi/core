@@ -36,7 +36,7 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
     @Autowired
     ApplicationPagination applicationPagination;
     @Autowired
-    GeneralMapper<T, S, R> generalMapper;
+    GeneralMapper<T, S, R,I> generalMapper;
 
 
     @PersistenceContext
@@ -127,7 +127,7 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
     }
 
     public BaseDTO<List<S>> mapListEntityToRequest(List<T> t) {
-        List<S> s = generalMapper.entityToRequestModel(t);
+        List<S> s = generalMapper.toRequestModels(t);
         return successCustomResponse(s);
     }
 
