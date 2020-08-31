@@ -47,17 +47,14 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
     public BaseDTO<R> save(S s) {
         T t = generalMapper.requestToEntity(s);
         T save = generalRepository.save(t);
-        R r = generalMapper.toResponseModel(save);
-        return successResponse(r);
+        return mapEntityToResponse(save);
     }
 
     @Transactional
     public BaseDTO<R> update(S s) {
         T t = generalMapper.requestToEntity(s);
         T merge = entityManager.merge(t);
-        R r = generalMapper.toResponseModel(merge);
-        return successResponse(r);
-
+        return mapEntityToResponse(merge);
     }
 
     @Transactional
@@ -75,13 +72,12 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
         T t = generalRepository.findById(id).orElseThrow(
                 () -> applicationException.createApplicationException(ExceptionEnum.NOTFOUND, HttpStatus.NOT_FOUND)
         );
-        R r = generalMapper.toResponseModel(t);
-        return successResponse(r);
+        return mapEntityToResponse(t);
     }
 
     public BaseDTO<List<R>> allById(List<I> idList) {
-        List<R> rs = generalMapper.toResponseModel(generalRepository.findAllById(idList));
-        return successListResponse(rs);
+        List<T> tList = generalRepository.findAllById(idList);
+        return mapListEntityToResponse(tList);
     }
 
     public BaseDTO<Boolean> existsById(I id) {
@@ -90,8 +86,8 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
     }
 
     public BaseDTO<List<R>> getAll() {
-        List<R> rs = generalMapper.toResponseModel(generalRepository.findAll());
-        return successListResponse(rs);
+        List<T> tList = generalRepository.findAll();
+        return mapListEntityToResponse(tList);
     }
 
 
@@ -106,8 +102,8 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
         t.setDeleted(false);
         ExampleMatcher exampleMatcher = ExampleMatcher.matching().withMatcher("deleted", exact());
         Example<T> filter = Example.of(t, exampleMatcher);
-        List<R> model = generalMapper.toResponseModel(generalRepository.findAll(filter, Sort.by("id")));
-        return successListResponse(model);
+        List<T> tList = generalRepository.findAll(filter, Sort.by("id"));
+        return mapListEntityToResponse(tList);
     }
 
     public BaseDTO<Long> count() {
