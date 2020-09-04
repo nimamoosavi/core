@@ -1,6 +1,6 @@
 package ir.webold.framework.config.general;
 
-public class GeneralStatic {
+public final class GeneralStatic {
 
     private GeneralStatic() {
         throw new IllegalStateException("GeneralStatic class");
