@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 public class ApplicationException {
 
     ApplicationResource applicationResource;
-    @Value("${ENVIREMENTNOTFOUNDE.code}")
+    @Value("${ENVIRONMENT_NOT_FOUND.code}")
     private String environmentNotFoundCode;
 
-    @Value("${ENVIREMENTNOTFOUNDE.message}")
+    @Value("${ENVIRONMENT_NOT_FOUND.message}")
     private String environmentNotFoundMessage;
 
     private static final String CODE = ".code";

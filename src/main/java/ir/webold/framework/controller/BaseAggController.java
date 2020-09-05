@@ -49,8 +49,8 @@ public class BaseAggController<S, R, I extends Serializable> {
     }
 
     @GetMapping(value = "/all/pagination")
-    public ResponseEntity<BaseDTO<PageDTO<List<R>>>> getByPagination(@RequestParam Integer page,@RequestParam Integer pageSize) {
-        return new ResponseEntity<>(baseAggService.getByPagination(page,pageSize), HttpStatus.OK);
+    public ResponseEntity<BaseDTO<PageDTO<List<R>>>> getByPagination(@RequestParam Integer page, @RequestParam Integer pageSize) {
+        return new ResponseEntity<>(baseAggService.getByPagination(page, pageSize), HttpStatus.OK);
     }
 
     @GetMapping(value = "/exists/ById")

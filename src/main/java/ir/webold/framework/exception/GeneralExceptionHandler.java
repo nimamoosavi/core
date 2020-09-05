@@ -16,7 +16,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
 
-public class GeneralExceptionHandler{
+public class GeneralExceptionHandler {
 
     @Autowired
     private ApplicationResource applicationResource;
