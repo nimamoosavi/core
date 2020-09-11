@@ -36,7 +36,7 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
     @Autowired
     ApplicationPagination applicationPagination;
     @Autowired
-    GeneralMapper<T, S, R,I> generalMapper;
+    GeneralMapper<T, S, R, I> generalMapper;
 
 
     @PersistenceContext
