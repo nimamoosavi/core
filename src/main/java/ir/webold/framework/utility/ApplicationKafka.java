@@ -27,22 +27,21 @@ public class ApplicationKafka {
     private final List<String> kafkaMessages = new CopyOnWriteArrayList<>();
 
 
-
     @Async("treadPoolAsync")
     public void sendMessage(String topic, String message) {
         kafkaTemplate.send(topic, message);
     }
 
-    @KafkaListener(topics = "${kafka.audit.topic}", groupId = "${spring.kafka.consumer.group-id}",autoStartup="${kafka.listener.enabled}")
-    public void listen(ConsumerRecord<String, String> record){
+    @KafkaListener(topics = "${kafka.audit.topic}", groupId = "${spring.kafka.consumer.group-id}", autoStartup = "${kafka.listener.enabled}")
+    public void listen(ConsumerRecord<String, String> record) {
         kafkaMessages.add(record.value());
     }
 
-    public BaseDTO<List<String>> getMessage(){
+    public BaseDTO<List<String>> getMessage() {
         return successCustomListResponse(kafkaMessages);
     }
 
-    public BaseDTO<Boolean> deleteMessages(){
+    public BaseDTO<Boolean> deleteMessages() {
         kafkaMessages.clear();
         return successCustomResponse(true);
     }
