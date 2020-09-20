@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
+
 @Component
 public class ApplicationRedis {
 

@@ -30,18 +30,17 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Serializable> {
 
     @Autowired
-    GeneralRepository<T, I> generalRepository;
+    public GeneralRepository<T, I> generalRepository;
     @Autowired
     public ApplicationException applicationException;
     @Autowired
-    ApplicationPagination applicationPagination;
+    public ApplicationPagination applicationPagination;
     @Autowired
-    GeneralMapper<T, S, R, I> generalMapper;
+    public GeneralMapper<T, S, R, I> generalMapper;
 
 
     @PersistenceContext
     EntityManager entityManager;
-
 
     @Transactional
     public BaseDTO<R> save(S s) {
