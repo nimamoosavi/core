@@ -4278,3 +4278,407 @@ Using generated security password: c5a10b61-4157-4362-8491-fd2faae64666
 2020-09-20 15:57:49,751 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Application version is -1: false
 2020-09-20 15:57:49,751 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Getting all instance registry info from the eureka server
 2020-09-20 15:57:49,802 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] The response status is 200
+2020-09-20 16:02:19,556 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:03:02,378 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [SpringContextShutdownHook] Unregistering application MS-USERMANAGEMENT with eureka with status DOWN
+2020-09-20 16:03:02,379 WARN com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Saw local status change event StatusChangeEvent [timestamp=1600601582379, current=DOWN, previous=UP]
+2020-09-20 16:03:02,379 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_MS-USERMANAGEMENT/172.24.5.115:ms-usermanagement:8082: registering service...
+2020-09-20 16:03:02,382 INFO org.quartz.core.QuartzScheduler [SpringContextShutdownHook] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-09-20 16:03:02,388 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_MS-USERMANAGEMENT/172.24.5.115:ms-usermanagement:8082 - registration status: 204
+2020-09-20 16:03:02,406 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [SpringContextShutdownHook] Shutting down Quartz Scheduler
+2020-09-20 16:03:02,406 INFO org.quartz.core.QuartzScheduler [SpringContextShutdownHook] Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-09-20 16:03:02,406 INFO org.quartz.core.QuartzScheduler [SpringContextShutdownHook] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-09-20 16:03:02,407 INFO org.quartz.core.QuartzScheduler [SpringContextShutdownHook] Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-09-20 16:03:02,419 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'treadPoolAsync'
+2020-09-20 16:03:02,430 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-20 16:03:02,436 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Shutting down DiscoveryClient ...
+2020-09-20 16:03:05,437 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Unregistering ...
+2020-09-20 16:03:05,451 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] DiscoveryClient_MS-USERMANAGEMENT/172.24.5.115:ms-usermanagement:8082 - deregister  status: 200
+2020-09-20 16:03:05,481 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Completed shut down of DiscoveryClient
+2020-09-20 16:03:05,481 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-09-20 16:03:05,492 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-09-20 16:03:13,256 INFO ir.webold.usermanagement.UserManagementApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-09-20 16:03:14,861 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-20 16:03:14,861 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-09-20 16:03:15,026 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 157ms. Found 13 JPA repository interfaces.
+2020-09-20 16:03:15,518 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-20 16:03:15,520 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-20 16:03:15,551 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.ApplicationRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,552 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.MenuRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,552 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.MicroservicesRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,553 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.OfficeRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,554 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.PermissionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,554 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.PropertyValueRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,555 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.RefreshTokenRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,556 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.RoleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,557 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.TokenRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,557 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.UserApplicationRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,558 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.UserInformationRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,559 INFO org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data Redis - Could not safely identify store assignment for repository candidate interface ir.webold.usermanagement.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+2020-09-20 16:03:15,559 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 28ms. Found 0 Redis repository interfaces.
+2020-09-20 16:03:15,810 WARN org.springframework.boot.actuate.endpoint.EndpointId [restartedMain] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-09-20 16:03:16,060 INFO org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=fb4069ba-0be7-372b-b684-ba664e8fb07a
+2020-09-20 16:03:17,354 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8082 (http)
+2020-09-20 16:03:17,365 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-09-20 16:03:17,365 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-09-20 16:03:17,489 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-09-20 16:03:17,489 INFO org.springframework.web.context.ContextLoader [restartedMain] Root WebApplicationContext: initialization completed in 4202 ms
+2020-09-20 16:03:17,727 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2020-09-20 16:03:17,728 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-20 16:03:17,738 INFO com.netflix.config.DynamicPropertyFactory [restartedMain] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@10364ac4
+2020-09-20 16:03:18,318 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-09-20 16:03:18,368 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.15.Final
+2020-09-20 16:03:18,488 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-09-20 16:03:18,600 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2020-09-20 16:03:18,749 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2020-09-20 16:03:18,766 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2020-09-20 16:03:24,250 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-09-20 16:03:24,268 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-20 16:03:24,393 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-09-20 16:03:25,042 INFO org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor [restartedMain] Autowired annotation is not supported on static fields: private static java.lang.String ir.webold.framework.utility.ApplicationEncryption.secretAppKeys
+2020-09-20 16:03:25,328 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-09-20 16:03:27,994 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-09-20 16:03:28,159 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService
+2020-09-20 16:03:28,160 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'treadPoolAsync'
+2020-09-20 16:03:28,308 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [restartedMain] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-09-20 16:03:28,431 INFO org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration [restartedMain] 
+
+Using generated security password: 5f1fea52-0fdd-4461-b5b0-8f205a3bf662
+
+2020-09-20 16:03:28,552 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a92c9c6, org.springframework.security.web.context.SecurityContextPersistenceFilter@66ccf94a, org.springframework.security.web.header.HeaderWriterFilter@72fecc1e, org.springframework.security.web.authentication.logout.LogoutFilter@2b9d442e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4300ab2c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24fea94, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12b316b0, org.springframework.security.web.session.SessionManagementFilter@40b6345d, org.springframework.security.web.access.ExceptionTranslationFilter@2e0951f8]
+2020-09-20 16:03:28,587 WARN com.netflix.config.sources.URLConfigurationSource [restartedMain] No URLs will be polled as dynamic configuration sources.
+2020-09-20 16:03:28,588 INFO com.netflix.config.sources.URLConfigurationSource [restartedMain] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-09-20 16:03:29,871 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Using default implementation for ThreadExecutor
+2020-09-20 16:03:29,886 INFO org.quartz.core.SchedulerSignalerImpl [restartedMain] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-09-20 16:03:29,886 INFO org.quartz.core.QuartzScheduler [restartedMain] Quartz Scheduler v.2.3.2 created.
+2020-09-20 16:03:29,887 INFO org.quartz.simpl.RAMJobStore [restartedMain] RAMJobStore initialized.
+2020-09-20 16:03:29,888 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-09-20 16:03:29,888 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-09-20 16:03:29,888 INFO org.quartz.impl.StdSchedulerFactory [restartedMain] Quartz scheduler version: 2.3.2
+2020-09-20 16:03:29,888 INFO org.quartz.core.QuartzScheduler [restartedMain] JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@e21d7a1
+2020-09-20 16:03:30,115 WARN org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger [restartedMain] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2020-09-20 16:03:30,486 INFO org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2020-09-20 16:03:30,527 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2020-09-20 16:03:30,591 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON encoding codec LegacyJacksonJson
+2020-09-20 16:03:30,591 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using JSON decoding codec LegacyJacksonJson
+2020-09-20 16:03:30,741 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML encoding codec XStreamXml
+2020-09-20 16:03:30,742 INFO com.netflix.discovery.provider.DiscoveryJerseyProvider [restartedMain] Using XML decoding codec XStreamXml
+2020-09-20 16:03:31,025 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2020-09-20 16:03:31,048 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2020-09-20 16:03:31,048 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2020-09-20 16:03:31,048 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2020-09-20 16:03:31,049 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2020-09-20 16:03:31,049 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2020-09-20 16:03:31,049 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2020-09-20 16:03:31,049 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2020-09-20 16:03:31,160 INFO com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2020-09-20 16:03:31,163 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2020-09-20 16:03:31,165 INFO com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2020-09-20 16:03:31,171 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1600601611169 with initial instances count: 0
+2020-09-20 16:03:31,185 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application MS-USERMANAGEMENT with eureka with status UP
+2020-09-20 16:03:31,186 INFO com.netflix.discovery.DiscoveryClient [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1600601611186, current=UP, previous=STARTING]
+2020-09-20 16:03:31,189 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_MS-USERMANAGEMENT/172.24.5.115:ms-usermanagement:8082: registering service...
+2020-09-20 16:03:31,214 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8082 (http) with context path ''
+2020-09-20 16:03:31,216 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8082
+2020-09-20 16:03:31,261 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Context refreshed
+2020-09-20 16:03:31,267 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_MS-USERMANAGEMENT/172.24.5.115:ms-usermanagement:8082 - registration status: 204
+2020-09-20 16:03:31,283 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Found 1 custom documentation plugin(s)
+2020-09-20 16:03:31,371 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [restartedMain] Scanning for api listing references
+2020-09-20 16:03:31,547 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: countUsingGET_1
+2020-09-20 16:03:31,549 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteByIdUsingDELETE_1
+2020-09-20 16:03:31,551 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: existsByIdUsingGET_1
+2020-09-20 16:03:31,562 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: filterUsingPOST_1
+2020-09-20 16:03:31,564 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllUsingGET_1
+2020-09-20 16:03:31,566 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByIdUsingPOST_1
+2020-09-20 16:03:31,571 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByIDUsingGET_1
+2020-09-20 16:03:31,579 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByPaginationUsingGET_1
+2020-09-20 16:03:31,581 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: saveUsingPOST_1
+2020-09-20 16:03:31,583 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: updateUsingPUT_1
+2020-09-20 16:03:31,587 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: countUsingGET_2
+2020-09-20 16:03:31,590 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteByIdUsingDELETE_2
+2020-09-20 16:03:31,592 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: existsByIdUsingGET_2
+2020-09-20 16:03:31,600 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: filterUsingPOST_2
+2020-09-20 16:03:31,601 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllUsingGET_2
+2020-09-20 16:03:31,603 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByIdUsingPOST_2
+2020-09-20 16:03:31,608 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByIDUsingGET_2
+2020-09-20 16:03:31,615 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByPaginationUsingGET_2
+2020-09-20 16:03:31,617 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: saveUsingPOST_2
+2020-09-20 16:03:31,619 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: updateUsingPUT_2
+2020-09-20 16:03:31,622 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: countUsingGET_3
+2020-09-20 16:03:31,625 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteByIdUsingDELETE_3
+2020-09-20 16:03:31,627 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: existsByIdUsingGET_3
+2020-09-20 16:03:31,637 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: filterUsingPOST_3
+2020-09-20 16:03:31,639 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllUsingGET_3
+2020-09-20 16:03:31,641 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByIdUsingPOST_3
+2020-09-20 16:03:31,645 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByIDUsingGET_3
+2020-09-20 16:03:31,651 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByPaginationUsingGET_3
+2020-09-20 16:03:31,659 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: saveUsingPOST_3
+2020-09-20 16:03:31,661 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: updateUsingPUT_3
+2020-09-20 16:03:31,664 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: countUsingGET_4
+2020-09-20 16:03:31,665 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteByIdUsingDELETE_4
+2020-09-20 16:03:31,667 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: existsByIdUsingGET_4
+2020-09-20 16:03:31,675 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: filterUsingPOST_4
+2020-09-20 16:03:31,676 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllUsingGET_4
+2020-09-20 16:03:31,678 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByIdUsingPOST_4
+2020-09-20 16:03:31,682 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByIDUsingGET_4
+2020-09-20 16:03:31,687 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByPaginationUsingGET_4
+2020-09-20 16:03:31,689 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: saveUsingPOST_4
+2020-09-20 16:03:31,691 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: updateUsingPUT_4
+2020-09-20 16:03:31,694 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: countUsingGET_5
+2020-09-20 16:03:31,696 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteByIdUsingDELETE_5
+2020-09-20 16:03:31,697 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: existsByIdUsingGET_5
+2020-09-20 16:03:31,701 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: filterUsingPOST_5
+2020-09-20 16:03:31,703 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllUsingGET_5
+2020-09-20 16:03:31,704 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByIdUsingPOST_5
+2020-09-20 16:03:31,711 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByIDUsingGET_5
+2020-09-20 16:03:31,716 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByPaginationUsingGET_5
+2020-09-20 16:03:31,720 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: saveUsingPOST_5
+2020-09-20 16:03:31,721 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: updateUsingPUT_5
+2020-09-20 16:03:31,739 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: countUsingGET_6
+2020-09-20 16:03:31,740 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteByIdUsingDELETE_6
+2020-09-20 16:03:31,745 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: existsByIdUsingGET_6
+2020-09-20 16:03:31,751 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: filterUsingPOST_6
+2020-09-20 16:03:31,755 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllUsingGET_6
+2020-09-20 16:03:31,757 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByIdUsingPOST_6
+2020-09-20 16:03:31,759 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByIDUsingGET_6
+2020-09-20 16:03:31,766 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByPaginationUsingGET_6
+2020-09-20 16:03:31,776 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: saveUsingPOST_6
+2020-09-20 16:03:31,779 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: updateUsingPUT_6
+2020-09-20 16:03:31,782 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: countUsingGET_7
+2020-09-20 16:03:31,784 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteByIdUsingDELETE_7
+2020-09-20 16:03:31,785 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: existsByIdUsingGET_7
+2020-09-20 16:03:31,792 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: filterUsingPOST_7
+2020-09-20 16:03:31,794 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllUsingGET_7
+2020-09-20 16:03:31,796 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByIdUsingPOST_7
+2020-09-20 16:03:31,799 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByIDUsingGET_7
+2020-09-20 16:03:31,805 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByPaginationUsingGET_7
+2020-09-20 16:03:31,806 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: saveUsingPOST_7
+2020-09-20 16:03:31,808 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: updateUsingPUT_7
+2020-09-20 16:03:31,852 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: countUsingGET_8
+2020-09-20 16:03:31,853 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteByIdUsingDELETE_8
+2020-09-20 16:03:31,855 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: existsByIdUsingGET_8
+2020-09-20 16:03:31,860 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: filterUsingPOST_8
+2020-09-20 16:03:31,862 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllUsingGET_8
+2020-09-20 16:03:31,864 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByIdUsingPOST_8
+2020-09-20 16:03:31,865 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByIDUsingGET_8
+2020-09-20 16:03:31,870 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByPaginationUsingGET_8
+2020-09-20 16:03:31,904 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: saveUsingPOST_8
+2020-09-20 16:03:31,906 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: updateUsingPUT_8
+2020-09-20 16:03:31,910 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: countUsingGET_9
+2020-09-20 16:03:31,911 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteByIdUsingDELETE_9
+2020-09-20 16:03:31,912 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: existsByIdUsingGET_9
+2020-09-20 16:03:31,921 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: filterUsingPOST_9
+2020-09-20 16:03:31,926 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllUsingGET_9
+2020-09-20 16:03:31,928 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByIdUsingPOST_9
+2020-09-20 16:03:31,929 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByIDUsingGET_9
+2020-09-20 16:03:31,934 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getByPaginationUsingGET_9
+2020-09-20 16:03:31,935 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: saveUsingPOST_9
+2020-09-20 16:03:31,943 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: updateUsingPUT_9
+2020-09-20 16:03:31,956 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [restartedMain] Starting Quartz Scheduler now
+2020-09-20 16:03:31,956 INFO org.quartz.core.QuartzScheduler [restartedMain] Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-09-20 16:03:31,989 INFO ir.webold.usermanagement.UserManagementApplication [restartedMain] Started UserManagementApplication in 20.121 seconds (JVM running for 21.609)
+2020-09-20 16:03:32,208 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [RMI TCP Connection(2)-127.0.0.1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-20 16:03:32,209 INFO org.springframework.web.servlet.DispatcherServlet [RMI TCP Connection(2)-127.0.0.1] Initializing Servlet 'dispatcherServlet'
+2020-09-20 16:03:32,238 INFO org.springframework.web.servlet.DispatcherServlet [RMI TCP Connection(2)-127.0.0.1] Completed initialization in 29 ms
+2020-09-20 16:04:01,163 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Disable delta property : false
+2020-09-20 16:04:01,163 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Single vip registry refresh property : null
+2020-09-20 16:04:01,163 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Force full registry fetch : false
+2020-09-20 16:04:01,164 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Application is null : false
+2020-09-20 16:04:01,164 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Registered Applications size is zero : true
+2020-09-20 16:04:01,164 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Application version is -1: false
+2020-09-20 16:04:01,164 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] Getting all instance registry info from the eureka server
+2020-09-20 16:04:01,214 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-CacheRefreshExecutor-0] The response status is 200
+2020-09-20 16:08:31,053 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:13:31,054 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:18:31,057 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:23:31,059 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:28:31,061 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:33:31,063 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:38:31,064 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:43:31,065 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:48:31,066 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:53:31,068 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 16:58:31,070 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 17:03:31,071 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 17:08:31,072 INFO com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2020-09-20 17:10:50,639 INFO org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [SpringContextShutdownHook] Unregistering application MS-USERMANAGEMENT with eureka with status DOWN
+2020-09-20 17:10:50,640 WARN com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Saw local status change event StatusChangeEvent [timestamp=1600605650640, current=DOWN, previous=UP]
+2020-09-20 17:10:50,640 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_MS-USERMANAGEMENT/172.24.5.115:ms-usermanagement:8082: registering service...
+2020-09-20 17:10:50,642 INFO org.quartz.core.QuartzScheduler [SpringContextShutdownHook] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-09-20 17:10:50,645 INFO com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_MS-USERMANAGEMENT/172.24.5.115:ms-usermanagement:8082 - registration status: 204
+2020-09-20 17:10:50,668 INFO org.springframework.scheduling.quartz.SchedulerFactoryBean [SpringContextShutdownHook] Shutting down Quartz Scheduler
+2020-09-20 17:10:50,668 INFO org.quartz.core.QuartzScheduler [SpringContextShutdownHook] Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-09-20 17:10:50,668 INFO org.quartz.core.QuartzScheduler [SpringContextShutdownHook] Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-09-20 17:10:50,669 INFO org.quartz.core.QuartzScheduler [SpringContextShutdownHook] Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-09-20 17:10:50,694 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'treadPoolAsync'
+2020-09-20 17:10:50,708 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-20 17:10:50,714 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Shutting down DiscoveryClient ...
+2020-09-20 17:10:53,715 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Unregistering ...
+2020-09-20 17:10:53,746 ERROR com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient [SpringContextShutdownHook] Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}
+com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Connection refused (Connection refused)
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187) ~[jersey-apache-client4-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.filter.GZIPContentEncodingFilter.handle(GZIPContentEncodingFilter.java:123) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.netflix.discovery.EurekaIdentityHeaderFilter.handle(EurekaIdentityHeaderFilter.java:27) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.sun.jersey.api.client.Client.handle(Client.java:652) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource$Builder.delete(WebResource.java:591) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.cancel(AbstractJerseyEurekaHttpClient.java:76) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:89) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:941) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:919) ~[eureka-client-1.9.13.jar:1.9.13]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:347) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:177) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:242) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:235) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:403) ~[spring-cloud-context-2.2.1.RELEASE.jar:2.2.1.RELEASE]
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:142) ~[spring-cloud-context-2.2.1.RELEASE.jar:2.2.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:579) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:551) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1091) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:512) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1084) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1060) ~[spring-context-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1029) ~[spring-context-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:168) ~[spring-boot-2.3.0.RELEASE.jar:2.3.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:948) ~[spring-context-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:608) ~[na:na]
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:121) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:605) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:440) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:118) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.12.jar:4.5.12]
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:173) ~[jersey-apache-client4-1.19.1.jar:1.19.1]
+	... 42 common frames omitted
+2020-09-20 17:10:53,747 WARN com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient [SpringContextShutdownHook] Request execution failed with message: java.net.ConnectException: Connection refused (Connection refused)
+2020-09-20 17:10:53,753 ERROR com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient [SpringContextShutdownHook] Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}
+com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Connection refused (Connection refused)
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:187) ~[jersey-apache-client4-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.filter.GZIPContentEncodingFilter.handle(GZIPContentEncodingFilter.java:123) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.netflix.discovery.EurekaIdentityHeaderFilter.handle(EurekaIdentityHeaderFilter.java:27) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.sun.jersey.api.client.Client.handle(Client.java:652) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource.handle(WebResource.java:682) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource.access$200(WebResource.java:74) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.sun.jersey.api.client.WebResource$Builder.delete(WebResource.java:591) ~[jersey-client-1.19.1.jar:1.19.1]
+	at com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient.cancel(AbstractJerseyEurekaHttpClient.java:76) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.MetricsCollectingEurekaHttpClient.execute(MetricsCollectingEurekaHttpClient.java:73) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:118) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:79) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:941) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:919) ~[eureka-client-1.9.13.jar:1.9.13]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:347) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:177) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:242) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:235) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:403) ~[spring-cloud-context-2.2.1.RELEASE.jar:2.2.1.RELEASE]
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:142) ~[spring-cloud-context-2.2.1.RELEASE.jar:2.2.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:579) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:551) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1091) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:512) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1084) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1060) ~[spring-context-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1029) ~[spring-context-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:168) ~[spring-boot-2.3.0.RELEASE.jar:2.3.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:948) ~[spring-context-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:608) ~[na:na]
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:121) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:180) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:134) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:605) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:440) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:835) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:118) ~[httpclient-4.5.12.jar:4.5.12]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.12.jar:4.5.12]
+	at com.sun.jersey.client.apache4.ApacheHttpClient4Handler.handle(ApacheHttpClient4Handler.java:173) ~[jersey-apache-client4-1.19.1.jar:1.19.1]
+	... 43 common frames omitted
+2020-09-20 17:10:53,754 WARN com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient [SpringContextShutdownHook] Request execution failed with message: java.net.ConnectException: Connection refused (Connection refused)
+2020-09-20 17:10:53,756 ERROR com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] DiscoveryClient_MS-USERMANAGEMENT/172.24.5.115:ms-usermanagement:8082 - de-registration failedCannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:941) ~[eureka-client-1.9.13.jar:1.9.13]
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:919) ~[eureka-client-1.9.13.jar:1.9.13]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:347) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:177) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:242) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:235) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:403) ~[spring-cloud-context-2.2.1.RELEASE.jar:2.2.1.RELEASE]
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:142) ~[spring-cloud-context-2.2.1.RELEASE.jar:2.2.1.RELEASE]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:258) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:579) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:551) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1091) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:512) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1084) ~[spring-beans-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1060) ~[spring-context-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1029) ~[spring-context-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:168) ~[spring-boot-2.3.0.RELEASE.jar:2.3.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:948) ~[spring-context-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+2020-09-20 17:10:53,765 INFO com.netflix.discovery.DiscoveryClient [SpringContextShutdownHook] Completed shut down of DiscoveryClient
+2020-09-20 17:10:53,765 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-09-20 17:10:53,768 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
