@@ -39,7 +39,7 @@ public class BaseDTO<T> {
         return successCustomResponse(t);
     }
 
-    public Optional<T> optional(){
+    public Optional<T> optional() {
         return Optional.of(data);
     }
 }
