@@ -7,8 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.util.Optional;
-
 import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
 @Builder
@@ -39,7 +37,23 @@ public class BaseDTO<T> {
         return successCustomResponse(t);
     }
 
-    public Optional<T> optional() {
-        return Optional.of(data);
+    public BaseDTO<T> ifPresent(Runnable action) {
+        if (isPresent())
+            action.run();
+        return this;
+    }
+
+    public void orElseCallAndThrow(ServiceException e, Runnable action) {
+        if (!isPresent()) {
+            action.run();
+            throw e;
+        }
+    }
+
+    public boolean equal(T t) {
+        if (Boolean.TRUE.equals(data.equals(t)))
+            return true;
+        else
+            return false;
     }
 }
