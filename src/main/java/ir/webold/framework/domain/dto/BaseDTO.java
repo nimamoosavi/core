@@ -50,6 +50,11 @@ public class BaseDTO<T> {
         }
     }
 
+    public BaseDTO<T> call(Runnable action) {
+        action.run();
+        return this;
+    }
+
     public boolean equal(T t) {
         if (Boolean.TRUE.equals(data.equals(t)))
             return true;
