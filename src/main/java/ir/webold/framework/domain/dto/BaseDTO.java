@@ -45,7 +45,7 @@ public class BaseDTO<T> {
         return this;
     }
 
-    public void orElseCallAndThrow(@NotNull ServiceException e,@NotNull Runnable action) {
+    public void orElseCallAndThrow(@NotNull ServiceException e, @NotNull Runnable action) {
         if (!isPresent()) {
             action.run();
             throw e;
