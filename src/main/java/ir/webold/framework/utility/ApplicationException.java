@@ -4,6 +4,7 @@ import ir.webold.framework.enums.exception.ExceptionEnum;
 import ir.webold.framework.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,9 @@ public class ApplicationException {
 
     @Autowired
     ApplicationResource applicationResource;
+    @Autowired
+    private static Environment environment;
+
 
     @Value("${ENVIRONMENT_NOT_FOUND.code}")
     private String environmentNotFoundCode;
@@ -74,5 +78,13 @@ public class ApplicationException {
         }
         return ServiceException.builder().exceptionCode(Integer.valueOf(expCode))
                 .httpStatus(httpStatus).exceptionMessage(expMessage).build();
+    }
+
+    public static ServiceException notFoundException() {
+        String code;
+        String expMessage;
+        code = environment.getProperty((ExceptionEnum.NOTFOUND.name().concat(CODE)));
+        expMessage = environment.getProperty((ExceptionEnum.NOTFOUND.name().concat(MESSAGE)));
+        return ServiceException.builder().exceptionCode(Integer.valueOf(code)).exceptionMessage(expMessage).build();
     }
 }
