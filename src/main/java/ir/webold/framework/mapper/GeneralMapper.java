@@ -1,6 +1,5 @@
 package ir.webold.framework.mapper;
 
-import ir.webold.framework.domain.entity.BaseEntity;
 import ir.webold.framework.utility.ApplicationCalender;
 import org.mapstruct.Named;
 
@@ -10,7 +9,7 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
-public interface GeneralMapper<T extends BaseEntity<I>, S, R, I extends Serializable> {
+public interface GeneralMapper<T, S, R, I extends Serializable> {
 
     T requestToEntity(S source);
 

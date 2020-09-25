@@ -1,6 +1,7 @@
 package ir.webold.framework.utility;
 
 import ir.webold.framework.domain.dto.BaseDTO;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -16,10 +17,12 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 public class ApplicationRedis {
 
     private final RedisTemplate<String, Object> redisTemplate;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public ApplicationRedis(RedisTemplate<String, Object> redisTemplate) {
+    public ApplicationRedis(RedisTemplate<String, Object> redisTemplate,ModelMapper modelMapper) {
         this.redisTemplate = redisTemplate;
+        this.modelMapper = modelMapper;
     }
 
     @Value("${spring.application.name}")
@@ -48,15 +51,23 @@ public class ApplicationRedis {
     }
 
 
-    public BaseDTO<Object> getFrom(String key, Boolean expireAfterFetch) {
+    public <T> BaseDTO<T> fetch(String key, Boolean expireAfterFetch,Class<T> tClass) {
         Object o = redisTemplate.opsForValue().get(generateKey(key));
-        if (Boolean.TRUE.equals(expireAfterFetch)) {
+        if (Boolean.TRUE.equals(expireAfterFetch))
             redisTemplate.delete(generateKey(key));
-        }
+        if (o!=null)
+           return successCustomResponse(modelMapper.map(o, tClass));
+        return successCustomResponse(null);
+    }
+
+    public BaseDTO<Object> fetch(String key, Boolean expireAfterFetch) {
+        Object o = redisTemplate.opsForValue().get(generateKey(key));
+        if (Boolean.TRUE.equals(expireAfterFetch))
+            redisTemplate.delete(generateKey(key));
         return successCustomResponse(o);
     }
 
-    public String generateKey(String key) {
+    private String generateKey(String key) {
         return microserviceName.concat("-").concat(key);
     }
 
