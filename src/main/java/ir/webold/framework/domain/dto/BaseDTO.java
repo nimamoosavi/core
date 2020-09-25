@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
+import javax.validation.constraints.NotNull;
+
 import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
 @Builder
@@ -26,7 +28,7 @@ public class BaseDTO<T> {
             return true;
     }
 
-    public BaseDTO<T> orElseThrow(ServiceException e) {
+    public BaseDTO<T> orElseThrow(@NotNull ServiceException e) {
         if (!isPresent())
             throw e;
         else
@@ -37,20 +39,20 @@ public class BaseDTO<T> {
         return successCustomResponse(t);
     }
 
-    public BaseDTO<T> ifPresent(Runnable action) {
+    public BaseDTO<T> ifPresent(@NotNull Runnable action) {
         if (isPresent())
             action.run();
         return this;
     }
 
-    public void orElseCallAndThrow(ServiceException e, Runnable action) {
+    public void orElseCallAndThrow(@NotNull ServiceException e,@NotNull Runnable action) {
         if (!isPresent()) {
             action.run();
             throw e;
         }
     }
 
-    public BaseDTO<T> call(Runnable action) {
+    public BaseDTO<T> call(@NotNull Runnable action) {
         action.run();
         return this;
     }
