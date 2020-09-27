@@ -175,10 +175,7 @@ public class ApplicationEncryption {
     }
 
     private BaseDTO<Boolean> checkExpireTime(Claims claims) {
-        if (Boolean.TRUE.equals(claims.getExpiration().after(new Date(System.currentTimeMillis()))))
-            return successCustomResponse(true);
-        else
-            return successCustomResponse(false);
+        return successCustomResponse(Boolean.TRUE.equals(claims.getExpiration().after(new Date(System.currentTimeMillis()))));
     }
 
     public BaseDTO<String> hash(String text) {

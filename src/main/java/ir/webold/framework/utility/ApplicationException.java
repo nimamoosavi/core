@@ -79,12 +79,4 @@ public class ApplicationException {
         return ServiceException.builder().exceptionCode(Integer.valueOf(expCode))
                 .httpStatus(httpStatus).exceptionMessage(expMessage).build();
     }
-
-    public static ServiceException notFoundException() {
-        String code;
-        String expMessage;
-        code = environment.getProperty((ExceptionEnum.NOTFOUND.name().concat(CODE)));
-        expMessage = environment.getProperty((ExceptionEnum.NOTFOUND.name().concat(MESSAGE)));
-        return ServiceException.builder().exceptionCode(Integer.valueOf(code)).exceptionMessage(expMessage).build();
-    }
 }

@@ -22,10 +22,7 @@ public class BaseDTO<T> {
 
 
     public boolean isPresent() {
-        if (Boolean.TRUE.equals(data == null))
-            return false;
-        else
-            return true;
+        return !Boolean.TRUE.equals(data == null);
     }
 
     public BaseDTO<T> orElseThrow(@NotNull ServiceException e) {
@@ -57,10 +54,22 @@ public class BaseDTO<T> {
         return this;
     }
 
-    public boolean equal(T obj) {
-        if (Boolean.TRUE.equals(obj.equals(data)))
-            return true;
-        else
-            return false;
+
+    public boolean equalObj(Object o) {
+        return Boolean.TRUE.equals(data.equals(o));
+    }
+
+    public Boolean equalCall(@NotNull Object o,@NotNull Runnable action) {
+        boolean equals = equalObj(o);
+        if(equals)
+            action.run();
+        return equals;
+    }
+
+    public BaseDTO<T> notEqualThrow(@NotNull Object o,@NotNull @NotNull ServiceException e) {
+        boolean equals = equalObj(o);
+        if(!equals)
+            throw e;
+        return this;
     }
 }
