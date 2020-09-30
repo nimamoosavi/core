@@ -49,7 +49,7 @@ public class ApplicationEncryption {
         return successCustomResponse(compact);
     }
 
-    public BaseDTO<Boolean> validTokenWithoutCheckExpireTime(String jwt, String secretKey) {
+    public BaseDTO<Boolean> isTokenWithoutCheckExpireTime(String jwt, String secretKey) {
         try {
             Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt);
             return successCustomResponse(true);
@@ -58,7 +58,7 @@ public class ApplicationEncryption {
         }
     }
 
-    public BaseDTO<Boolean> validTokenWithCheckExpireTime(String jwt, String secretKey) {
+    public BaseDTO<Boolean> isValid(String jwt, String secretKey) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
             return checkExpireTime(claims);
@@ -67,7 +67,7 @@ public class ApplicationEncryption {
         }
     }
 
-    public BaseDTO<Boolean> validTokenWithoutCheckExpireTime(String jwt) {
+    public BaseDTO<Boolean> isValidWithoutCheckExpireTime(String jwt) {
         try {
             Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt);
             return successCustomResponse(true);
@@ -76,12 +76,12 @@ public class ApplicationEncryption {
         }
     }
 
-    public BaseDTO<Boolean> validTokenWithCheckExpireTime(String jwt) {
+    public BaseDTO<Boolean> isValid(String jwt) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
             return checkExpireTime(claims);
         } catch (Exception e) {
-            return successCustomResponse(false);
+            throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -94,7 +94,7 @@ public class ApplicationEncryption {
         }
     }
 
-    public BaseDTO<Claims> getJwtBodyWithCheckExpireTime(String jwt) {
+    public BaseDTO<Claims> getJwtBody(String jwt) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
             if (Boolean.TRUE.equals(checkExpireTime(claims).getData()))
@@ -115,7 +115,7 @@ public class ApplicationEncryption {
         }
     }
 
-    public BaseDTO<Claims> getJwtBodyWithCheckExpireTime(String jwt, String secretKey) {
+    public BaseDTO<Claims> getJwtBody(String jwt, String secretKey) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
             if (Boolean.TRUE.equals(checkExpireTime(claims).getData()))
@@ -127,16 +127,16 @@ public class ApplicationEncryption {
         }
     }
 
-    public BaseDTO<Object> getJwtParamWithoutCheckExpireTime(String jwt, String paramName) {
+    public <T> BaseDTO<T> getJwtParam(String jwt, String paramName,Class<T> tClass) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
-            return successCustomResponse(claims.get(paramName));
+            return successCustomResponse(claims.get(paramName,tClass));
         } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
     }
 
-    public BaseDTO<Object> getJwtParamWithCheckExpireTime(String jwt) {
+    public BaseDTO<Object> getJwtParam(String jwt) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
             if (Boolean.TRUE.equals(checkExpireTime(claims).getData()))
@@ -148,20 +148,20 @@ public class ApplicationEncryption {
         }
     }
 
-    public BaseDTO<Object> getJwtParamWithoutCheckExpireTime(String jwt, String secretKey, String paramName) {
+    public <T> BaseDTO<T> getJwtParamWithoutCheckExpireTime(String jwt, String secretKey, String paramName,Class<T> tClass) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
-            return successCustomResponse(claims.get(paramName));
+            return successCustomResponse(claims.get(paramName,tClass));
         } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
     }
 
-    public BaseDTO<Object> getJwtParamWithCheckExpireTime(String jwt, String secretKey) {
+    public <T> BaseDTO<T> getJwtParam(String jwt, String secretKey,String paramName,Class<T> tClass) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
             if (Boolean.TRUE.equals(checkExpireTime(claims).getData()))
-                return successCustomResponse(claims);
+                return successCustomResponse(claims.get(paramName,tClass));
             else
                 throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
@@ -175,7 +175,10 @@ public class ApplicationEncryption {
     }
 
     private BaseDTO<Boolean> checkExpireTime(Claims claims) {
-        return successCustomResponse(Boolean.TRUE.equals(claims.getExpiration().after(new Date(System.currentTimeMillis()))));
+        if (Boolean.TRUE.equals(claims.getExpiration().after(new Date(System.currentTimeMillis()))))
+            return successCustomResponse(true);
+        else
+            throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
     }
 
     public BaseDTO<String> hash(String text) {
