@@ -136,6 +136,15 @@ public class ApplicationEncryption {
         }
     }
 
+
+    public <T> BaseDTO<T> getJwtParam(Claims claims, String paramName,Class<T> tClass) {
+        try {
+            return successCustomResponse(claims.get(paramName,tClass));
+        } catch (Exception e) {
+            throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
+        }
+    }
+
     public BaseDTO<Object> getJwtParam(String jwt) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
