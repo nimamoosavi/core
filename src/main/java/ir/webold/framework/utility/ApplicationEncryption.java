@@ -133,7 +133,10 @@ public class ApplicationEncryption {
     public <T> BaseDTO<T> getJwtParam(String jwt, String paramName,Class<T> tClass) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
-            return successCustomResponse(claims.get(paramName,tClass));
+            if (Boolean.TRUE.equals(checkExpireTime(claims).getData()))
+                return successCustomResponse(claims.get(paramName,tClass));
+            else
+                throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
