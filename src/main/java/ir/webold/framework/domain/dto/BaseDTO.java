@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.util.stream.Stream;
 
 import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
@@ -59,17 +60,24 @@ public class BaseDTO<T> {
         return Boolean.TRUE.equals(data.equals(o));
     }
 
-    public Boolean equalCall(@NotNull Object o,@NotNull Runnable action) {
+    public Boolean equalCall(@NotNull Object o, @NotNull Runnable action) {
         boolean equals = equalObj(o);
-        if(equals)
+        if (equals)
             action.run();
         return equals;
     }
 
-    public BaseDTO<T> notEqualThrow(@NotNull Object o,@NotNull @NotNull ServiceException e) {
+    public BaseDTO<T> notEqualThrow(@NotNull Object o, @NotNull @NotNull ServiceException e) {
         boolean equals = equalObj(o);
-        if(!equals)
+        if (!equals)
             throw e;
         return this;
+    }
+
+    public Stream<T> stream(@NotNull ServiceException e) {
+        if (isPresent())
+            return Stream.of(data);
+        else
+            throw e;
     }
 }
