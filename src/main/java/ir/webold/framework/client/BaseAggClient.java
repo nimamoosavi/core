@@ -33,7 +33,7 @@ public interface BaseAggClient<S, R, I extends Serializable> {
     public ResponseEntity<BaseDTO<List<R>>> getAllById(@RequestHeader(RRN) String rrn, @Valid @RequestBody List<I> id);
 
     @GetMapping(value = "/all/pagination")
-    public ResponseEntity<BaseDTO<PageDTO<List<R>>>> getByPagination(@RequestHeader(RRN) String rrn, @Valid @RequestParam("page") Integer page,@Valid @RequestParam("page") Integer pageSize);
+    public ResponseEntity<BaseDTO<PageDTO<List<R>>>> getByPagination(@RequestHeader(RRN) String rrn, @Valid @RequestParam("page") Integer page, @Valid @RequestParam("page") Integer pageSize);
 
     @GetMapping(value = "/exists/ById")
     public ResponseEntity<BaseDTO<Boolean>> existsById(@RequestHeader(RRN) String rrn, @Valid @RequestParam("id") I id);
