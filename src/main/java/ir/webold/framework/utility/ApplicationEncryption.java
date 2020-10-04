@@ -17,6 +17,7 @@ import java.security.MessageDigest;
 import java.util.Base64;
 import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
 
 import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
@@ -36,6 +37,7 @@ public class ApplicationEncryption {
     public BaseDTO<String> generateJwt(Map<String, Object> put, String secretKey, @NotNull Long exp) {
         Claims claims = Jwts.claims();
         setExpireTime(exp, claims);
+        claims.setId(UUID.randomUUID().toString());
         claims.putAll(put);
         String compact = Jwts.builder().addClaims(claims).signWith(SignatureAlgorithm.HS512, secretKey).compact();
         return successCustomResponse(compact);
@@ -44,6 +46,7 @@ public class ApplicationEncryption {
     public BaseDTO<String> generateJwt(Map<String, Object> put, @NotNull Long exp) {
         Claims claims = Jwts.claims();
         setExpireTime(exp, claims);
+        claims.setId(UUID.randomUUID().toString());
         claims.putAll(put);
         String compact = Jwts.builder().addClaims(claims).signWith(SignatureAlgorithm.HS512, secretAppKeys).compact();
         return successCustomResponse(compact);
