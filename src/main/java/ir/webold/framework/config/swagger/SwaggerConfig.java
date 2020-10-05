@@ -24,8 +24,8 @@ import static springfox.documentation.builders.PathSelectors.regex;
 public class SwaggerConfig {
     @Bean
     public Docket postsApi() {
-        Parameter headerParam = new ParameterBuilder().name("ApiKey").parameterType("header")
-                .modelRef(new ModelRef("string")).description("ApiKey").required(true).build();
+        Parameter headerParam = new ParameterBuilder().name("APP_KEY").parameterType("header")
+                .modelRef(new ModelRef("string")).description("APP_KEY").required(true).build();
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo()).globalOperationParameters(Arrays.asList(headerParam)).select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))

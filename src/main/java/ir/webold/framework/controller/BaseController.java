@@ -6,6 +6,7 @@ import ir.webold.framework.domain.dto.BaseDTO;
 import ir.webold.framework.domain.dto.PageDTO;
 import ir.webold.framework.domain.entity.BaseEntity;
 import ir.webold.framework.service.GeneralService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.util.List;
 //R response view model
 public class BaseController<T extends BaseEntity<I>, S, R, I extends Serializable> {
 
+    @Autowired
     GeneralService<T, S, R, I> generalService;
 
     @ApiImplicitParams({@ApiImplicitParam(name = "Authorization", value = "Authorization", required = true, dataType = "string", paramType = "header")})
