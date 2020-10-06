@@ -11,13 +11,13 @@ import java.util.concurrent.Executor;
 @Configuration
 @EnableAsync
 public class AsyncConfig {
-    @Value("${kafka.thread.core.poolSize}")
+    @Value("${thread.core.poolSize}")
     private Integer corePollSize;
 
-    @Value("${kafka.thread.core.max.poolSize}")
+    @Value("${thread.core.max.poolSize}")
     private Integer maxPoolSize;
 
-    @Value("${kafka.thread.core.query.capacity}")
+    @Value("${thread.core.query.capacity}")
     private Integer queryCapacity;
 
     @Bean("treadPoolAsync")

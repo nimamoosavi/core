@@ -47,7 +47,7 @@ public class ApplicationLogger {
     private String logLocation;
 
 
-    @Async
+    @Async("treadPoolAsync")
     public void around(LogLevel level, String clazz, String method, String message) {
         String rrn = applicationRequest.getHeader(RRN);
         AuditReqVM auditReqVM = AuditReqVM.builder()
@@ -74,6 +74,7 @@ public class ApplicationLogger {
     }
 
 
+    @Async("treadPoolAsync")
     public void log(Object o, LogLevel level) {
         if (Boolean.TRUE.equals(logLocation.equals(AuditLocation.KAFKA.name()))) {
             logInKafka(convertToJson(o));
@@ -84,6 +85,7 @@ public class ApplicationLogger {
             logInfile(convertToJson(o), level);
         }
     }
+
 
     private void logInKafka(String text) {
         applicationKafka.sendMessage(logTopic, text);

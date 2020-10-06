@@ -5,6 +5,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import ir.webold.framework.domain.dto.BaseDTO;
+import ir.webold.framework.domain.viewmodel.JwtObjReqVM;
 import ir.webold.framework.enums.exception.ExceptionEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,7 +25,6 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 @Component
 public class ApplicationEncryption {
 
-    public static final String AUDIENCE = "user-management";
     private final ApplicationException applicationException;
 
     @Autowired
@@ -36,28 +36,32 @@ public class ApplicationEncryption {
     private static String secretAppKeys;
 
 
-    public BaseDTO<String> generateJwt(Map<String, Object> put,@NotNull Long userId, String secretKey, @NotNull Long exp) {
+    public BaseDTO<String> generateJwt(JwtObjReqVM jwtObjReqVM,String secretKey) {
         Claims claims = Jwts.claims();
-        setExpireTime(exp, claims);
-        claims.setId(UUID.randomUUID().toString());
-        claims.setSubject(userId.toString());
-        claims.setAudience(AUDIENCE);
-        claims.setIssuedAt(new Date());
-        claims.setNotBefore(new Date());
-        claims.putAll(put);
+        claims.setExpiration(jwtObjReqVM.getExp());
+        claims.setId(jwtObjReqVM.getJti());
+        claims.setSubject(jwtObjReqVM.getSubject());
+        claims.setAudience(jwtObjReqVM.getAud());
+        claims.setIssuedAt(jwtObjReqVM.getIat());
+        claims.setNotBefore(jwtObjReqVM.getNbf());
+        claims.setId(jwtObjReqVM.getJti());
+        claims.setIssuer(jwtObjReqVM.getIss());
+        claims.putAll(jwtObjReqVM.getCustoms());
         String compact = Jwts.builder().addClaims(claims).signWith(SignatureAlgorithm.HS512, secretKey).compact();
         return successCustomResponse(compact);
     }
 
-    public BaseDTO<String> generateJwt(Map<String, Object> put,@NotNull Long userId, @NotNull Long exp) {
+    public BaseDTO<String> generateJwt(JwtObjReqVM jwtObjReqVM) {
         Claims claims = Jwts.claims();
-        setExpireTime(exp, claims);
-        claims.setId(UUID.randomUUID().toString());
-        claims.setSubject(userId.toString());
-        claims.setAudience(AUDIENCE);
-        claims.setIssuedAt(new Date());
-        claims.setNotBefore(new Date());
-        claims.putAll(put);
+        claims.setExpiration(jwtObjReqVM.getExp());
+        claims.setId(jwtObjReqVM.getJti());
+        claims.setSubject(jwtObjReqVM.getSubject());
+        claims.setAudience(jwtObjReqVM.getAud());
+        claims.setIssuedAt(jwtObjReqVM.getIat());
+        claims.setNotBefore(jwtObjReqVM.getNbf());
+        claims.setId(jwtObjReqVM.getJti());
+        claims.setIssuer(jwtObjReqVM.getIss());
+        claims.putAll(jwtObjReqVM.getCustoms());
         String compact = Jwts.builder().addClaims(claims).signWith(SignatureAlgorithm.HS512, secretAppKeys).compact();
         return successCustomResponse(compact);
     }
@@ -192,11 +196,6 @@ public class ApplicationEncryption {
         } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
-    }
-
-
-    private void setExpireTime(Long expireTime, Claims claims) {
-        claims.setExpiration(new Date(System.currentTimeMillis() + expireTime));
     }
 
     private BaseDTO<Boolean> checkExpireTime(Claims claims) {
