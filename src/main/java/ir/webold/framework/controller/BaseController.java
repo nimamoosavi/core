@@ -18,7 +18,7 @@ import java.util.List;
 
 //s request view model
 //R response view model
-public class BaseController<T extends BaseEntity<I>, S, R, I extends Serializable> {
+public abstract class BaseController<T extends BaseEntity<I>, S, R, I extends Serializable> {
 
     @Autowired
     GeneralService<T, S, R, I> generalService;
