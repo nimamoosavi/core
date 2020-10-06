@@ -23,6 +23,8 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
 @Component
 public class ApplicationEncryption {
+
+    public static final String AUDIENCE = "user-management";
     private final ApplicationException applicationException;
 
     @Autowired
@@ -34,19 +36,27 @@ public class ApplicationEncryption {
     private static String secretAppKeys;
 
 
-    public BaseDTO<String> generateJwt(Map<String, Object> put, String secretKey, @NotNull Long exp) {
+    public BaseDTO<String> generateJwt(Map<String, Object> put,@NotNull Long userId, String secretKey, @NotNull Long exp) {
         Claims claims = Jwts.claims();
         setExpireTime(exp, claims);
         claims.setId(UUID.randomUUID().toString());
+        claims.setSubject(userId.toString());
+        claims.setAudience(AUDIENCE);
+        claims.setIssuedAt(new Date());
+        claims.setNotBefore(new Date());
         claims.putAll(put);
         String compact = Jwts.builder().addClaims(claims).signWith(SignatureAlgorithm.HS512, secretKey).compact();
         return successCustomResponse(compact);
     }
 
-    public BaseDTO<String> generateJwt(Map<String, Object> put, @NotNull Long exp) {
+    public BaseDTO<String> generateJwt(Map<String, Object> put,@NotNull Long userId, @NotNull Long exp) {
         Claims claims = Jwts.claims();
         setExpireTime(exp, claims);
         claims.setId(UUID.randomUUID().toString());
+        claims.setSubject(userId.toString());
+        claims.setAudience(AUDIENCE);
+        claims.setIssuedAt(new Date());
+        claims.setNotBefore(new Date());
         claims.putAll(put);
         String compact = Jwts.builder().addClaims(claims).signWith(SignatureAlgorithm.HS512, secretAppKeys).compact();
         return successCustomResponse(compact);
