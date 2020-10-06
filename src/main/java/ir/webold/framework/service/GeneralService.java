@@ -39,9 +39,6 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
     public GeneralMapper<T, S, R, I> generalMapper;
 
 
-    @PersistenceContext
-    EntityManager entityManager;
-
     @Transactional
     public BaseDTO<R> save(S s) {
         T t = generalMapper.requestToEntity(s);
@@ -50,10 +47,11 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
     }
 
     @Transactional
-    public BaseDTO<R> update(S s) {
+    public BaseDTO<R> update(S s,I id) {
         T t = generalMapper.requestToEntity(s);
-        T merge = entityManager.merge(t);
-        return mapEntityToResponse(merge);
+        t.setId(id);
+        T save = generalRepository.save(t);
+        return mapEntityToResponse(save);
     }
 
     @Transactional
