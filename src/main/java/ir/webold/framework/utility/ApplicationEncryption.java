@@ -12,13 +12,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Base64;
 import java.util.Date;
-import java.util.Map;
-import java.util.UUID;
 
 import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
@@ -36,7 +33,7 @@ public class ApplicationEncryption {
     private static String secretAppKeys;
 
 
-    public BaseDTO<String> generateJwt(JwtObjReqVM jwtObjReqVM,String secretKey) {
+    public BaseDTO<String> generateJwt(JwtObjReqVM jwtObjReqVM, String secretKey) {
         Claims claims = Jwts.claims();
         claims.setExpiration(jwtObjReqVM.getExp());
         claims.setId(jwtObjReqVM.getJti());
@@ -144,11 +141,11 @@ public class ApplicationEncryption {
         }
     }
 
-    public <T> BaseDTO<T> getJwtParam(String jwt, String paramName,Class<T> tClass) {
+    public <T> BaseDTO<T> getJwtParam(String jwt, String paramName, Class<T> tClass) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
             if (Boolean.TRUE.equals(checkExpireTime(claims).getData()))
-                return successCustomResponse(claims.get(paramName,tClass));
+                return successCustomResponse(claims.get(paramName, tClass));
             else
                 throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
@@ -157,9 +154,9 @@ public class ApplicationEncryption {
     }
 
 
-    public <T> BaseDTO<T> getJwtParam(Claims claims, String paramName,Class<T> tClass) {
+    public <T> BaseDTO<T> getJwtParam(Claims claims, String paramName, Class<T> tClass) {
         try {
-            return successCustomResponse(claims.get(paramName,tClass));
+            return successCustomResponse(claims.get(paramName, tClass));
         } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
@@ -177,20 +174,20 @@ public class ApplicationEncryption {
         }
     }
 
-    public <T> BaseDTO<T> getJwtParamWithoutCheckExpireTime(String jwt, String secretKey, String paramName,Class<T> tClass) {
+    public <T> BaseDTO<T> getJwtParamWithoutCheckExpireTime(String jwt, String secretKey, String paramName, Class<T> tClass) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
-            return successCustomResponse(claims.get(paramName,tClass));
+            return successCustomResponse(claims.get(paramName, tClass));
         } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
     }
 
-    public <T> BaseDTO<T> getJwtParam(String jwt, String secretKey,String paramName,Class<T> tClass) {
+    public <T> BaseDTO<T> getJwtParam(String jwt, String secretKey, String paramName, Class<T> tClass) {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
             if (Boolean.TRUE.equals(checkExpireTime(claims).getData()))
-                return successCustomResponse(claims.get(paramName,tClass));
+                return successCustomResponse(claims.get(paramName, tClass));
             else
                 throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {

@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
@@ -31,8 +30,8 @@ public abstract class BaseController<T extends BaseEntity<I>, S, R, I extends Se
 
     @ApiImplicitParams({@ApiImplicitParam(name = "Authorization", value = "Authorization", required = true, dataType = "string", paramType = "header")})
     @PutMapping
-    public ResponseEntity<BaseDTO<R>> update(@Valid @RequestBody S s,@Valid @RequestParam I id) {
-        return new ResponseEntity<>(generalService.update(s,id), HttpStatus.OK);
+    public ResponseEntity<BaseDTO<R>> update(@Valid @RequestBody S s, @Valid @RequestParam I id) {
+        return new ResponseEntity<>(generalService.update(s, id), HttpStatus.OK);
     }
 
     @ApiImplicitParams({@ApiImplicitParam(name = "Authorization", value = "Authorization", required = true, dataType = "string", paramType = "header")})
