@@ -16,21 +16,25 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 @Component
 public class ApplicationResource {
 
+    private final Environment environment;
+    private final ApplicationException applicationException;
+
     @Autowired
-    Environment environment;
-    @Autowired
-    ApplicationException applicationException;
+    public ApplicationResource(Environment environment, ApplicationException applicationException) {
+        this.environment = environment;
+        this.applicationException = applicationException;
+    }
 
     private static Integer successCode;
     private static String successText;
 
     @Value("${SUCCESS.code}")
-    public void setSuccessCode(Integer successCode) {
+    public static void setSuccessCode(Integer successCode) {
         ApplicationResource.successCode = successCode;
     }
 
     @Value("${SUCCESS.message}")
-    public void setSuccessText(String successText) {
+    public static void setSuccessText(String successText) {
         ApplicationResource.successText = successText;
     }
 

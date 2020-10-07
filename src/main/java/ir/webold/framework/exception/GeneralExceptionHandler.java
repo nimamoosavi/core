@@ -8,6 +8,7 @@ import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -34,7 +35,7 @@ public class GeneralExceptionHandler {
         BaseDTO<String> baseDTO = BaseDTO.<String>builder().resultCode(
                 Integer.valueOf(applicationResource.getResourceText("application.message.validationError.code")))
                 .resultMessage(String.format(
-                        applicationResource.getResourceText("application.message.validationError.text"),
+                        applicationResource.getResourceText("application.message.validationError.message"),
                         (error.getField())
                 )).status(ResultStatus.ERROR).build();
         return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
@@ -48,9 +49,19 @@ public class GeneralExceptionHandler {
         BaseDTO<String> baseDTO = BaseDTO.<String>builder().resultCode(
                 Integer.valueOf(applicationResource.getResourceText("application.message.validationError.code")))
                 .resultMessage(String.format(
-                        applicationResource.getResourceText("application.message.validationError.text"),
+                        applicationResource.getResourceText("application.message.validationError.message"),
                         (fieldName)
                 )).status(ResultStatus.ERROR).build();
+        return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
+    }
+
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    protected ResponseEntity<BaseDTO<String>> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
+        BaseDTO<String> baseDTO = BaseDTO.<String>builder().resultCode(
+                Integer.valueOf(applicationResource.getResourceText("JSON_CAST_ERROR.code")))
+                .resultMessage(applicationResource.getResourceText("JSON_CAST_ERROR.message"))
+                .status(ResultStatus.ERROR).build();
         return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
     }
 

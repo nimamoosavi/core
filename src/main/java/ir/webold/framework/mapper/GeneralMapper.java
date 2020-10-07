@@ -3,13 +3,12 @@ package ir.webold.framework.mapper;
 import ir.webold.framework.utility.ApplicationCalender;
 import org.mapstruct.Named;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
-public interface GeneralMapper<T, S, R, I extends Serializable> {
+public interface GeneralMapper<T, S, R> {
 
     T requestToEntity(S source);
 
