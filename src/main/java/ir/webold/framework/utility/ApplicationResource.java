@@ -29,12 +29,12 @@ public class ApplicationResource {
     private static String successText;
 
     @Value("${SUCCESS.code}")
-    public static void setSuccessCode(Integer successCode) {
+    public void setSuccessCode(Integer successCode) {
         ApplicationResource.successCode = successCode;
     }
 
     @Value("${SUCCESS.message}")
-    public static void setSuccessText(String successText) {
+    public void setSuccessText(String successText) {
         ApplicationResource.successText = successText;
     }
 
