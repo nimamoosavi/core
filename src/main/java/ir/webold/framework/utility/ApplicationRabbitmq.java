@@ -27,9 +27,19 @@ public class ApplicationRabbitmq {
                 BindingBuilder.bind(queue).to(fanoutExchange)
         );
     }
-    public Boolean sendMessageExchange(String exchangeName,String message){
-        rabbitTemplate.convertAndSend(exchangeName,"",message);
-        return true;
+
+    public void sendMessageExchange(String exchangeName,String message,String eventType){
+        MessageProperties prop = new MessageProperties();
+        prop.setType(eventType);
+        Message msg = new Message(message.getBytes(),prop);
+        rabbitTemplate.send(exchangeName,"",msg);
+
+    }
+    public void sendMessageQueue(String gueueName,String message,String eventType){
+        MessageProperties prop = new MessageProperties();
+        prop.setType(eventType);
+        Message msg = new Message(message.getBytes(),prop);
+        rabbitTemplate.send(gueueName,msg);
     }
 
     
