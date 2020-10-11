@@ -4,10 +4,12 @@ import ir.webold.framework.config.general.GeneralStatic;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
+@ConditionalOnProperty("${rabbit.enable}")
 public class ApplicationRabbitmq {
     @Value("${rabbit.queue.name}")
     private String queueName ;
