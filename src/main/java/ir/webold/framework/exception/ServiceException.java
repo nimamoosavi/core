@@ -1,13 +1,13 @@
 package ir.webold.framework.exception;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.http.HttpStatus;
 
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
 public class ServiceException extends RuntimeException {
     Integer exceptionCode;

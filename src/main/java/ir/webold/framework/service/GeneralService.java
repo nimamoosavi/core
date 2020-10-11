@@ -17,8 +17,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
@@ -36,11 +34,8 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
     @Autowired
     public ApplicationPagination applicationPagination;
     @Autowired
-    public GeneralMapper<T, S, R, I> generalMapper;
+    public GeneralMapper<T, S, R> generalMapper;
 
-
-    @PersistenceContext
-    EntityManager entityManager;
 
     @Transactional
     public BaseDTO<R> save(S s) {
@@ -50,10 +45,11 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
     }
 
     @Transactional
-    public BaseDTO<R> update(S s) {
+    public BaseDTO<R> update(S s, I id) {
         T t = generalMapper.requestToEntity(s);
-        T merge = entityManager.merge(t);
-        return mapEntityToResponse(merge);
+        t.setId(id);
+        T save = generalRepository.save(t);
+        return mapEntityToResponse(save);
     }
 
     @Transactional

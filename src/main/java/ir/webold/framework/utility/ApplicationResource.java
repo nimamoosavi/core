@@ -16,10 +16,14 @@ import static ir.webold.framework.service.GeneralService.successCustomResponse;
 @Component
 public class ApplicationResource {
 
+    private final Environment environment;
+    private final ApplicationException applicationException;
+
     @Autowired
-    Environment environment;
-    @Autowired
-    ApplicationException applicationException;
+    public ApplicationResource(Environment environment, ApplicationException applicationException) {
+        this.environment = environment;
+        this.applicationException = applicationException;
+    }
 
     private static Integer successCode;
     private static String successText;

@@ -2,10 +2,8 @@ package ir.webold.framework.utility;
 
 import ir.webold.framework.domain.dto.BaseDTO;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -19,15 +17,13 @@ public class ApplicationKafka {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    @Autowired
+    private final List<String> kafkaMessages = new CopyOnWriteArrayList<>();
+
     public ApplicationKafka(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    private final List<String> kafkaMessages = new CopyOnWriteArrayList<>();
 
-
-    @Async("treadPoolAsync")
     public void sendMessage(String topic, String message) {
         kafkaTemplate.send(topic, message);
     }

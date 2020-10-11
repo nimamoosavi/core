@@ -17,7 +17,7 @@ import java.util.List;
 
 //s request view model
 //R response view model
-public class BaseController<T extends BaseEntity<I>, S, R, I extends Serializable> {
+public abstract class BaseController<T extends BaseEntity<I>, S, R, I extends Serializable> {
 
     @Autowired
     GeneralService<T, S, R, I> generalService;
@@ -30,8 +30,8 @@ public class BaseController<T extends BaseEntity<I>, S, R, I extends Serializabl
 
     @ApiImplicitParams({@ApiImplicitParam(name = "Authorization", value = "Authorization", required = true, dataType = "string", paramType = "header")})
     @PutMapping
-    public ResponseEntity<BaseDTO<R>> update(@Valid @RequestBody S s) {
-        return new ResponseEntity<>(generalService.update(s), HttpStatus.OK);
+    public ResponseEntity<BaseDTO<R>> update(@Valid @RequestBody S s, @Valid @RequestParam I id) {
+        return new ResponseEntity<>(generalService.update(s, id), HttpStatus.OK);
     }
 
     @ApiImplicitParams({@ApiImplicitParam(name = "Authorization", value = "Authorization", required = true, dataType = "string", paramType = "header")})

@@ -1,6 +1,7 @@
 package ir.webold.framework.domain.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import ir.webold.framework.enums.ResultStatus;
 import ir.webold.framework.exception.ServiceException;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class BaseDTO<T> {
     private T data;
 
 
+    @JsonIgnore
     public boolean isPresent() {
         return !Boolean.TRUE.equals(data == null);
     }
