@@ -18,8 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
 
-import static ir.webold.framework.config.general.GeneralStatic.AUTHORIZATION;
-import static ir.webold.framework.config.general.GeneralStatic.RRN;
+import static ir.webold.framework.config.general.GeneralStatic.*;
 
 @Aspect
 @Component
@@ -61,6 +60,7 @@ public class AuditService {
                 .microServiceName(microserviceName)
                 .result(result)
                 .rrn(applicationRequest.getHeader(RRN))
+                .appKey(applicationRequest.getHeader(APP_KEY))
                 .token(applicationRequest.getHeader(AUTHORIZATION))
                 .type(AuditType.AFTER_RETURNING)
                 .level(LogLevel.INFO.name())
@@ -79,6 +79,7 @@ public class AuditService {
                 .clazz(clazz)
                 .microServiceName(microserviceName)
                 .rrn(applicationRequest.getHeader(RRN))
+                .appKey(applicationRequest.getHeader(APP_KEY))
                 .token(applicationRequest.getHeader(AUTHORIZATION))
                 .type(AuditType.BEFORE)
                 .level(LogLevel.INFO.name())
@@ -109,6 +110,7 @@ public class AuditService {
                 .clazz(clazz)
                 .microServiceName(microserviceName)
                 .rrn(applicationRequest.getHeader(RRN))
+                .appKey(applicationRequest.getHeader(APP_KEY))
                 .token(applicationRequest.getHeader(AUTHORIZATION))
                 .type(AuditType.AFTER_TROWING)
                 .level(LogLevel.ERROR.name())

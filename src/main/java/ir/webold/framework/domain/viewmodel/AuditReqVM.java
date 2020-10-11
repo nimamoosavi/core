@@ -13,6 +13,7 @@ public class AuditReqVM {
     private String level;
     private String token;
     private String rrn;
+    private String appKey;
     private AuditType type;
     private List<Object> input;
     private Object result;
