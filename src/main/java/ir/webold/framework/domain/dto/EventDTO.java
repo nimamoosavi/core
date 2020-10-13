@@ -7,13 +7,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.context.ApplicationEvent;
 
 @Data
-public class EventDTO extends ApplicationEvent {
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class EventDTO {
     private String eventType;
     private String body;
 
-    public EventDTO(Object source, String eventType, String body) {
-        super(source);
-        this.eventType = eventType;
-        this.body = body;
-    }
 }

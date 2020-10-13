@@ -7,10 +7,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
@@ -24,8 +22,6 @@ public class ApplicationRabbitmq {
     private String queueName;
     final private List<EventDTO> eventList;
     private final RabbitTemplate rabbitTemplate;
-    @Autowired
-    private ApplicationEventPublisher applicationEventPublisher;
 
     public ApplicationRabbitmq(RabbitTemplate rabbitTemplate) {
         eventList = new ArrayList<>();
@@ -69,18 +65,12 @@ public class ApplicationRabbitmq {
             eventList.removeAll(events);
         return events;
     }
-
+    public List<EventDTO> getEvent() {
+        return eventList;
+    }
     @RabbitListener(queues = {"${rabbit.queue.name}"})
     public void receiveMessage(final Message message) {
-            System.out.println(message);
-        applicationEventPublisher.publishEvent(new EventDTO (this,message.getMessageProperties().getType(),new String(message.getBody(), StandardCharsets.UTF_8) ));
-//        eventList.add(EventDTO.builder().body(new String(message.getBody(), StandardCharsets.UTF_8)).eventType(message.getMessageProperties().getType()).build());
-    }
-
-    @EventListener(condition = "@eventDTO.eventType.equals('logout')")
-    public void logOut(EventDTO eventDTO){
-        System.out.println("event is read");
-
+        eventList.add(EventDTO.builder().body(new String(message.getBody(), StandardCharsets.UTF_8)).eventType(message.getMessageProperties().getType()).build());
     }
 
 
