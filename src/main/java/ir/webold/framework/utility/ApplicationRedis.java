@@ -95,14 +95,14 @@ public class ApplicationRedis {
     }
 
     public BaseDTO<Long> getExpireTime(String key, TimeUnit timeUnit) {
-        Long expire = redisTemplate.getExpire(key, timeUnit);
+        Long expire = redisTemplate.getExpire(generateKey(key), timeUnit);
         return successCustomResponse(expire).orElseThrow(
                 applicationException.createApplicationException(ExceptionEnum.NOTFOUND)
         );
     }
 
     public BaseDTO<Boolean> delete(String key) {
-        Boolean delete = redisTemplate.delete(key);
+        Boolean delete = redisTemplate.delete(generateKey(key));
         return successCustomResponse(delete);
     }
 

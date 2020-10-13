@@ -1,7 +1,9 @@
 package ir.webold.framework.utility;
 
 import ir.webold.framework.config.general.GeneralStatic;
+import org.apache.kafka.common.protocol.types.Field;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,18 +12,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
-@ConditionalOnProperty("${rabbit.enable}")
+//@ConditionalOnProperty("${rabbit.enable}")
 public class ApplicationRabbitmq {
     @Value("${rabbit.queue.name}")
     private String queueName;
     private final RabbitTemplate rabbitTemplate;
-    private final Map<String, List<Object>> EVENTS = new HashMap<>();
+    private final Map<String, List<Object>> events = new HashMap<>();
 
     public ApplicationRabbitmq(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
@@ -54,17 +53,25 @@ public class ApplicationRabbitmq {
     }
 
     public List<Object> getEvent(String eventType) {
-        return EVENTS.get(eventType);
+        return events.get(eventType);
+    }
+
+    public Set<String> getEventTypes(){
+        return events.keySet();
+    }
+
+    public void clearEvent(String eventType){
+        events.get(eventType).clear();
     }
 
     @RabbitListener(queues = {"${rabbit.queue.name}"})
     public void receiveMessage(final Message message) {
-        if (EVENTS.get(message.getMessageProperties().getType()) != null) {
-            EVENTS.get(message.getMessageProperties().getType()).add(new String(message.getBody(), StandardCharsets.UTF_8));
+        if (events.get(message.getMessageProperties().getType()) != null) {
+            events.get(message.getMessageProperties().getType()).add(new String(message.getBody(), StandardCharsets.UTF_8));
         } else {
             List<Object> objects = new ArrayList<>();
             objects.add(new String(message.getBody(), StandardCharsets.UTF_8));
-            EVENTS.put(message.getMessageProperties().getType(), objects);
+            events.put(message.getMessageProperties().getType(), objects);
         }
     }
 

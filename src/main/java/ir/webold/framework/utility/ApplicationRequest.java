@@ -113,6 +113,11 @@ public class ApplicationRequest {
         return request.getQueryString();
     }
 
+    public String getParam(String param) {
+        HttpServletRequest request = requestContextHolder();
+        return request.getParameter(param);
+    }
+
     public String getContentType() {
         HttpServletRequest request = requestContextHolder();
         return request.getContentType();
