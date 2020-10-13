@@ -1,30 +1,29 @@
 package ir.webold.framework.utility;
 
 import ir.webold.framework.config.general.GeneralStatic;
-import ir.webold.framework.domain.dto.EventDTO;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
-//@ConditionalOnProperty("${rabbit.enable}")
+@ConditionalOnProperty("${rabbit.enable}")
 public class ApplicationRabbitmq {
     @Value("${rabbit.queue.name}")
     private String queueName;
-    final private List<EventDTO> eventList;
     private final RabbitTemplate rabbitTemplate;
+    private final Map<String, List<Object>> EVENTS = new HashMap<>();
 
     public ApplicationRabbitmq(RabbitTemplate rabbitTemplate) {
-        eventList = new ArrayList<>();
         this.rabbitTemplate = rabbitTemplate;
     }
 
@@ -54,23 +53,19 @@ public class ApplicationRabbitmq {
 
     }
 
-    public List<EventDTO> getEvent(String eventType, Boolean isConsumed) {
-        List<EventDTO> events= new ArrayList<>();
-        eventList.forEach(EventDTO->{
-            if (EventDTO.getEventType().equals(eventType)) {
-                events.add(EventDTO);
-            }
-        });
-        if (isConsumed)
-            eventList.removeAll(events);
-        return events;
+    public List<Object> getEvent(String eventType) {
+        return EVENTS.get(eventType);
     }
-    public List<EventDTO> getEvent() {
-        return eventList;
-    }
+
     @RabbitListener(queues = {"${rabbit.queue.name}"})
     public void receiveMessage(final Message message) {
-        eventList.add(EventDTO.builder().body(new String(message.getBody(), StandardCharsets.UTF_8)).eventType(message.getMessageProperties().getType()).build());
+        if (EVENTS.get(message.getMessageProperties().getType()) != null) {
+            EVENTS.get(message.getMessageProperties().getType()).add(new String(message.getBody(), StandardCharsets.UTF_8));
+        } else {
+            List<Object> objects = new ArrayList<>();
+            objects.add(new String(message.getBody(), StandardCharsets.UTF_8));
+            EVENTS.put(message.getMessageProperties().getType(), objects);
+        }
     }
 
 
