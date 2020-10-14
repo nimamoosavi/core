@@ -13,4 +13,6 @@ public final class GeneralStatic {
     public static final String DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME = "yyyy/MM/dd hh:mm";
     public static final String DEFAULT_PERSIAN_DATE_PATTERN = "yyyy/MM/dd";
     public static final String RABBIT_LOG_OUT_EXCHANGE = "global.logout.exchange";
+    public static final String BASIC_AUTHENTICATION = "Basic";
+    public static final String APPLICATION_NAME = "name";
 }

@@ -27,7 +27,7 @@ public class ApplicationRabbitmq {
     }
 
     @Bean
-    public Declarables fanoutBindings() {
+    private Declarables fanoutBindings() {
         Queue queue = new Queue(queueName, true);
         FanoutExchange fanoutExchange = new FanoutExchange(GeneralStatic.RABBIT_LOG_OUT_EXCHANGE);
         return new Declarables(
@@ -65,7 +65,7 @@ public class ApplicationRabbitmq {
     }
 
     @RabbitListener(queues = {"${rabbit.queue.name}"})
-    public void receiveMessage(final Message message) {
+    private void receiveMessage(final Message message) {
         if (events.get(message.getMessageProperties().getType()) != null) {
             events.get(message.getMessageProperties().getType()).add(new String(message.getBody(), StandardCharsets.UTF_8));
         } else {

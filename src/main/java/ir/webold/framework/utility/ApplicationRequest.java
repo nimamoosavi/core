@@ -1,6 +1,9 @@
 package ir.webold.framework.utility;
 
+import com.google.common.reflect.TypeParameter;
+import ir.webold.framework.domain.dto.BaseDTO;
 import ir.webold.framework.domain.viewmodel.BasicAuthentication;
+import ir.webold.framework.domain.viewmodel.PermissionVMS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -188,7 +191,9 @@ public class ApplicationRequest {
         HttpHeaders httpHeaders = new HttpHeaders();
         if (headers != null)
             httpHeaders.setAll(headers);
-        httpHeaders.set(RRN, getHeader(RRN));
+        String rrn = getHeader(RRN);
+        if (rrn!=null)
+            httpHeaders.set(RRN, rrn);
         HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
         return restTemplate.exchange(domain, httpMethod, httpEntity, targetClass);
     }

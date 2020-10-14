@@ -1,7 +1,6 @@
 package ir.webold.framework.domain.viewmodel;
 
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
