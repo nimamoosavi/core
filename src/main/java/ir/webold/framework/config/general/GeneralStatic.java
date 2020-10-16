@@ -15,4 +15,9 @@ public final class GeneralStatic {
     public static final String RABBIT_LOG_OUT_EXCHANGE = "global.logout.exchange";
     public static final String BASIC_AUTHENTICATION = "Basic";
     public static final String APPLICATION_NAME = "name";
+    public static final String USER_MANAGEMENT = "user-management";
+    public static final String ROLES = "roles";
+    public static final String USERNAME = "username";
+    public static final String USERID = "userId";
+
 }

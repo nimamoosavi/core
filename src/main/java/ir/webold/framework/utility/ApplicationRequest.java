@@ -1,9 +1,6 @@
 package ir.webold.framework.utility;
 
-import com.google.common.reflect.TypeParameter;
-import ir.webold.framework.domain.dto.BaseDTO;
 import ir.webold.framework.domain.viewmodel.BasicAuthentication;
-import ir.webold.framework.domain.viewmodel.PermissionVMS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -186,13 +183,23 @@ public class ApplicationRequest {
         return request.getSession().getAttribute(name);
     }
 
+    public void addSession(String name, Object o) {
+        HttpServletRequest request = requestContextHolder();
+        request.getSession().setAttribute(name, o);
+    }
+
+    public void removeSession(String name) {
+        HttpServletRequest request = requestContextHolder();
+        request.getSession().removeAttribute(name);
+    }
+
 
     public <U> ResponseEntity<U> httpRequest(String domain, HttpMethod httpMethod, Map<String, String> headers, Object body, Class<U> targetClass) {
         HttpHeaders httpHeaders = new HttpHeaders();
         if (headers != null)
             httpHeaders.setAll(headers);
         String rrn = getHeader(RRN);
-        if (rrn!=null)
+        if (rrn != null)
             httpHeaders.set(RRN, rrn);
         HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
         return restTemplate.exchange(domain, httpMethod, httpEntity, targetClass);
