@@ -2,6 +2,7 @@ package ir.webold.framework.controller;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
+import ir.webold.framework.anotations.Oauth;
 import ir.webold.framework.domain.dto.BaseDTO;
 import ir.webold.framework.domain.dto.PageDTO;
 import ir.webold.framework.domain.entity.BaseEntity;

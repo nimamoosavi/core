@@ -1,6 +1,7 @@
 package ir.webold.framework.service;
 
 import ir.webold.framework.anotations.Log;
+import ir.webold.framework.anotations.Oauth;
 import ir.webold.framework.domain.dto.BaseDTO;
 import ir.webold.framework.domain.dto.PageDTO;
 import ir.webold.framework.domain.entity.BaseEntity;
@@ -25,6 +26,7 @@ import static ir.webold.framework.utility.ApplicationResource.successResource;
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.exact;
 
 @Log
+@Oauth
 public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Serializable> {
 
     @Autowired

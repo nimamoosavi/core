@@ -12,12 +12,11 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
-import java.util.UUID;
 
 @Component
 //@ConditionalOnProperty("${rabbit.enable}")
 public class ApplicationRabbitmq {
-    private final Long expireJwtRedisTime=100000L;
+    private final Long expireJwtRedisTime = 100000L;
 
     @Value("${rabbit.queue.name}")
     private String queueName;
@@ -25,10 +24,10 @@ public class ApplicationRabbitmq {
     private final ApplicationEventPublisher applicationEventPublisher;
     private final ApplicationRedis applicationRedis;
 
-    public ApplicationRabbitmq(RabbitTemplate rabbitTemplate, ApplicationEventPublisher applicationEventPublisher,ApplicationRedis applicationRedis) {
+    public ApplicationRabbitmq(RabbitTemplate rabbitTemplate, ApplicationEventPublisher applicationEventPublisher, ApplicationRedis applicationRedis) {
         this.rabbitTemplate = rabbitTemplate;
         this.applicationEventPublisher = applicationEventPublisher;
-        this.applicationRedis= applicationRedis;
+        this.applicationRedis = applicationRedis;
     }
 
     @Bean
@@ -66,7 +65,7 @@ public class ApplicationRabbitmq {
 
     @EventListener()
     public void logOut(EventDTO eventDTO) {
-        applicationRedis.setIn(eventDTO.getBody(), UUID.randomUUID().toString(),expireJwtRedisTime);
+        applicationRedis.setIn(eventDTO.getBody(), eventDTO.getEventType(), expireJwtRedisTime);
     }
 
 }
