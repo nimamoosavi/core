@@ -31,7 +31,7 @@ public class OauthService {
     @Value("${basic.microservice.authentication}")
     private String basicPass;
 
-    @Value("${oauth.microservice.enbale}")
+    @Value("${oauth.microservice.enable}")
     private boolean oauthEnable;
 
 
@@ -57,7 +57,8 @@ public class OauthService {
                 httpHeaders.setAll(map);
                 HttpEntity<Object> httpEntity = new HttpEntity<>(null, httpHeaders);
                 String body = restTemplate.exchange(oauthUrl, HttpMethod.GET, httpEntity, String.class).getBody();
-                BaseDTO<List<PermissionVMS>> objects = objectMapper.readValue(body, new TypeReference<BaseDTO<List<PermissionVMS>>>() {});
+                BaseDTO<List<PermissionVMS>> objects = objectMapper.readValue(body, new TypeReference<BaseDTO<List<PermissionVMS>>>() {
+                });
                 setPermissionsToMap(objects.getData());
             }
         } catch (Exception e) {

@@ -27,7 +27,7 @@ import static ir.webold.framework.config.general.GeneralStatic.*;
 @Component
 public class AuthorizeService {
 
-    @Value("${oauth.microservice.enbale}")
+    @Value("${oauth.microservice.enable}")
     private boolean oauthEnable;
 
     private final ApplicationRequest applicationRequest;
@@ -81,7 +81,7 @@ public class AuthorizeService {
                 }
                 if (claims.get(ROLES) != null)
                     roles = (List<String>) claims.get(ROLES);
-                applicationRequest.addSession(USERID, Long.valueOf(claims.getSubject()));
+                applicationRequest.addSession(USERID, claims.getSubject());
                 applicationRequest.addSession(USERNAME, claims.get(USERNAME, String.class));
             }
             Map<String, PermissionVMS> permissions = oauthService.getPermissions();

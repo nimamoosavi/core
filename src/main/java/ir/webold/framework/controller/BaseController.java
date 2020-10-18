@@ -18,6 +18,7 @@ import java.util.List;
 
 //s request view model
 //R response view model
+@Oauth
 public abstract class BaseController<T extends BaseEntity<I>, S, R, I extends Serializable> {
 
     @Autowired
