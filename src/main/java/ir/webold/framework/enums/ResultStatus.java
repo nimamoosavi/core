@@ -4,5 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum ResultStatus {
-    SUCCESS, ERROR, INFO,WARN
+    SUCCESS,
+    ERROR,
+    INFO,
+    WARN
 }

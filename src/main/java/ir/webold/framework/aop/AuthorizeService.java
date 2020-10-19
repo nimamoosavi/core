@@ -58,53 +58,72 @@ public class AuthorizeService {
 
 
     @Before("restController() || oauth()")
+    @SuppressWarnings("unchecked")
     public void authorize(JoinPoint joinPoint) {
         if (oauthEnable) {
-            boolean access = false;
             String jwtToken = applicationRequest.getHeader(AUTHORIZATION);
             applicationRequest.removeSession(USERNAME);
             applicationRequest.removeSession(USERID);
             List<String> roles = null;
             if (jwtToken != null) {
                 Claims claims;
-                try {
-                    claims = applicationEncryption.getJwtBody(jwtToken).getData();
-                } catch (Exception e) {
-                    auditService.logAfterThrowing(joinPoint, e);
-                    throw e;
-                }
-                Object checkExpireStorage = applicationRedis.fetch(claims.getId(), false).getData();
-                if (checkExpireStorage != null) {
-                    ServiceException e = this.applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.NOT_ACCEPTABLE);
-                    auditService.logAfterThrowing(joinPoint, e);
-                    throw e;
-                }
+                // Check Token
+                claims = checkToken(joinPoint, jwtToken);
+                // Check ExpireLogOutToken
+                checkExpireLogoutToken(joinPoint, claims.getId());
                 if (claims.get(ROLES) != null)
                     roles = (List<String>) claims.get(ROLES);
                 applicationRequest.addSession(USERID, claims.getSubject());
                 applicationRequest.addSession(USERNAME, claims.get(USERNAME, String.class));
             }
-            Map<String, PermissionVMS> permissions = oauthService.getPermissions();
-            String requestURI = applicationRequest.getRequestURI();
-            PermissionVMS permissionVMS = permissions.get(requestURI);
-            if (permissionVMS != null && permissionVMS.getRolesList() != null) {
-                if (roles == null) {
-                    ServiceException e = this.applicationException.createApplicationException(ExceptionEnum.ACCESS_DENIED, HttpStatus.NOT_ACCEPTABLE);
-                    auditService.logAfterThrowing(joinPoint, e);
-                    throw e;
+            //CheckRoles
+            checkRoles(joinPoint, roles);
+        }
+    }
+
+
+    private Claims checkToken(JoinPoint joinPoint, String jwt) {
+        try {
+            return applicationEncryption.getJwtBody(jwt).getData();
+        } catch (Exception e) {
+            auditService.logAfterThrowing(joinPoint, e);
+            throw e;
+        }
+    }
+
+
+    private void checkExpireLogoutToken(JoinPoint joinPoint, String jti) {
+        Object checkExpireStorage = applicationRedis.fetch(jti, false).getData();
+        if (checkExpireStorage != null) {
+            ServiceException e = this.applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.NOT_ACCEPTABLE);
+            auditService.logAfterThrowing(joinPoint, e);
+            throw e;
+        }
+    }
+
+
+    private void checkRoles(JoinPoint joinPoint, List<String> roles) {
+        boolean access = false;
+        Map<String, PermissionVMS> permissions = oauthService.getPermissions();
+        String requestURI = applicationRequest.getRequestURI();
+        PermissionVMS permissionVMS = permissions.get(requestURI);
+        if (permissionVMS != null && permissionVMS.getRolesList() != null) {
+            if (roles == null) {
+                ServiceException e = this.applicationException.createApplicationException(ExceptionEnum.ACCESS_DENIED, HttpStatus.NOT_ACCEPTABLE);
+                auditService.logAfterThrowing(joinPoint, e);
+                throw e;
+            }
+            List<String> rolesList = permissionVMS.getRolesList();
+            for (String s : rolesList) {
+                if (roles.contains(s)) {
+                    access = true;
+                    break;
                 }
-                List<String> rolesList = permissionVMS.getRolesList();
-                for (String s : rolesList) {
-                    if (roles.contains(s)) {
-                        access = true;
-                        break;
-                    }
-                }
-                if (!access) {
-                    ServiceException e = this.applicationException.createApplicationException(ExceptionEnum.ACCESS_DENIED, HttpStatus.NOT_ACCEPTABLE);
-                    auditService.logAfterThrowing(joinPoint, e);
-                    throw e;
-                }
+            }
+            if (!access) {
+                ServiceException e = this.applicationException.createApplicationException(ExceptionEnum.ACCESS_DENIED, HttpStatus.NOT_ACCEPTABLE);
+                auditService.logAfterThrowing(joinPoint, e);
+                throw e;
             }
         }
     }

@@ -2,11 +2,13 @@ package ir.webold.framework.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@AllArgsConstructor
+@Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class PageDTO<T> {
     private Long totalElement;
     private Integer totalPages;

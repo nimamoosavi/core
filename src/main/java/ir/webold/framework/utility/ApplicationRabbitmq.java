@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
 @Component
 //@ConditionalOnProperty("${rabbit.enable}")
 public class ApplicationRabbitmq {
-    private final Long expireJwtRedisTime = 100000L;
+    private static final Long EXPIRE_JWT_REDIS_TIME = 100000L;
 
     @Value("${rabbit.queue.name}")
     private String queueName;
@@ -65,7 +65,7 @@ public class ApplicationRabbitmq {
 
     @EventListener()
     public void logOut(EventDTO eventDTO) {
-        applicationRedis.setIn(eventDTO.getBody(), eventDTO.getEventType(), expireJwtRedisTime);
+        applicationRedis.setIn(eventDTO.getBody(), eventDTO.getEventType(), EXPIRE_JWT_REDIS_TIME);
     }
 
 }

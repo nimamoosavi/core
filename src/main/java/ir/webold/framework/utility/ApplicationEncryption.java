@@ -16,7 +16,6 @@ import org.springframework.stereotype.Component;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Base64;
-import java.util.Date;
 
 import static ir.webold.framework.service.GeneralService.successCustomResponse;
 
@@ -95,9 +94,9 @@ public class ApplicationEncryption {
         try {
             Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
             return successCustomResponse(true);
-        }catch (ExpiredJwtException e){
+        } catch (ExpiredJwtException e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
-        }  catch (Exception e) {
+        } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
     }
@@ -106,9 +105,9 @@ public class ApplicationEncryption {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
             return successCustomResponse(claims);
-        }catch (ExpiredJwtException e){
+        } catch (ExpiredJwtException e) {
             return successCustomResponse(e.getClaims());
-        }  catch (Exception e) {
+        } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
     }
@@ -117,7 +116,7 @@ public class ApplicationEncryption {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
             return successCustomResponse(claims);
-        }catch (ExpiredJwtException e){
+        } catch (ExpiredJwtException e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
@@ -128,10 +127,9 @@ public class ApplicationEncryption {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
             return successCustomResponse(claims);
-        }catch (ExpiredJwtException e){
+        } catch (ExpiredJwtException e) {
             return successCustomResponse(e.getClaims());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
     }
@@ -140,9 +138,9 @@ public class ApplicationEncryption {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
             return successCustomResponse(claims);
-        }catch (ExpiredJwtException e){
+        } catch (ExpiredJwtException e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
-        }  catch (Exception e) {
+        } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
     }
@@ -151,9 +149,9 @@ public class ApplicationEncryption {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretAppKeys).parseClaimsJws(jwt).getBody();
             return successCustomResponse(claims.get(paramName, tClass));
-        }catch (ExpiredJwtException e){
+        } catch (ExpiredJwtException e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
-        }  catch (Exception e) {
+        } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
     }
@@ -180,9 +178,9 @@ public class ApplicationEncryption {
         try {
             Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwt).getBody();
             return successCustomResponse(claims.get(paramName, tClass));
-        }catch (ExpiredJwtException e){
+        } catch (ExpiredJwtException e) {
             return successCustomResponse(e.getClaims().get(paramName, tClass));
-        }  catch (Exception e) {
+        } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
     }
@@ -194,13 +192,6 @@ public class ApplicationEncryption {
         } catch (Exception e) {
             throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_INVALID, HttpStatus.BAD_REQUEST);
         }
-    }
-
-    private BaseDTO<Boolean> checkExpireTime(Claims claims) {
-        if (Boolean.TRUE.equals(claims.getExpiration().after(new Date(System.currentTimeMillis()))))
-            return successCustomResponse(true);
-        else
-            throw applicationException.createApplicationException(ExceptionEnum.JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
     }
 
     public BaseDTO<String> hash(String text) {

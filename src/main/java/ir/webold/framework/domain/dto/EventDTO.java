@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.ApplicationEvent;
 
 @Data
 @Builder
@@ -13,5 +12,4 @@ import org.springframework.context.ApplicationEvent;
 public class EventDTO {
     private String eventType;
     private String body;
-
 }
