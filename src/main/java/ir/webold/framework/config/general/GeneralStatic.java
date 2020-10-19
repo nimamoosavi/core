@@ -8,7 +8,8 @@ public final class GeneralStatic {
 
     public static final String RRN = "rrn";
     public static final String AUTHORIZATION = "Authorization";
-    public static final String APP_KEY = "APP_KEY";
+    public static final String REFRESH_TOKEN = "refreshToken";
+    public static final String APP_KEY = "App_Key";
     public static final String BASIC = "Basic ";
     public static final String DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME = "yyyy/MM/dd hh:mm";
     public static final String DEFAULT_PERSIAN_DATE_PATTERN = "yyyy/MM/dd";
