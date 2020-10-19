@@ -50,10 +50,12 @@ public class AuthorizeService {
 
     @Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
     public void restController() {
+        // Do Nothing ,Aop Running
     }
 
     @Pointcut("within(@ir.webold.framework.anotations.Oauth *)")
     public void oauth() {
+        // Do Nothing ,Aop Running
     }
 
 

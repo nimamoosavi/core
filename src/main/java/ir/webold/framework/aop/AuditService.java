@@ -42,10 +42,12 @@ public class AuditService {
 
     @Pointcut("within(@org.springframework.stereotype.Service *)")
     public void service() {
+        // Do Nothing ,Aop Running
     }
 
     @Pointcut("within(@ir.webold.framework.anotations.Log *)")
     public void log() {
+        // Do Nothing ,Aop Running
     }
 
 
