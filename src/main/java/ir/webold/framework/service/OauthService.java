@@ -49,7 +49,7 @@ public class OauthService {
 
     public void setAllMicroservicePermissions(ConfigurableApplicationContext context) {
         try {
-            if (!microserviceName.equals(USER_MANAGEMENT) && oauthEnable) {
+            if (!microserviceName.equals(MS_USER_MANAGEMENT) && oauthEnable) {
                 Map<String, String> map = new HashMap<>();
                 map.put(APPLICATION_NAME, microserviceName);
                 map.put(BASIC_AUTHENTICATION, basicPass);
