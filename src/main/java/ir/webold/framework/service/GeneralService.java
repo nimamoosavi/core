@@ -45,11 +45,7 @@ public abstract class GeneralService<T extends BaseEntity<I>, S, R, I extends Se
         T save = generalRepository.save(t);
         return mapEntityToResponse(save);
     }
-    @Transactional
-    public BaseDTO<R> save(T t) {
-        T save = generalRepository.save(t);
-        return mapEntityToResponse(save);
-    }
+
     @Transactional
     public BaseDTO<List<R>> save(List<S> sList) {
         List<T> tList = generalMapper.requestToEntity(sList);
