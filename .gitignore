@@ -12,8 +12,9 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
+.iml
 ### IntelliJ IDEA ###
+*.gz
 .idea
 *.iws
 *.iml
