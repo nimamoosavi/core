@@ -1,6 +1,7 @@
 package ir.webold.framework.config.swagger;
 
 import com.google.common.base.Predicate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,20 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+
+    @Value("${swagger.title}")
+    private String title;
+
+    @Value("${swagger.description}")
+    private String description;
+
+    @Value("${swagger.license}")
+    private String license;
+
+    @Value("${swagger.version}")
+    private String version;
+
+
     @Bean
     public Docket postsApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -30,9 +45,9 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("LiveHesab")
-                .description("LiveHesab API reference for developers")
-                .license("LiveHesab License")
-                .version("1.1").build();
+        return new ApiInfoBuilder().title(title)
+                .description(description)
+                .license(license)
+                .version(version).build();
     }
 }
