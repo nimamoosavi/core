@@ -344,14 +344,14 @@
 2020-11-08 12:02:50,349 WARN org.apache.kafka.clients.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
 2020-11-08 12:02:51,318 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-1] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:01:47","level":"INFO","token":"12121","rrn":"72d11cb4-087d-4397-9f0d-ee3ed8c6...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:02:51,323 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:02:51,323 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -437,14 +437,14 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not pres
 2020-11-08 12:03:33,612 WARN org.apache.kafka.clients.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
 2020-11-08 12:03:33,815 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-2] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:02:33","level":"INFO","token":"12121","rrn":"72d11cb4-087d-4397-9f0d-ee3ed8c6...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:03:33,817 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:03:33,817 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -506,14 +506,14 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not pres
 2020-11-08 12:03:57,508 WARN org.apache.kafka.clients.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
 2020-11-08 12:03:57,776 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-1] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:02:57","level":"INFO","token":"1212","rrn":"e63ebaaa-becc-412d-a7b9-01b3d5669...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:03:57,777 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:03:57,777 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -597,14 +597,14 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not pres
 2020-11-08 12:04:33,660 WARN org.apache.kafka.clients.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
 2020-11-08 12:04:33,818 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-2] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:03:02","level":"INFO","token":"1212","rrn":"e63ebaaa-becc-412d-a7b9-01b3d5669...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:04:33,819 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:04:33,819 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -664,14 +664,14 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not pres
 2020-11-08 12:04:57,756 WARN org.apache.kafka.clients.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
 2020-11-08 12:04:57,778 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-1] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:03:52","level":"INFO","token":"1212","rrn":"607ca037-1f10-4d94-92a3-8a05fd4b7...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:04:57,779 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:04:57,779 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -753,14 +753,14 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not pres
 2020-11-08 12:05:32,933 WARN org.apache.kafka.clients.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
 2020-11-08 12:05:33,822 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-2] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:03:52","level":"INFO","token":"1212","rrn":"607ca037-1f10-4d94-92a3-8a05fd4b7...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:05:33,823 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:05:33,823 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -956,14 +956,14 @@ org.apache.kafka.common.errors.TimeoutException: Topic audit not present in meta
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 2020-11-08 12:07:25,779 WARN org.apache.kafka.clients.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
 2020-11-08 12:07:25,780 WARN org.apache.kafka.clients.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
-2020-11-08 12:07:27,813 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:07:27,813 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -975,14 +975,14 @@ org.springframework.kafka.KafkaException: Send failed; nested exception is org.a
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:07:27,813 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:07:27,813 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -1119,14 +1119,14 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not pres
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 2020-11-08 12:08:27,815 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-1] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:06:46","level":"INFO","token":"12121","rrn":"e5a68c6b-33f9-4cd3-8da8-73d3500d...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:08:27,815 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:08:27,815 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -1138,14 +1138,14 @@ org.springframework.kafka.KafkaException: Send failed; nested exception is org.a
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:08:27,815 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:08:27,815 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -1281,14 +1281,14 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not pres
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 2020-11-08 12:09:27,817 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-1] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:07:27","level":"INFO","token":"12121","rrn":"c1dba8a7-618b-4e53-bf21-74f9b8b2...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:09:27,817 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:09:27,817 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -1300,14 +1300,14 @@ org.springframework.kafka.KafkaException: Send failed; nested exception is org.a
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:09:27,818 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:09:27,818 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -1761,14 +1761,14 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not pres
 2020-11-08 12:16:40,240 WARN org.apache.kafka.clients.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
 2020-11-08 12:16:40,259 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-1] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:15:38","level":"INFO","token":"12121","rrn":"738a886e-dbca-4e9d-9131-178f88cb...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:16:40,260 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:16:40,260 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -1782,14 +1782,14 @@ org.springframework.kafka.KafkaException: Send failed; nested exception is org.a
 Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 2020-11-08 12:16:40,286 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-2] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:15:40","level":"ERROR","token":"12121","rrn":"738a886e-dbca-4e9d-9131-178f88c...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:16:40,287 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:16:40,287 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -1917,14 +1917,14 @@ Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not pres
 2020-11-08 12:17:40,040 WARN org.apache.kafka.clients.NetworkClient [kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
 2020-11-08 12:17:40,261 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-1] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:15:52","level":"INFO","token":"12121","rrn":"55fe91c3-0481-4612-b62c-c29fa555...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:17:40,261 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:17:40,261 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-1] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
@@ -1938,14 +1938,14 @@ org.springframework.kafka.KafkaException: Send failed; nested exception is org.a
 Caused by: org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 2020-11-08 12:17:40,291 ERROR org.springframework.kafka.support.LoggingProducerListener [AsyncMsgExecutor-2] Exception thrown when sending a message with key='null' and payload='{"time":"2020/11/08 12:15:56","level":"INFO","token":"12121","rrn":"55fe91c3-0481-4612-b62c-c29fa555...' to topic audit:
 org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
-2020-11-08 12:17:40,291 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ir.webold.framework.utility.ApplicationLogger.log(java.lang.Object,ir.webold.framework.enums.audit.LogLevel)
+2020-11-08 12:17:40,291 ERROR org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler [AsyncMsgExecutor-2] Unexpected exception occurred invoking async method: public void ApplicationLogger.log(java.lang.Object,LogLevel)
 org.springframework.kafka.KafkaException: Send failed; nested exception is org.apache.kafka.common.errors.TimeoutException: Topic audit not present in metadata after 60000 ms.
 	at org.springframework.kafka.core.KafkaTemplate.doSend(KafkaTemplate.java:570) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
 	at org.springframework.kafka.core.KafkaTemplate.send(KafkaTemplate.java:360) ~[spring-kafka-2.5.0.RELEASE.jar:2.5.0.RELEASE]
-	at ir.webold.framework.utility.ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
-	at ir.webold.framework.utility.ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
+	at ApplicationKafka.sendMessage(ApplicationKafka.java:28) ~[classes/:na]
+	at ApplicationLogger.logInKafka(ApplicationLogger.java:91) ~[classes/:na]
+	at ApplicationLogger.log(ApplicationLogger.java:80) ~[classes/:na]
+	at ApplicationLogger$$FastClassBySpringCGLIB$$9244dab8.invoke(<generated>) ~[classes/:na]
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
