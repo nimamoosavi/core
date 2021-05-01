@@ -11,10 +11,12 @@ import java.io.Serializable;
 import java.util.List;
 
 
+
+
 public interface BaseAggClient<S, R, I extends Serializable> {
 
     @PostMapping
-    public ResponseEntity<BaseDTO<R>> save(@RequestHeader(GeneralStatic.CORRELATION_ID) String rrn, @RequestBody S s);
+    public ResponseEntity<BaseDTO<R>> save(@RequestHeader(GeneralStatic.CORRELATION_ID) String correlationId, @RequestBody S s);
 
     @PutMapping
     public ResponseEntity<BaseDTO<R>> update(@RequestHeader(GeneralStatic.CORRELATION_ID) String rrn, @Valid @RequestBody S s);

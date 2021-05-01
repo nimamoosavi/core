@@ -214,7 +214,7 @@ public class ApplicationRequest {
             httpHeaders.setAll(headers);
         if (basicAuthentication != null) {
             String basic = basicAuthentication.getUserName() + ":" + basicAuthentication.getPassWord();
-            String authorizationValue = GeneralStatic.BASIC + javax.xml.bind.DatatypeConverter.printBase64Binary(basic.getBytes());
+            String authorizationValue = GeneralStatic.basic + javax.xml.bind.DatatypeConverter.printBase64Binary(basic.getBytes());
             httpHeaders.set(authorization, authorizationValue);
         }
         httpHeaders.set(authorization, getHeader(authorization));

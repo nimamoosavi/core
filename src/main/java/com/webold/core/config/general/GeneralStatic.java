@@ -1,32 +1,78 @@
 package com.webold.core.config.general;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GeneralStatic {
 
-
-
-
-    public static String REFRESH_TOKEN = "";
-
-    @Value("${core.refreshToken:refreshToken}")
-    public static void setRefreshToken(String refreshToken) {
-        REFRESH_TOKEN = refreshToken;
-    }
-
-    public static final String BASIC = "Basic ";
-    public static final String DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME = "yyyy/MM/dd hh:mm";
-    public static final String DEFAULT_PERSIAN_DATE_PATTERN = "yyyy/MM/dd";
-    public static final String RABBIT_LOG_OUT_EXCHANGE = "global.logout.exchange";
-    public static final String BASIC_AUTHENTICATION = "Basic";
-    public static final String APPLICATION_NAME = "name";
-    public static final String MS_USER_MANAGEMENT = "ms-user-management";
-    public static final String ROLES = "roles";
-    public static final String USERNAME = "username";
-    public static final String USERID = "userId";
-    public static final String AUTHORIZATION = "Authorization";
+    private static String refreshToken;
+    public static String basic;
+    public static String datePersianPatternWithDetail;
+    public static String datePersianPattern;
+    private static String basicAuthentication;
+    private static String applicationName;
+    private static String roles;
+    private static String userName;
+    private static String userId;
+    public static final String  AUTHORIZATION = "Authorization";
     public static final String APP_KEY = "appKey";
     public static final String CORRELATION_ID = "correlationId";
-    public static final String REQUEST_ID = "requestId";
+    private static String requestId;
+    private static String swaggerTittle;
+    private static String swaggerDescription;
+    private static String swaggerLicence;
+    private static String swaggerVersion;
+
+
+    @Value("${core.refreshToken:refreshToken}")
+    public void setRefreshToken(String refreshToken) {
+        GeneralStatic.refreshToken = refreshToken;
+    }
+    @Value("${core.basic:Basic}")
+    public void setBasic(String basic) {
+        GeneralStatic.basic = basic;
+    }
+
+    @Value("${core.datePersianPatternWithDetail:yyyy/MM/dd hh:mm}")
+    public void setDatePersianPatternWithDetail(String datePersianPatternWithDetail) {
+        GeneralStatic.datePersianPatternWithDetail = datePersianPatternWithDetail;
+    }
+
+    @Value("${core.datePersianPattern:yyyy/MM/dd}")
+    public void setDatePersianPattern(String datePersianPattern) {
+        GeneralStatic.datePersianPattern = datePersianPattern;
+    }
+    @Value("${core.basic:Basic}")
+    public void setBasicAuthentication(String basicAuthentication) {
+        GeneralStatic.basicAuthentication = basicAuthentication;
+    }
+
+    @Value("${core.applicationName}")
+    public void setApplicationName(String applicationName) {
+        GeneralStatic.applicationName = applicationName;
+    }
+
+    @Value("${core.roles:roles}")
+    public void setRoles(String roles) {
+        GeneralStatic.roles = roles;
+    }
+
+    @Value("${core.username}")
+    public void setUserName(String userName) {
+        GeneralStatic.userName = userName;
+    }
+
+    @Value("${core.userId:userId}")
+    public void setUserId(String userId) {
+        GeneralStatic.userId = userId;
+    }
+
+
+    @Value("${core.requestId:requestId}")
+    public void setRequestId(String requestId) {
+        GeneralStatic.requestId = requestId;
+    }
+
 
 }

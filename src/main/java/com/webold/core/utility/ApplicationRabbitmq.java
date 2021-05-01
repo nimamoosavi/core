@@ -33,12 +33,13 @@ public class ApplicationRabbitmq {
     @Bean
     private Declarables fanoutBindings() {
         Queue queue = new Queue(queueName, true);
-        FanoutExchange fanoutExchange = new FanoutExchange(GeneralStatic.RABBIT_LOG_OUT_EXCHANGE);
+        /*FanoutExchange fanoutExchange = new FanoutExchange(GeneralStatic.RABBIT_LOG_OUT_EXCHANGE);
         return new Declarables(
                 queue,
                 fanoutExchange,
                 BindingBuilder.bind(queue).to(fanoutExchange)
-        );
+        );*/
+        return null;
     }
 
     public void sendMessageExchange(String exchangeName, String message, String eventType) {

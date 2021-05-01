@@ -23,20 +23,7 @@ import org.springframework.web.client.RestTemplate;
 public class GeneralConfig {
 
 
-    public static String applicationName;
-    public static String auditDatePattern;
     public static String kafkaTopic;
-
-    @Value("${application.name:No-Name}")
-    public static void setApplicationName(String applicationName) {
-        GeneralConfig.applicationName = applicationName;
-    }
-
-    @Value("${audit.date.pattern:yyyy/MM/dd HH-mm-ss}")
-    public static void setAuditDatePattern(String auditDatePattern) {
-        GeneralConfig.auditDatePattern = auditDatePattern;
-    }
-
 
     @Value("${kafka.audit.topic:Audit}")
     public static void setKafkaTopic(String kafkaTopic) {

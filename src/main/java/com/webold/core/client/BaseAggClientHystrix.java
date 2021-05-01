@@ -1,8 +1,10 @@
 package com.webold.core.client;
 
+import com.webold.core.config.general.GeneralStatic;
 import com.webold.core.domain.dto.BaseDTO;
 import com.webold.core.domain.dto.PageDTO;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import javax.validation.Valid;
 import java.io.Serializable;
@@ -11,7 +13,7 @@ import java.util.List;
 public class BaseAggClientHystrix<S, R, I extends Serializable> implements BaseAggClient<S, R, I> {
 
     @Override
-    public ResponseEntity<BaseDTO<R>> save(String rrn, S s) {
+    public ResponseEntity<BaseDTO<R>> save(@RequestHeader(GeneralStatic.CORRELATION_ID) String rrn, S s) {
         return null;
     }
 

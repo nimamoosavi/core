@@ -19,14 +19,14 @@ public class ApplicationCalender {
 
     public static DateFormat getDateFormat() {
         if (dateFormat == null) {
-            dateFormat = getDateFormat(GeneralStatic.DEFAULT_PERSIAN_DATE_PATTERN);
+            dateFormat = getDateFormat(GeneralStatic.datePersianPattern);
         }
         return dateFormat;
     }
 
     public static DateFormat getDateFormatWithTime() {
         if (dateFormatWithTime == null) {
-            dateFormatWithTime = getDateFormat(GeneralStatic.DEFAULT_PERSIAN_DATE_PATTERN_WITH_TIME);
+            dateFormatWithTime = getDateFormat(GeneralStatic.datePersianPatternWithDetail);
         }
         return dateFormatWithTime;
     }
