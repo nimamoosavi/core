@@ -8,5 +8,5 @@ import lombok.Data;
 public class AuditVM {
     private AuditHeader header;
     private Object detail;
-    private AuditLocation auditLocation;
+    /*private AuditLocation auditLocation;*/
 }
