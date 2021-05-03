@@ -15,7 +15,7 @@
     <description>Core project for WeBold</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
         <jjwt.version>0.9.0</jjwt.version>
         <logback.contrib.version>0.1.5</logback.contrib.version>
