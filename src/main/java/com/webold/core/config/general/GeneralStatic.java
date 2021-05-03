@@ -11,7 +11,7 @@ public class GeneralStatic {
     public static String datePersianPatternWithDetail;
     public static String datePersianPattern;
     private static String basicAuthentication;
-    private static String applicationName;
+    public static String applicationName;
     private static String roles;
     private static String userName;
     private static String userId;
@@ -23,6 +23,7 @@ public class GeneralStatic {
     private static String swaggerDescription;
     private static String swaggerLicence;
     private static String swaggerVersion;
+    public static String instanceId;
 
 
     @Value("${core.refreshToken:refreshToken}")
@@ -48,7 +49,7 @@ public class GeneralStatic {
         GeneralStatic.basicAuthentication = basicAuthentication;
     }
 
-    @Value("${core.applicationName}")
+    @Value("${application.name}")
     public void setApplicationName(String applicationName) {
         GeneralStatic.applicationName = applicationName;
     }
@@ -74,5 +75,8 @@ public class GeneralStatic {
         GeneralStatic.requestId = requestId;
     }
 
-
+    @Value("${application.instanceId}")
+    public void setInstanceId(String instanceId) {
+        GeneralStatic.instanceId = instanceId;
+    }
 }
