@@ -1,4 +1,4 @@
-package com.webold.core.mapper.jackson;
+package com.nicico.cost.framework.mapper.jackson;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package com.webold.core.enums;
+package com.nicico.cost.framework.enums;
 
 import lombok.Getter;
 

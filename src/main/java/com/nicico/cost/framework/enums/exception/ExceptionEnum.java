@@ -1,4 +1,4 @@
-package com.webold.core.enums.exception;
+package com.nicico.cost.framework.enums.exception;
 
 import lombok.Getter;
 

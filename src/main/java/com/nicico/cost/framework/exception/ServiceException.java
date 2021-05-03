@@ -1,4 +1,4 @@
-package com.webold.core.exception;
+package com.nicico.cost.framework.exception;
 
 import lombok.Builder;
 import lombok.Data;

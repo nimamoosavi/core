@@ -1,6 +1,6 @@
-package com.webold.core.packages.audit;
+package com.nicico.cost.framework.packages.audit;
 
-import com.webold.core.packages.audit.view.AuditFactory;
+import com.nicico.cost.framework.packages.audit.view.AuditFactory;
 
 /**
  * @version 1.0.1

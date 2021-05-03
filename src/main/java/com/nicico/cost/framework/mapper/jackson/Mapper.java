@@ -1,4 +1,4 @@
-package com.webold.core.mapper.jackson;
+package com.nicico.cost.framework.mapper.jackson;
 
 public interface Mapper {
     String convertToJson(Object o);

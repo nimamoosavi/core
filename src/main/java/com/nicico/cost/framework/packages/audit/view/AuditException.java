@@ -1,4 +1,4 @@
-package com.webold.core.packages.audit.view;
+package com.nicico.cost.framework.packages.audit.view;
 
 import lombok.Builder;
 import lombok.Data;
