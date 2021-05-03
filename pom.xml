@@ -8,8 +8,8 @@
         <version>2.3.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.webold</groupId>
-    <artifactId>core</artifactId>
+    <groupId>com.nicico.cost</groupId>
+    <artifactId>framework</artifactId>
     <version>1.0.1-Released</version>
     <name>core</name>
     <description>Core project for WeBold</description>
