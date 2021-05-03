@@ -11,7 +11,7 @@
     <groupId>com.nicico.cost</groupId>
     <artifactId>framework</artifactId>
     <version>1.0.1-Released</version>
-    <name>core</name>
+    <name>framework</name>
     <description>Core project for WeBold</description>
 
     <properties>
