@@ -32,7 +32,7 @@ public class AuditFactory {
         return this;
     }
 
-    public AuditFactory exception(AuditException exception) {
+    public AuditFactory exception(AuditExceptionVM exception) {
         this.result = exception;
         return this;
     }

@@ -15,7 +15,7 @@ public class GeneralStatic {
     private static String roles;
     private static String userName;
     private static String userId;
-    public static final String  AUTHORIZATION = "Authorization";
+    public static final String AUTHORIZATION = "Authorization";
     public static final String APP_KEY = "appKey";
     public static final String CORRELATION_ID = "correlationId";
     private static String requestId;
@@ -30,6 +30,7 @@ public class GeneralStatic {
     public void setRefreshToken(String refreshToken) {
         GeneralStatic.refreshToken = refreshToken;
     }
+
     @Value("${core.basic:Basic}")
     public void setBasic(String basic) {
         GeneralStatic.basic = basic;
@@ -44,6 +45,7 @@ public class GeneralStatic {
     public void setDatePersianPattern(String datePersianPattern) {
         GeneralStatic.datePersianPattern = datePersianPattern;
     }
+
     @Value("${core.basic:Basic}")
     public void setBasicAuthentication(String basicAuthentication) {
         GeneralStatic.basicAuthentication = basicAuthentication;

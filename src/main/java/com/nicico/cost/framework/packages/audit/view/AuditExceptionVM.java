@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class AuditException {
+public class AuditExceptionVM {
     private String excClazz;
     private String excMethod;
     private Integer excLine;
