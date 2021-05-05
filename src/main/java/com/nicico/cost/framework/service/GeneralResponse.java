@@ -1,0 +1,33 @@
+package com.nicico.cost.framework.service;
+
+import com.nicico.cost.framework.domain.dto.BaseDTO;
+import com.nicico.cost.framework.domain.dto.PageDTO;
+import com.nicico.cost.framework.enums.ResultStatus;
+import com.nicico.cost.framework.utility.ApplicationResource;
+import org.springframework.data.domain.Page;
+
+import java.util.List;
+
+public interface GeneralResponse<R> {
+
+
+    static <G> BaseDTO<G> successCustomResponse(G o) {
+        return BaseDTO.<G>builder().data(o)
+                .resultCode(ApplicationResource.successResource().getResultCode())
+                .resultMessage(ApplicationResource.successResource().getResultMessage())
+                .status(ResultStatus.SUCCESS).build();
+    }
+
+    static <G> BaseDTO<List<G>> successCustomListResponse(List<G> o) {
+        return BaseDTO.<List<G>>builder().data(o)
+                .resultCode(ApplicationResource.successResource().getResultCode())
+                .resultMessage(ApplicationResource.successResource().getResultMessage())
+                .status(ResultStatus.SUCCESS).build();
+    }
+
+    BaseDTO<R> successResponse(R o);
+
+    BaseDTO<List<R>> successListResponse(List<R> o);
+
+    BaseDTO<PageDTO<List<R>>> successPageResponse(List<R> o, Page page);
+}
