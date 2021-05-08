@@ -5,6 +5,7 @@ import com.nicico.cost.framework.packages.audit.view.AuditFactory;
 /**
  * @version 1.0.1
  * @apiNote you can use AuditFactory class for create AuditVM
+ * @author nima mousavi
  */
 public interface Log {
     /**

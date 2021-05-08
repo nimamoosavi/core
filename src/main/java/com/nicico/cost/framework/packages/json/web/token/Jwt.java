@@ -4,6 +4,11 @@ import com.nicico.cost.framework.domain.dto.BaseDTO;
 import com.nicico.cost.framework.packages.json.web.token.view.JwtObjReqVM;
 import io.jsonwebtoken.Claims;
 
+/**
+ * @version 1.0.1
+ * @implNote you must impl the json web token service in java
+ * @author nima mousavi
+ */
 public interface Jwt {
     /**
      * @param jwtObjReqVM is an object that have some main field for create jwt and a map for custom fields

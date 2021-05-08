@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @version 1.0.1
  * @implNote redis service as interface of method that impl in redis library
+ * @author nima mousavi
  */
 public interface Redis {
     /**
