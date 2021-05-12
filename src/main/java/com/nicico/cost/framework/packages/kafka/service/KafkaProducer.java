@@ -9,6 +9,7 @@ import java.util.Map;
  * @version 1.0.1
  * @implNote use Kafka producer to impl such as spring kafka
  * @author nima mousavi
+ * @author Hossein Mahdevar
  */
 public interface KafkaProducer {
 
