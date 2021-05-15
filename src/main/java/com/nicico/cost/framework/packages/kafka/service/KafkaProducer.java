@@ -28,7 +28,7 @@ public interface KafkaProducer {
      * @param o object that serialize and push it to kafka server
      * @implNote method call producer async and not return response
      */
-    void send(String topic, String o);
+    void send(String topic, Object o);
 
     /**
      *
@@ -37,7 +37,7 @@ public interface KafkaProducer {
      * @return boolean response of call kafka server
      * @apiNote : you must know method not call server Async and it can delay for get response but you can manage result of kafka
      */
-    BaseDTO<Boolean> sendSynchronous(String topic, String o);
+    BaseDTO<Boolean> sendSynchronous(String topic, Object o);
 
     /**
      *
@@ -46,7 +46,7 @@ public interface KafkaProducer {
      * @implNote method call producer async and not return response
      * @param config that is the kafka config for connect
      */
-    void send(String topic, String o, ProducerFactory<String, Object> config);
+    void send(String topic, Object o, ProducerFactory<String, Object> config);
 
     /**
      *
