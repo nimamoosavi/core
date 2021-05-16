@@ -1,10 +1,8 @@
 package com.nicico.cost.framework.service;
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
-import com.nicico.cost.framework.domain.dto.PageDTO;
 import com.nicico.cost.framework.enums.ResultStatus;
 import com.nicico.cost.framework.utility.ApplicationResource;
-import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -29,5 +27,4 @@ public interface GeneralResponse<R> {
 
     BaseDTO<List<R>> successListResponse(List<R> o);
 
-    BaseDTO<PageDTO<List<R>>> successPageResponse(List<R> o, Page page);
 }
