@@ -1,4 +1,4 @@
-package com.nicico.cost.framework.packages.kafka.service;
+package com.nicico.cost.framework.packages.kafka;
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
 import org.springframework.kafka.core.ProducerFactory;

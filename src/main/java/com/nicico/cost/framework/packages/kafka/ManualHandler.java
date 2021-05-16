@@ -1,4 +1,4 @@
-package com.nicico.cost.framework.packages.kafka.service;
+package com.nicico.cost.framework.packages.kafka;
 
 /**
  * @author nima
