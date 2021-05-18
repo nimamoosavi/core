@@ -3,7 +3,6 @@ package com.nicico.cost.framework.service.exception;
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
 import com.nicico.cost.framework.enums.ResultStatus;
-import com.nicico.cost.framework.exception.ServiceException;
 import com.nicico.cost.framework.utility.ApplicationResource;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.beans.factory.annotation.Autowired;

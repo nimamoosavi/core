@@ -1,7 +1,6 @@
 package com.nicico.cost.framework.service.exception;
 
 import com.nicico.cost.framework.enums.exception.ExceptionEnum;
-import com.nicico.cost.framework.exception.ServiceException;
 import com.nicico.cost.framework.utility.ApplicationResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

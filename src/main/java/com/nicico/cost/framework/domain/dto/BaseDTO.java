@@ -3,7 +3,7 @@ package com.nicico.cost.framework.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nicico.cost.framework.enums.ResultStatus;
-import com.nicico.cost.framework.exception.ServiceException;
+import com.nicico.cost.framework.service.exception.ServiceException;
 import com.nicico.cost.framework.service.GeneralResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
