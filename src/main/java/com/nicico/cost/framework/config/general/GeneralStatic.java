@@ -61,10 +61,6 @@ public class GeneralStatic {
         GeneralStatic.roles = roles;
     }
 
-    @Value("${core.username}")
-    public void setUserName(String userName) {
-        GeneralStatic.userName = userName;
-    }
 
     @Value("${core.userId:userId}")
     public void setUserId(String userId) {
