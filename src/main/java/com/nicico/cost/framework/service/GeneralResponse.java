@@ -16,8 +16,8 @@ public interface GeneralResponse<R> {
                 .status(ResultStatus.SUCCESS).build();
     }
 
-    static <G> BaseDTO<Iterable<G>> successCustomListResponse(Iterable<G> o) {
-        return BaseDTO.<Iterable<G>>builder().data(o)
+    static <G> BaseDTO<List<G>> successCustomListResponse(List<G> o) {
+        return BaseDTO.<List<G>>builder().data(o)
                 .resultCode(ApplicationResource.successResource().getResultCode())
                 .resultMessage(ApplicationResource.successResource().getResultMessage())
                 .status(ResultStatus.SUCCESS).build();
