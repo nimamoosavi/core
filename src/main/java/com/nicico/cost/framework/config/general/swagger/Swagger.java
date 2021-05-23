@@ -1,4 +1,4 @@
-package com.nicico.cost.framework.config.swagger;
+package com.nicico.cost.framework.config.general.swagger;
 
 import com.google.common.base.Predicate;
 import org.springframework.beans.factory.annotation.Value;
