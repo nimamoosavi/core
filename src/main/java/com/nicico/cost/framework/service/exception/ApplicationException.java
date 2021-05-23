@@ -1,7 +1,7 @@
 package com.nicico.cost.framework.service.exception;
 
 import com.nicico.cost.framework.enums.exception.ExceptionEnum;
-import com.nicico.cost.framework.utility.ApplicationResource;
+import com.nicico.cost.framework.utility.impl.ApplicationResourceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class ApplicationException {
 
     @Autowired
-    ApplicationResource applicationResource;
+    ApplicationResourceImpl applicationResource;
 
 
     @Value("${ENVIRONMENT_NOT_FOUND.code}")

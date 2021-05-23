@@ -1,213 +1,65 @@
 package com.nicico.cost.framework.utility;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
-import static com.nicico.cost.framework.config.general.GeneralStatic.AUTHORIZATION;
+public interface ApplicationRequest {
+    String getClientIp();
 
-@Component
-public class ApplicationRequest {
+    Map<String, String> getHeaders();
 
+    String getHeader(String name);
 
-    private final RestTemplate restTemplate;
+    Boolean isHeader(String name);
 
-    @Autowired
-    public ApplicationRequest(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
+    String getMethod();
 
-    protected static final String[] IP_HEADER_CANDIDATES = {
-            "X-Forwarded-For",
-            "Proxy-Client-IP",
-            "WL-Proxy-Client-IP",
-            "HTTP_X_FORWARDED_FOR",
-            "HTTP_X_FORWARDED",
-            "HTTP_X_CLUSTER_CLIENT_IP",
-            "HTTP_CLIENT_IP",
-            "HTTP_FORWARDED_FOR",
-            "HTTP_FORWARDED",
-            "HTTP_VIA",
-            "REMOTE_ADDR"};
+    String getUrl();
 
-    public String getClientIp() {
-        HttpServletRequest request = requestContextHolder();
-        for (String header : IP_HEADER_CANDIDATES) {
-            String ip = request.getHeader(header);
-            if (ip != null && ip.length() != 0 && !"unknown".equalsIgnoreCase(ip))
-                return ip;
-        }
-        return null;
-    }
+    String getProtocol();
 
-    public Map<String, String> getHeaders() {
-        HttpServletRequest request = requestContextHolder();
-        Map<String, String> map = new HashMap<>();
-        Enumeration<String> headerNames = request.getHeaderNames();
-        while (headerNames.hasMoreElements()) {
-            String key = headerNames.nextElement();
-            String value = request.getHeader(key);
-            map.put(key, value);
-        }
-        return map;
-    }
+    String getHost();
 
-    public String getHeader(String name) {
-        HttpServletRequest request = requestContextHolder();
-        return request.getHeader(name);
-    }
+    String getRequestURI();
 
-    public Boolean isHeader(String name) {
-        HttpServletRequest request = requestContextHolder();
-        return request.getHeader(name) != null;
-    }
+    String getRequestDomain();
 
-    public String getMethod() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getMethod();
-    }
+    Integer getServerPort();
 
-    public String getUrl() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getRequestURL().toString();
-    }
+    String getParam();
 
-    public String getProtocol() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getProtocol();
-    }
+    String getParam(String param);
 
-    public String getHost() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getRemoteHost();
-    }
+    String getContentType();
 
-    public String getRequestURI() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getRequestURI();
-    }
+    List<Cookie> getCookies();
 
-    public String getRequestDomain() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getScheme().concat("://").concat(request.getServerName()).concat(":").concat(request.getServerPort() + "");
-    }
+    Cookie getCookie(String name);
 
-    public Integer getServerPort() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getServerPort();
-    }
+    Boolean isCookie(String name);
 
-    public String getParam() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getQueryString();
-    }
+    String getSessionId();
 
-    public String getParam(String param) {
-        HttpServletRequest request = requestContextHolder();
-        return request.getParameter(param);
-    }
+    Timestamp getSessionLastAccessTime();
 
-    public String getContentType() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getContentType();
-    }
+    Boolean isSessionNew();
 
-    public List<Cookie> getCookies() {
-        HttpServletRequest request = requestContextHolder();
-        return Arrays.asList(request.getCookies());
-    }
+    Timestamp getSessionCreateTime();
 
-    public Cookie getCookie(String name) {
-        HttpServletRequest request = requestContextHolder();
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals(name))
-                return cookie;
-        }
-        return null;
-    }
+    String changeUserSession();
 
-    public Boolean isCookie(String name) {
-        HttpServletRequest request = requestContextHolder();
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals(name))
-                return true;
-        }
-        return false;
-    }
+    void deactivateSession();
 
-    public String getSessionId() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getSession().getId();
-    }
+    Object getSession(String name);
 
-    public Timestamp getSessionLastAccessTime() {
-        HttpServletRequest request = requestContextHolder();
-        return new Timestamp(request.getSession().getLastAccessedTime());
-    }
+    void addSession(String name, Object o);
 
-    public Boolean isSessionNew() {
-        HttpServletRequest request = requestContextHolder();
-        return request.getSession().isNew();
-    }
+    void removeSession(String name);
 
-    public Timestamp getSessionCreateTime() {
-        HttpServletRequest request = requestContextHolder();
-        return new Timestamp(request.getSession().getCreationTime());
-    }
-
-    public String changeUserSession() {
-        HttpServletRequest request = requestContextHolder();
-        return request.changeSessionId();
-    }
-
-    public void deactivateSession() {
-        HttpServletRequest request = requestContextHolder();
-        request.getSession().invalidate();
-    }
-
-    public Object getSession(String name) {
-        HttpServletRequest request = requestContextHolder();
-        return request.getSession().getAttribute(name);
-    }
-
-    public void addSession(String name, Object o) {
-        HttpServletRequest request = requestContextHolder();
-        request.getSession().setAttribute(name, o);
-    }
-
-    public void removeSession(String name) {
-        HttpServletRequest request = requestContextHolder();
-        request.getSession().removeAttribute(name);
-    }
-
-
-    public <U> ResponseEntity<U> httpRequest(String domain, HttpMethod httpMethod, Map<String, String> headers, Object body, Class<U> targetClass) {
-        HttpHeaders httpHeaders = new HttpHeaders();
-        if (headers != null)
-            httpHeaders.setAll(headers);
-        String authorization = getHeader(AUTHORIZATION);
-        if (authorization != null)
-            httpHeaders.set(AUTHORIZATION, authorization);
-        HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
-        return restTemplate.exchange(domain, httpMethod, httpEntity, targetClass);
-    }
-
-    public HttpServletRequest requestContextHolder() {
-        return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
-    }
-
-
+    <U> ResponseEntity<U> httpRequest(String domain, HttpMethod httpMethod, Map<String, String> headers, Object body, Class<U> targetClass);
 }

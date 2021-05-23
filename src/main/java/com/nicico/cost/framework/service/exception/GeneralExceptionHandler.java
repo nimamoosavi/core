@@ -3,7 +3,7 @@ package com.nicico.cost.framework.service.exception;
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
 import com.nicico.cost.framework.enums.ResultStatus;
-import com.nicico.cost.framework.utility.ApplicationResource;
+import com.nicico.cost.framework.utility.impl.ApplicationResourceImpl;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ import javax.validation.ConstraintViolationException;
 public abstract class GeneralExceptionHandler {
 
     @Autowired
-    private ApplicationResource applicationResource;
+    private ApplicationResourceImpl applicationResource;
 
     @ExceptionHandler(ServiceException.class)
     protected ResponseEntity<BaseDTO<Object>> serviceException(ServiceException e) {
