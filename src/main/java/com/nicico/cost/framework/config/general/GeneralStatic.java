@@ -24,7 +24,19 @@ public class GeneralStatic {
     private static String swaggerLicence;
     private static String swaggerVersion;
     public static String instanceId;
+    public static int connectionTimeOut;
+    public static int readTimeOut;
 
+
+    @Value("${connection.timeout:5000}")
+    public void setConnectionTimeOut(int connectionTimeOut) {
+        GeneralStatic.connectionTimeOut = connectionTimeOut;
+    }
+
+    @Value("${read.timeout:5000}")
+    public void setReadTimeOut(int readTimeOut) {
+        GeneralStatic.readTimeOut = readTimeOut;
+    }
 
     @Value("${core.refreshToken:refreshToken}")
     public void setRefreshToken(String refreshToken) {

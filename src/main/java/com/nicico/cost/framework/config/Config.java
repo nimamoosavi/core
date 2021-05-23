@@ -10,6 +10,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.Duration;
+
+import static com.nicico.cost.framework.config.general.GeneralStatic.connectionTimeOut;
+import static com.nicico.cost.framework.config.general.GeneralStatic.readTimeOut;
+
 @Configuration
 @PropertySource(value = "classpath:applicationException.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 @ComponentScan(basePackages = {"com.nicico.cost.framework"})
@@ -17,8 +22,11 @@ public class Config {
 
     @Bean
     @LoadBalanced
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
-        return builder.build();
+    public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
+        return restTemplateBuilder
+                .setConnectTimeout(Duration.ofMillis(connectionTimeOut))
+                .setReadTimeout(Duration.ofMillis(readTimeOut))
+                .build();
     }
 
     @Bean

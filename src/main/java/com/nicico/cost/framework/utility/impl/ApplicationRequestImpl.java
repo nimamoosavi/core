@@ -1,6 +1,7 @@
 package com.nicico.cost.framework.utility.impl;
 
 import com.nicico.cost.framework.utility.ApplicationRequest;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,6 +14,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
+import java.time.Duration;
 import java.util.*;
 
 import static com.nicico.cost.framework.config.general.GeneralStatic.AUTHORIZATION;
@@ -209,5 +211,49 @@ public class ApplicationRequestImpl implements ApplicationRequest {
         return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
     }
 
+    @Override
+    public ResponseEntity<Object> httpRequest(String domain, HttpMethod httpMethod, Map<String, String> headers, Object body) {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        if (headers != null)
+            httpHeaders.setAll(headers);
+        String authorization = getHeader(AUTHORIZATION);
+        if (authorization != null)
+            httpHeaders.set(AUTHORIZATION, authorization);
+        HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
+        return restTemplate.exchange(domain, httpMethod, httpEntity, Object.class);
+    }
 
+    @Override
+    public <U> ResponseEntity<U> httpRequest(String domain, HttpMethod httpMethod, Map<String, String> headers, Object body, Class<U> targetClass, int conTimeOut, int readTimeOut) {
+        RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
+        RestTemplate customRestTemplate = restTemplateBuilder
+                .setConnectTimeout(Duration.ofMillis(conTimeOut))
+                .setReadTimeout(Duration.ofMillis(readTimeOut))
+                .build();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        if (headers != null)
+            httpHeaders.setAll(headers);
+        String authorization = getHeader(AUTHORIZATION);
+        if (authorization != null)
+            httpHeaders.set(AUTHORIZATION, authorization);
+        HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
+        return customRestTemplate.exchange(domain, httpMethod, httpEntity, targetClass);
+    }
+
+    @Override
+    public ResponseEntity<Object> httpRequest(String domain, HttpMethod httpMethod, Map<String, String> headers, Object body, int conTimeOut, int readTimeOut) {
+        RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
+        RestTemplate customRestTemplate = restTemplateBuilder
+                .setConnectTimeout(Duration.ofMillis(conTimeOut))
+                .setReadTimeout(Duration.ofMillis(readTimeOut))
+                .build();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        if (headers != null)
+            httpHeaders.setAll(headers);
+        String authorization = getHeader(AUTHORIZATION);
+        if (authorization != null)
+            httpHeaders.set(AUTHORIZATION, authorization);
+        HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
+        return customRestTemplate.exchange(domain, httpMethod, httpEntity, Object.class);
+    }
 }
