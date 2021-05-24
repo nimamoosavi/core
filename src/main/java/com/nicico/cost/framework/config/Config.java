@@ -17,6 +17,7 @@ import static com.nicico.cost.framework.config.general.GeneralStatic.readTimeOut
 
 @Configuration
 @PropertySource(value = "classpath:applicationException.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
+@PropertySource(value = "classpath:applicationWarning.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 @ComponentScan(basePackages = {"com.nicico.cost.framework"})
 public class Config {
 

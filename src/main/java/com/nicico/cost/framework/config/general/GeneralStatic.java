@@ -18,6 +18,7 @@ public class GeneralStatic {
     public static final String AUTHORIZATION = "Authorization";
     public static final String APP_KEY = "appKey";
     public static final String CORRELATION_ID = "correlationId";
+    public static final String CLIENT_VERSION = "client-version";
     private static String requestId;
     private static String swaggerTittle;
     private static String swaggerDescription;

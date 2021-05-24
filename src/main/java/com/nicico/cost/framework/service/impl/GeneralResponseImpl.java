@@ -4,11 +4,12 @@ import com.nicico.cost.framework.domain.dto.BaseDTO;
 import com.nicico.cost.framework.enums.ResultStatus;
 import com.nicico.cost.framework.service.GeneralResponse;
 import com.nicico.cost.framework.utility.impl.ApplicationResourceImpl;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Component
 public class GeneralResponseImpl<R> implements GeneralResponse<R> {
     public BaseDTO<R> successResponse(R o) {
         return BaseDTO.<R>builder().data(o)

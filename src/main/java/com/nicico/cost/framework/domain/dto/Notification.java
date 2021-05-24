@@ -9,7 +9,7 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor
 @Data
-public class NotificationDTO {
+public class Notification {
     private ResultStatus status;
     private Object notify;
 }

@@ -3,8 +3,8 @@ package com.nicico.cost.framework.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nicico.cost.framework.enums.ResultStatus;
-import com.nicico.cost.framework.service.exception.ServiceException;
 import com.nicico.cost.framework.service.GeneralResponse;
+import com.nicico.cost.framework.service.exception.ServiceException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +21,7 @@ public class BaseDTO<T> {
     private String resultMessage;
     private ResultStatus status;
     private T data;
-    private List<NotificationDTO> notifies;
+    private List<Notification> notifies;
 
 
     @JsonIgnore
