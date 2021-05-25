@@ -2,7 +2,7 @@ package com.nicico.cost.framework.domain.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.nicico.cost.framework.enums.ResultStatus;
+import com.nicico.cost.framework.enums.Status;
 import com.nicico.cost.framework.service.GeneralResponse;
 import com.nicico.cost.framework.service.exception.ServiceException;
 import lombok.AllArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 public class BaseDTO<T> {
     private Integer resultCode;
     private String resultMessage;
-    private ResultStatus status;
+    private Status status;
     private T data;
     private List<Notification> notifies;
 

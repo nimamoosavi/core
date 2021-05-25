@@ -1,4 +1,4 @@
-package com.nicico.cost.framework.utility;
+package com.nicico.cost.framework.utility.request;
 
 
 import org.springframework.http.HttpMethod;

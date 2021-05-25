@@ -1,6 +1,6 @@
-package com.nicico.cost.framework.utility.impl;
+package com.nicico.cost.framework.utility.request.impl;
 
-import com.nicico.cost.framework.utility.ApplicationRequest;
+import com.nicico.cost.framework.utility.request.ApplicationRequest;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;

@@ -57,7 +57,8 @@ public class AuditFactory {
         BEFORE,
         AFTER_RETURNING,
         AFTER_TROWING,
-        AROUND
+        AROUND,
+        ALL
     }
 
     @Getter

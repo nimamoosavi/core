@@ -2,8 +2,8 @@ package com.nicico.cost.framework.service.exception;
 
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
-import com.nicico.cost.framework.enums.ResultStatus;
-import com.nicico.cost.framework.utility.impl.ApplicationResourceImpl;
+import com.nicico.cost.framework.enums.Status;
+import com.nicico.cost.framework.utility.response.impl.ApplicationResourceImpl;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public abstract class GeneralExceptionHandler {
 
     @ExceptionHandler(ServiceException.class)
     protected ResponseEntity<BaseDTO<Object>> serviceException(ServiceException e) {
-        BaseDTO<Object> baseDTO = BaseDTO.builder().resultCode(e.exceptionCode).resultMessage(e.exceptionMessage).status(ResultStatus.ERROR).build();
+        BaseDTO<Object> baseDTO = BaseDTO.builder().resultCode(e.exceptionCode).resultMessage(e.exceptionMessage).status(Status.ERROR).build();
         return new ResponseEntity<>(baseDTO, e.httpStatus != null ? e.httpStatus : HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -37,7 +37,7 @@ public abstract class GeneralExceptionHandler {
                 .resultMessage(String.format(
                         applicationResource.getResourceText("application.message.validationError.message"),
                         (error.getField())
-                )).status(ResultStatus.ERROR).build();
+                )).status(Status.ERROR).build();
         return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
     }
 
@@ -51,7 +51,7 @@ public abstract class GeneralExceptionHandler {
                 .resultMessage(String.format(
                         applicationResource.getResourceText("application.message.validationError.message"),
                         (fieldName)
-                )).status(ResultStatus.ERROR).build();
+                )).status(Status.ERROR).build();
         return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
     }
 
@@ -61,7 +61,7 @@ public abstract class GeneralExceptionHandler {
         BaseDTO<String> baseDTO = BaseDTO.<String>builder().resultCode(
                 Integer.valueOf(applicationResource.getResourceText("JSON_CAST_ERROR.code")))
                 .resultMessage(applicationResource.getResourceText("JSON_CAST_ERROR.message"))
-                .status(ResultStatus.ERROR).build();
+                .status(Status.ERROR).build();
         return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
     }
 
@@ -70,8 +70,7 @@ public abstract class GeneralExceptionHandler {
     protected ResponseEntity<BaseDTO<String>> handleException(Exception e) {
         BaseDTO<String> baseDTO = BaseDTO.<String>builder().resultCode(
                 Integer.valueOf(applicationResource.getResourceText("application.message.unknownError.code")))
-                .resultMessage(e.getMessage()
-                ).status(ResultStatus.ERROR).build();
+                .resultMessage(applicationResource.getResourceText("application.message.unknownError.message")).status(Status.ERROR).build();
         return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
     }
 

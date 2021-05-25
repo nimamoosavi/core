@@ -1,11 +1,12 @@
-package com.nicico.cost.framework.utility.impl;
+package com.nicico.cost.framework.utility.response.impl;
 
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
-import com.nicico.cost.framework.enums.ResultStatus;
+import com.nicico.cost.framework.enums.Status;
 import com.nicico.cost.framework.enums.exception.ExceptionEnum;
 import com.nicico.cost.framework.service.exception.ApplicationException;
-import com.nicico.cost.framework.utility.ApplicationResource;
+import com.nicico.cost.framework.utility.request.Message;
+import com.nicico.cost.framework.utility.response.ApplicationResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -45,6 +46,11 @@ public class ApplicationResourceImpl implements ApplicationResource {
         return environment.getProperty(resourceText);
     }
 
+    @Override
+    public String getResourceText(Message message) {
+        return environment.getProperty(message.key());
+    }
+
     public BaseDTO<String> getResourcesData(String resourceText) {
         String text;
         try {
@@ -56,7 +62,7 @@ public class ApplicationResourceImpl implements ApplicationResource {
     }
 
     public static BaseDTO<Object> successResource() {
-        return BaseDTO.builder().resultCode(successCode).resultMessage(successText).status(ResultStatus.SUCCESS).build();
+        return BaseDTO.builder().resultCode(successCode).resultMessage(successText).status(Status.SUCCESS).build();
     }
 
 

@@ -1,20 +1,19 @@
-package com.nicico.cost.framework.enums.warn;
+package com.nicico.cost.framework.enums.message;
 
 import com.nicico.cost.framework.utility.request.Message;
-import lombok.Getter;
 
-@Getter
-public enum Warning implements Message {
-    DEPRECATED {
+public enum MessageEnum implements Message {
+
+    SUCCESS {
         @Override
         public String key() {
             return this.name();
         }
     },
-    VERSION {
+    CREATED {
         @Override
         public String key() {
             return this.name();
         }
-    }
+    };
 }

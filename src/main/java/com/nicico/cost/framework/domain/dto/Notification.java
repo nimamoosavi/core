@@ -1,7 +1,7 @@
 package com.nicico.cost.framework.domain.dto;
 
 
-import com.nicico.cost.framework.enums.ResultStatus;
+import com.nicico.cost.framework.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,6 +10,6 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class Notification {
-    private ResultStatus status;
+    private Status status;
     private Object notify;
 }

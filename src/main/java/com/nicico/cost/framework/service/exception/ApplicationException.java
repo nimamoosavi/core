@@ -1,112 +1,55 @@
 package com.nicico.cost.framework.service.exception;
 
 import com.nicico.cost.framework.domain.dto.Notification;
-import com.nicico.cost.framework.enums.ResultStatus;
-import com.nicico.cost.framework.enums.exception.ExceptionEnum;
-import com.nicico.cost.framework.enums.warn.Warning;
-import com.nicico.cost.framework.utility.impl.ApplicationResourceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import com.nicico.cost.framework.utility.request.Message;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@Component
-public class ApplicationException {
+/**
+ * @author nima
+ * @apiNote this class used for create Exceptions And Notification
+ */
+public interface ApplicationException {
 
-    @Autowired
-    ApplicationResourceImpl applicationResource;
+    /**
+     * @param exceptionKey this key that fetch from Resource properties
+     * @return the Object Of Exception Class that you can throw it
+     */
+    ServiceException createApplicationException(String exceptionKey);
 
+    /**
+     * @param message is the Object of message that you must impl it {@link com.nicico.cost.framework.utility.request.Message}
+     * @return the Object Of Exception Class that you can throw it
+     */
+    ServiceException createApplicationException(Message message);
 
-    @Value("${ENVIRONMENT_NOT_FOUND.code}")
-    private String environmentNotFoundCode;
+    /**
+     * @param message is the Object of message that you must impl it {@link com.nicico.cost.framework.utility.request.Message}
+     * @return the Object Of notification Class
+     * @apiNote this method used for create notification
+     */
+    Notification createApplicationWarning(Message message);
 
-    @Value("${ENVIRONMENT_NOT_FOUND.message}")
-    private String environmentNotFoundMessage;
+    /**
+     * @param messages is the Object of message that you must impl it {@link com.nicico.cost.framework.utility.request.Message}
+     * @return the Object Of notification Class
+     * @apiNote this method used for create notification
+     */
+    List<Notification> createApplicationWarning(Message[] messages);
 
-    private static final String CODE = ".code";
-    private static final String MESSAGE = ".message";
+    /**
+     * @param exceptionKey this key that fetch from Resource properties
+     * @param httpStatus   is the status of Http Response {@link org.springframework.http.HttpStatus}
+     * @return the Object Of Exception Class that you can throw it
+     */
+    ServiceException createApplicationException(String exceptionKey, HttpStatus httpStatus);
 
-    private String expCode;
-    private String expMessage;
+    /**
+     * @param message    is the Object of message that you must impl it {@link com.nicico.cost.framework.utility.request.Message}
+     * @param httpStatus is the status of Http Response {@link org.springframework.http.HttpStatus}
+     * @return the Object Of Exception Class that you can throw it
+     */
+    ServiceException createApplicationException(Message message, HttpStatus httpStatus);
 
-    public ServiceException createApplicationException(String exceptionKey) {
-        try {
-            expCode = applicationResource.getResourceText(exceptionKey.concat(CODE));
-            expMessage = applicationResource.getResourceText(exceptionKey.concat(MESSAGE));
-        } catch (Exception e) {
-            throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
-                    .exceptionMessage(environmentNotFoundMessage)
-                    .httpStatus(HttpStatus.BAD_GATEWAY).build();
-        }
-        return ServiceException.builder().exceptionCode(Integer.valueOf(expCode)).exceptionMessage(expMessage).build();
-    }
-
-
-    public ServiceException createApplicationException(ExceptionEnum exceptionEnum) {
-        try {
-            expCode = applicationResource.getResourceText(exceptionEnum.name().concat(CODE));
-            expMessage = applicationResource.getResourceText(exceptionEnum.name().concat(MESSAGE));
-        } catch (Exception e) {
-            throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
-                    .exceptionMessage(environmentNotFoundMessage)
-                    .httpStatus(HttpStatus.BAD_GATEWAY).build();
-        }
-        return ServiceException.builder().exceptionCode(Integer.valueOf(expCode)).exceptionMessage(expMessage).build();
-    }
-
-    public Notification createApplicationWarning(Warning warning) {
-        try {
-            expMessage = applicationResource.getResourceText(warning.name().concat(MESSAGE));
-        } catch (Exception e) {
-            throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
-                    .exceptionMessage(environmentNotFoundMessage)
-                    .httpStatus(HttpStatus.BAD_GATEWAY).build();
-        }
-        return Notification.builder().notify(expMessage).status(ResultStatus.WARN).build();
-    }
-
-    public List<Notification> createApplicationWarning(Warning[] warning) {
-        List<Notification> notifications = new ArrayList<>();
-        for (Warning warningObj : warning) {
-            try {
-                expMessage = applicationResource.getResourceText(warningObj.name().concat(MESSAGE));
-                Notification notification = Notification.builder().notify(expMessage).status(ResultStatus.WARN).build();
-                notifications.add(notification);
-            } catch (Exception e) {
-                throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
-                        .exceptionMessage(environmentNotFoundMessage)
-                        .httpStatus(HttpStatus.BAD_GATEWAY).build();
-            }
-        }
-        return notifications;
-    }
-
-    public ServiceException createApplicationException(String exceptionKey, HttpStatus httpStatus) {
-        try {
-            expCode = applicationResource.getResourceText(exceptionKey.concat(CODE));
-            expMessage = applicationResource.getResourceText(exceptionKey.concat(MESSAGE));
-        } catch (Exception e) {
-            throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
-                    .exceptionMessage(environmentNotFoundMessage)
-                    .httpStatus(HttpStatus.BAD_GATEWAY).build();
-        }
-        return ServiceException.builder().exceptionCode(Integer.valueOf(expCode)).httpStatus(httpStatus).exceptionMessage(expMessage).build();
-    }
-
-
-    public ServiceException createApplicationException(ExceptionEnum exceptionEnum, HttpStatus httpStatus) {
-        try {
-            expCode = applicationResource.getResourceText(exceptionEnum.name().concat(CODE));
-            expMessage = applicationResource.getResourceText(exceptionEnum.name().concat(MESSAGE));
-        } catch (Exception e) {
-            throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
-                    .exceptionMessage(environmentNotFoundMessage)
-                    .httpStatus(HttpStatus.BAD_GATEWAY).build();
-        }
-        return ServiceException.builder().exceptionCode(Integer.valueOf(expCode))
-                .httpStatus(httpStatus).exceptionMessage(expMessage).build();
-    }
 }
