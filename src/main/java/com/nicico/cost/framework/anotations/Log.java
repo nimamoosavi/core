@@ -8,10 +8,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@Target({ElementType.TYPE, ElementType.METHOD})
 public @interface Log {
     /**
-     *
      * @return the type of Log and Used For CrossCutting
      */
     AuditFactory.AuditType type() default AuditFactory.AuditType.ALL;
