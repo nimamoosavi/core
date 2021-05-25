@@ -4,7 +4,7 @@ import com.nicico.cost.framework.domain.dto.Notification;
 import com.nicico.cost.framework.enums.Status;
 import com.nicico.cost.framework.service.exception.ApplicationException;
 import com.nicico.cost.framework.service.exception.ServiceException;
-import com.nicico.cost.framework.utility.request.Message;
+import com.nicico.cost.framework.utility.response.Message;
 import com.nicico.cost.framework.utility.response.impl.ApplicationResourceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

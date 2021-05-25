@@ -1,7 +1,6 @@
 package com.nicico.cost.framework.utility.response;
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
-import com.nicico.cost.framework.utility.request.Message;
 
 /**
  * @author nima
@@ -22,7 +21,7 @@ public interface ApplicationResource {
     String getResourceText(String resourceText);
 
     /**
-     * @param message is the Parent of  From Resource {@link com.nicico.cost.framework.utility.request.Message}
+     * @param message is the Parent of  From Resource {@link Message}
      * @return the value Of Value
      */
     String getResourceText(Message message);

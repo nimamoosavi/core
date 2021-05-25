@@ -5,7 +5,7 @@ import com.nicico.cost.framework.domain.dto.BaseDTO;
 import com.nicico.cost.framework.enums.Status;
 import com.nicico.cost.framework.enums.exception.ExceptionEnum;
 import com.nicico.cost.framework.service.exception.ApplicationException;
-import com.nicico.cost.framework.utility.request.Message;
+import com.nicico.cost.framework.utility.response.Message;
 import com.nicico.cost.framework.utility.response.ApplicationResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

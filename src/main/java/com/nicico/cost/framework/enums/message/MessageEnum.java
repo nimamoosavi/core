@@ -1,6 +1,6 @@
 package com.nicico.cost.framework.enums.message;
 
-import com.nicico.cost.framework.utility.request.Message;
+import com.nicico.cost.framework.utility.response.Message;
 
 public enum MessageEnum implements Message {
 
