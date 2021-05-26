@@ -9,20 +9,21 @@ import java.util.List;
 /**
  * @author nima
  * @apiNote this class used for create Exceptions And Notification
+ * @since 1.0.1
  */
-public interface ApplicationException {
+public interface ApplicationException<R extends RuntimeException> {
 
     /**
      * @param exceptionKey this key that fetch from Resource properties
      * @return the Object Of Exception Class that you can throw it
      */
-    ServiceException createApplicationException(String exceptionKey);
+    R createApplicationException(String exceptionKey);
 
     /**
      * @param message is the Object of message that you must impl it {@link Message}
      * @return the Object Of Exception Class that you can throw it
      */
-    ServiceException createApplicationException(Message message);
+    R createApplicationException(Message message);
 
     /**
      * @param message is the Object of message that you must impl it {@link Message}
@@ -43,13 +44,13 @@ public interface ApplicationException {
      * @param httpStatus   is the status of Http Response {@link org.springframework.http.HttpStatus}
      * @return the Object Of Exception Class that you can throw it
      */
-    ServiceException createApplicationException(String exceptionKey, HttpStatus httpStatus);
+    R createApplicationException(String exceptionKey, HttpStatus httpStatus);
 
     /**
      * @param message    is the Object of message that you must impl it {@link Message}
      * @param httpStatus is the status of Http Response {@link org.springframework.http.HttpStatus}
      * @return the Object Of Exception Class that you can throw it
      */
-    ServiceException createApplicationException(Message message, HttpStatus httpStatus);
+    R createApplicationException(Message message, HttpStatus httpStatus);
 
 }

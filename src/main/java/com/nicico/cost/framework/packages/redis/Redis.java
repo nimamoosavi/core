@@ -6,9 +6,10 @@ import com.nicico.cost.framework.packages.redis.view.RedisResVM;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * @author nima mousavi
  * @version 1.0.1
  * @implNote redis service as interface of method that impl in redis library
- * @author nima mousavi
+ * @since 1.0.1
  */
 public interface Redis {
     /**

@@ -5,9 +5,10 @@ import com.nicico.cost.framework.packages.json.web.token.view.JwtObjReqVM;
 import io.jsonwebtoken.Claims;
 
 /**
+ * @author nima mousavi
  * @version 1.0.1
  * @implNote you must impl the json web token service in java
- * @author nima mousavi
+ * @since 1.0.1
  */
 public interface Jwt {
     /**
@@ -71,71 +72,65 @@ public interface Jwt {
     BaseDTO<Claims> getJwtBody(String jwt);
 
     /**
-     * @param jwt is your input jwt
-     * @return object of claims that is your json body
+     * @param jwt       is your input jwt
      * @param secretKey is your own secret key for valid jwt
+     * @return object of claims that is your json body
      * @apiNote this method not validate expireTime
      */
     BaseDTO<Claims> getJwtBodyWithoutCheckExpireTime(String jwt, String secretKey);
 
     /**
-     * @param jwt is your input jwt
-     * @return object of claims that is your json body
+     * @param jwt       is your input jwt
      * @param secretKey is your own secret key for valid jwt
+     * @return object of claims that is your json body
      */
     BaseDTO<Claims> getJwtBody(String jwt, String secretKey);
 
     /**
-     *
-     * @param jwt is your input jwt
+     * @param jwt       is your input jwt
      * @param paramName is your key that you want fetch from claims
-     * @param tClass is object that you want cast to it
-     * @param <R> the class type
+     * @param tClass    is object that you want cast to it
+     * @param <R>       the class type
      * @return a object of <T>
      */
     <R> BaseDTO<R> getJwtParam(String jwt, String paramName, Class<R> tClass);
 
     /**
-     *
-     * @param claims is your input jwt body
+     * @param claims    is your input jwt body
      * @param paramName is your key that you want fetch from claims
-     * @param tClass is object that you want cast to it
-     * @param <R> the class type
+     * @param tClass    is object that you want cast to it
+     * @param <R>       the class type
      * @return a object of <T>
      */
     <R> BaseDTO<R> getJwtParam(Claims claims, String paramName, Class<R> tClass);
 
     /**
-     *
      * @param jwt is your input jwt
      * @return your claims body object
      */
     BaseDTO<Object> getJwtParam(String jwt);
 
     /**
-     *
-     * @param jwt is your input jwt
+     * @param jwt       is your input jwt
      * @param secretKey is your own secret key for valid jwt
      * @param paramName is your key that you want fetch from claims
-     * @param tClass is object that you want cast to it
-     * @param <R> the class type
+     * @param tClass    is object that you want cast to it
+     * @param <R>       the class type
      * @return your claims body object
      */
     <R> BaseDTO<R> getJwtParamWithoutCheckExpireTime(String jwt, String secretKey, String paramName, Class<R> tClass);
 
     /**
-     *
-     * @param jwt is your input jwt
+     * @param jwt       is your input jwt
      * @param secretKey is your own secret key for valid jwt
      * @param paramName is your key that you want fetch from claims
-     * @param tClass is object that you want cast to it
-     * @param <R> the class type
+     * @param tClass    is object that you want cast to it
+     * @param <R>       the class type
      * @return your claims body object
      */
     <R> BaseDTO<R> getJwtParam(String jwt, String secretKey, String paramName, Class<R> tClass);
 
     /**
-     *
      * @param text input text for Hash
      * @return hash of text
      */

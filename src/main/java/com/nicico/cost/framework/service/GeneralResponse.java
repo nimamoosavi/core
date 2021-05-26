@@ -6,9 +6,20 @@ import com.nicico.cost.framework.utility.response.impl.ApplicationResourceImpl;
 
 import java.util.List;
 
+/**
+ * @author nima
+ * @since 1.0.1
+ * @param <R> the type Of Response that you can return it
+ */
 public interface GeneralResponse<R> {
 
 
+    /**
+     *
+     * @param o the Input Object that you can input to methode
+     * @param <G> the Type Of Return BaseDTO Object
+     * @return the BaseDTO Object
+     */
     static <G> BaseDTO<G> successCustomResponse(G o) {
         return BaseDTO.<G>builder().data(o)
                 .resultCode(ApplicationResourceImpl.successResource().getResultCode())

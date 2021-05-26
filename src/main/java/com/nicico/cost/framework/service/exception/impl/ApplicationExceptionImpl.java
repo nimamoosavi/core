@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ApplicationExceptionImpl implements ApplicationException {
+public class ApplicationExceptionImpl implements ApplicationException<ServiceException> {
 
     @Autowired
     ApplicationResourceImpl applicationResource;
