@@ -10,6 +10,7 @@ import java.util.List;
  * @author nima
  * @apiNote this class used for create Exceptions And Notification
  * @since 1.0.1
+ * @param <R> is the type Of Exception that you can return From Method
  */
 public interface ApplicationException<R extends RuntimeException> {
 
