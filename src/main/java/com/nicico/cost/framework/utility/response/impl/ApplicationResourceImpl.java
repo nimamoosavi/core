@@ -24,11 +24,11 @@ public class ApplicationResourceImpl implements ApplicationResource {
     private final ApplicationException applicationException;
 
 
-    private static Integer successCode;
+    private static String successCode;
     private static String successText;
 
     @Value("${SUCCESS.code}")
-    public void setSuccessCode(Integer successCode) {
+    public void setSuccessCode(String successCode) {
         ApplicationResourceImpl.successCode = successCode;
     }
 
