@@ -17,8 +17,8 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 @Data
 public class BaseDTO<T> {
-    private String resultCode;
-    private String resultMessage;
+    private String code;
+    private String message;
     private Status status;
     private T data;
     private List<Notification> notifies;

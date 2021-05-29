@@ -12,15 +12,15 @@ import java.util.List;
 public class GeneralResponseImpl<R> implements GeneralResponse<R> {
     public BaseDTO<R> successResponse(R o) {
         return BaseDTO.<R>builder().data(o)
-                .resultCode(ApplicationResourceImpl.successResource().getResultCode())
-                .resultMessage(ApplicationResourceImpl.successResource().getResultMessage())
+                .code(ApplicationResourceImpl.successResource().getCode())
+                .message(ApplicationResourceImpl.successResource().getMessage())
                 .status(Status.SUCCESS).build();
     }
 
     public BaseDTO<List<R>> successListResponse(List<R> o) {
         return BaseDTO.<List<R>>builder().data(o)
-                .resultCode(ApplicationResourceImpl.successResource().getResultCode())
-                .resultMessage(ApplicationResourceImpl.successResource().getResultMessage())
+                .code(ApplicationResourceImpl.successResource().getCode())
+                .message(ApplicationResourceImpl.successResource().getMessage())
                 .status(Status.SUCCESS).build();
     }
 }

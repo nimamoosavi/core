@@ -22,15 +22,15 @@ public interface GeneralResponse<R> {
      */
     static <G> BaseDTO<G> successCustomResponse(G o) {
         return BaseDTO.<G>builder().data(o)
-                .resultCode(ApplicationResourceImpl.successResource().getResultCode())
-                .resultMessage(ApplicationResourceImpl.successResource().getResultMessage())
+                .code(ApplicationResourceImpl.successResource().getCode())
+                .message(ApplicationResourceImpl.successResource().getMessage())
                 .status(Status.SUCCESS).build();
     }
 
     static <G> BaseDTO<List<G>> successCustomListResponse(List<G> o) {
         return BaseDTO.<List<G>>builder().data(o)
-                .resultCode(ApplicationResourceImpl.successResource().getResultCode())
-                .resultMessage(ApplicationResourceImpl.successResource().getResultMessage())
+                .code(ApplicationResourceImpl.successResource().getCode())
+                .message(ApplicationResourceImpl.successResource().getMessage())
                 .status(Status.SUCCESS).build();
     }
 

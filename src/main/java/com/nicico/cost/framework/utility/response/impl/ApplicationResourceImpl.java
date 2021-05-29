@@ -62,7 +62,7 @@ public class ApplicationResourceImpl implements ApplicationResource {
     }
 
     public static BaseDTO<Object> successResource() {
-        return BaseDTO.builder().resultCode(successCode).resultMessage(successText).status(Status.SUCCESS).build();
+        return BaseDTO.builder().code(successCode).message(successText).status(Status.SUCCESS).build();
     }
 
 

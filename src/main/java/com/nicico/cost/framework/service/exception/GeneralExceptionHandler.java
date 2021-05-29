@@ -24,7 +24,7 @@ public abstract class GeneralExceptionHandler {
 
     @ExceptionHandler(ServiceException.class)
     protected ResponseEntity<BaseDTO<Object>> serviceException(ServiceException e) {
-        BaseDTO<Object> baseDTO = BaseDTO.builder().resultCode(e.exceptionCode.toString()).resultMessage(e.exceptionMessage).status(Status.ERROR).build();
+        BaseDTO<Object> baseDTO = BaseDTO.builder().code(e.exceptionCode.toString()).message(e.exceptionMessage).status(Status.ERROR).build();
         return new ResponseEntity<>(baseDTO, e.httpStatus != null ? e.httpStatus : HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -32,9 +32,9 @@ public abstract class GeneralExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ResponseEntity<BaseDTO<String>> handleMethodArgumentNotValid(MethodArgumentNotValidException e) {
         FieldError error = e.getBindingResult().getFieldErrors().get(0);
-        BaseDTO<String> baseDTO = BaseDTO.<String>builder().resultCode(
+        BaseDTO<String> baseDTO = BaseDTO.<String>builder().code(
                 applicationResource.getResourceText("application.message.validationError.code"))
-                .resultMessage(String.format(
+                .message(String.format(
                         applicationResource.getResourceText("application.message.validationError.message"),
                         (error.getField())
                 )).status(Status.ERROR).build();
@@ -46,9 +46,9 @@ public abstract class GeneralExceptionHandler {
     protected ResponseEntity<BaseDTO<String>> handleConstraintViolationException(ConstraintViolationException e) {
         ConstraintViolation<?> error = e.getConstraintViolations().iterator().next();
         String fieldName = ((PathImpl) error.getPropertyPath()).getLeafNode().getName();
-        BaseDTO<String> baseDTO = BaseDTO.<String>builder().resultCode(
+        BaseDTO<String> baseDTO = BaseDTO.<String>builder().code(
                 applicationResource.getResourceText("application.message.validationError.code"))
-                .resultMessage(String.format(
+                .message(String.format(
                         applicationResource.getResourceText("application.message.validationError.message"),
                         (fieldName)
                 )).status(Status.ERROR).build();
@@ -58,9 +58,9 @@ public abstract class GeneralExceptionHandler {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     protected ResponseEntity<BaseDTO<String>> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
-        BaseDTO<String> baseDTO = BaseDTO.<String>builder().resultCode(
+        BaseDTO<String> baseDTO = BaseDTO.<String>builder().code(
                 applicationResource.getResourceText("JSON_CAST_ERROR.code"))
-                .resultMessage(applicationResource.getResourceText("JSON_CAST_ERROR.message"))
+                .message(applicationResource.getResourceText("JSON_CAST_ERROR.message"))
                 .status(Status.ERROR).build();
         return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
     }
@@ -68,9 +68,9 @@ public abstract class GeneralExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     protected ResponseEntity<BaseDTO<String>> handleException(Exception e) {
-        BaseDTO<String> baseDTO = BaseDTO.<String>builder().resultCode(
+        BaseDTO<String> baseDTO = BaseDTO.<String>builder().code(
                 applicationResource.getResourceText("application.message.unknownError.code"))
-                .resultMessage(applicationResource.getResourceText("application.message.unknownError.message")).status(Status.ERROR).build();
+                .message(applicationResource.getResourceText("application.message.unknownError.message")).status(Status.ERROR).build();
         return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
     }
 
