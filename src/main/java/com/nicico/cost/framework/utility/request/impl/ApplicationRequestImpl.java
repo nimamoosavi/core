@@ -2,10 +2,7 @@ package com.nicico.cost.framework.utility.request.impl;
 
 import com.nicico.cost.framework.utility.request.ApplicationRequest;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -17,7 +14,7 @@ import java.sql.Timestamp;
 import java.time.Duration;
 import java.util.*;
 
-import static com.nicico.cost.framework.config.general.GeneralStatic.AUTHORIZATION;
+import static com.nicico.cost.framework.config.general.GeneralStatic.*;
 
 @Component
 public class ApplicationRequestImpl implements ApplicationRequest {
@@ -198,11 +195,18 @@ public class ApplicationRequestImpl implements ApplicationRequest {
 
     public <U> ResponseEntity<U> httpRequest(String domain, HttpMethod httpMethod, Map<String, String> headers, Object body, Class<U> targetClass) {
         HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         if (headers != null)
             httpHeaders.setAll(headers);
         String authorization = getHeader(AUTHORIZATION);
         if (authorization != null)
             httpHeaders.set(AUTHORIZATION, authorization);
+        String correlationId = getHeader(CORRELATION_ID);
+        if (correlationId != null)
+            httpHeaders.set(CORRELATION_ID, correlationId);
+        String clientVersion = getHeader(CLIENT_VERSION);
+        if (clientVersion != null)
+            httpHeaders.set(CLIENT_VERSION, clientVersion);
         HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
         return restTemplate.exchange(domain, httpMethod, httpEntity, targetClass);
     }
@@ -214,11 +218,18 @@ public class ApplicationRequestImpl implements ApplicationRequest {
     @Override
     public ResponseEntity<Object> httpRequest(String domain, HttpMethod httpMethod, Map<String, String> headers, Object body) {
         HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         if (headers != null)
             httpHeaders.setAll(headers);
         String authorization = getHeader(AUTHORIZATION);
         if (authorization != null)
             httpHeaders.set(AUTHORIZATION, authorization);
+        String correlationId = getHeader(CORRELATION_ID);
+        if (correlationId != null)
+            httpHeaders.set(CORRELATION_ID, correlationId);
+        String clientVersion = getHeader(CLIENT_VERSION);
+        if (clientVersion != null)
+            httpHeaders.set(CLIENT_VERSION, clientVersion);
         HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
         return restTemplate.exchange(domain, httpMethod, httpEntity, Object.class);
     }
@@ -231,11 +242,18 @@ public class ApplicationRequestImpl implements ApplicationRequest {
                 .setReadTimeout(Duration.ofMillis(readTimeOut))
                 .build();
         HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         if (headers != null)
             httpHeaders.setAll(headers);
         String authorization = getHeader(AUTHORIZATION);
         if (authorization != null)
             httpHeaders.set(AUTHORIZATION, authorization);
+        String correlationId = getHeader(CORRELATION_ID);
+        if (correlationId != null)
+            httpHeaders.set(CORRELATION_ID, correlationId);
+        String clientVersion = getHeader(CLIENT_VERSION);
+        if (clientVersion != null)
+            httpHeaders.set(CLIENT_VERSION, clientVersion);
         HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
         return customRestTemplate.exchange(domain, httpMethod, httpEntity, targetClass);
     }
@@ -248,11 +266,18 @@ public class ApplicationRequestImpl implements ApplicationRequest {
                 .setReadTimeout(Duration.ofMillis(readTimeOut))
                 .build();
         HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         if (headers != null)
             httpHeaders.setAll(headers);
         String authorization = getHeader(AUTHORIZATION);
         if (authorization != null)
             httpHeaders.set(AUTHORIZATION, authorization);
+        String correlationId = getHeader(CORRELATION_ID);
+        if (correlationId != null)
+            httpHeaders.set(CORRELATION_ID, correlationId);
+        String clientVersion = getHeader(CLIENT_VERSION);
+        if (clientVersion != null)
+            httpHeaders.set(CLIENT_VERSION, clientVersion);
         HttpEntity<Object> httpEntity = new HttpEntity<>(body, httpHeaders);
         return customRestTemplate.exchange(domain, httpMethod, httpEntity, Object.class);
     }

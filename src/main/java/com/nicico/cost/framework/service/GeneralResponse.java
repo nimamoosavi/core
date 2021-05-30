@@ -34,6 +34,7 @@ public interface GeneralResponse<R> {
                 .status(Status.SUCCESS).build();
     }
 
+
     BaseDTO<R> successResponse(R o);
 
     BaseDTO<List<R>> successListResponse(List<R> o);
