@@ -6,6 +6,7 @@ import com.nicico.cost.framework.domain.dto.BaseDTO;
 import com.nicico.cost.framework.domain.dto.Notification;
 import com.nicico.cost.framework.enums.warn.Warning;
 import com.nicico.cost.framework.service.exception.ApplicationException;
+import com.nicico.cost.framework.service.exception.ServiceException;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -19,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WarningServiceImpl implements WarningService {
 
-    private final ApplicationException applicationException;
+    private final ApplicationException<ServiceException> applicationException;
 
 
     @Override

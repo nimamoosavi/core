@@ -36,6 +36,13 @@ public class BaseDTO<T> {
             return this;
     }
 
+    public BaseDTO<T> ifNotSuccessThrow(@NotNull ServiceException e) {
+        if (Boolean.FALSE.equals(status.name().equals(Status.SUCCESS.name())))
+            throw e;
+        else
+            return this;
+    }
+
     public BaseDTO<T> orElse(T r) {
         return GeneralResponse.successCustomResponse(r);
     }
