@@ -38,11 +38,11 @@ public class ApplicationExceptionImpl implements ApplicationException<ServiceExc
             expCode = applicationResource.getResourceText(exceptionKey.concat(CODE));
             expMessage = applicationResource.getResourceText(exceptionKey.concat(MESSAGE));
         } catch (Exception e) {
-            throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
+            throw ServiceException.builder().exceptionCode(environmentNotFoundCode)
                     .exceptionMessage(environmentNotFoundMessage)
                     .httpStatus(HttpStatus.BAD_GATEWAY).build();
         }
-        return ServiceException.builder().exceptionCode(Integer.valueOf(expCode)).exceptionMessage(expMessage).build();
+        return ServiceException.builder().exceptionCode(expCode).exceptionMessage(expMessage).build();
     }
 
 
@@ -51,18 +51,18 @@ public class ApplicationExceptionImpl implements ApplicationException<ServiceExc
             expCode = applicationResource.getResourceText(message.key().concat(CODE));
             expMessage = applicationResource.getResourceText(message.key().concat(MESSAGE));
         } catch (Exception e) {
-            throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
+            throw ServiceException.builder().exceptionCode(environmentNotFoundCode)
                     .exceptionMessage(environmentNotFoundMessage)
                     .httpStatus(HttpStatus.BAD_GATEWAY).build();
         }
-        return ServiceException.builder().exceptionCode(Integer.valueOf(expCode)).exceptionMessage(expMessage).build();
+        return ServiceException.builder().exceptionCode(expCode).exceptionMessage(expMessage).build();
     }
 
     public Notification createApplicationWarning(Message message) {
         try {
             expMessage = applicationResource.getResourceText(message.key().concat(MESSAGE));
         } catch (Exception e) {
-            throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
+            throw ServiceException.builder().exceptionCode(environmentNotFoundCode)
                     .exceptionMessage(environmentNotFoundMessage)
                     .httpStatus(HttpStatus.BAD_GATEWAY).build();
         }
@@ -77,7 +77,7 @@ public class ApplicationExceptionImpl implements ApplicationException<ServiceExc
                 Notification notification = Notification.builder().notify(expMessage).status(Status.WARN).build();
                 notifications.add(notification);
             } catch (Exception e) {
-                throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
+                throw ServiceException.builder().exceptionCode(environmentNotFoundCode)
                         .exceptionMessage(environmentNotFoundMessage)
                         .httpStatus(HttpStatus.BAD_GATEWAY).build();
             }
@@ -90,11 +90,11 @@ public class ApplicationExceptionImpl implements ApplicationException<ServiceExc
             expCode = applicationResource.getResourceText(exceptionKey.concat(CODE));
             expMessage = applicationResource.getResourceText(exceptionKey.concat(MESSAGE));
         } catch (Exception e) {
-            throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
+            throw ServiceException.builder().exceptionCode(environmentNotFoundCode)
                     .exceptionMessage(environmentNotFoundMessage)
                     .httpStatus(HttpStatus.BAD_GATEWAY).build();
         }
-        return ServiceException.builder().exceptionCode(Integer.valueOf(expCode)).httpStatus(httpStatus).exceptionMessage(expMessage).build();
+        return ServiceException.builder().exceptionCode(expCode).httpStatus(httpStatus).exceptionMessage(expMessage).build();
     }
 
 
@@ -103,11 +103,11 @@ public class ApplicationExceptionImpl implements ApplicationException<ServiceExc
             expCode = applicationResource.getResourceText(message.key().concat(CODE));
             expMessage = applicationResource.getResourceText(message.key().concat(MESSAGE));
         } catch (Exception e) {
-            throw ServiceException.builder().exceptionCode(Integer.valueOf(environmentNotFoundCode))
+            throw ServiceException.builder().exceptionCode(environmentNotFoundCode)
                     .exceptionMessage(environmentNotFoundMessage)
                     .httpStatus(HttpStatus.BAD_GATEWAY).build();
         }
-        return ServiceException.builder().exceptionCode(Integer.valueOf(expCode))
+        return ServiceException.builder().exceptionCode(expCode)
                 .httpStatus(httpStatus).exceptionMessage(expMessage).build();
     }
 

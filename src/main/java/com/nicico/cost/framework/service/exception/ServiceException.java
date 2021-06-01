@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 @Data
 @Builder
 public class ServiceException extends RuntimeException {
-    public final Integer exceptionCode;
+    public final String exceptionCode;
     public final String exceptionMessage;
     public final HttpStatus httpStatus;
 }
