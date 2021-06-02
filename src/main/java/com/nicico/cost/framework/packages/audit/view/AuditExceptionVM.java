@@ -10,5 +10,5 @@ public class AuditExceptionVM {
     private String excMethod;
     private Integer excLine;
     private String excMessage;
-    private Integer excCode;
+    private String excCode;
 }
