@@ -1,5 +1,6 @@
 package com.nicico.cost.framework.config.general;
 
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -90,4 +91,5 @@ public class GeneralStatic {
     public void setInstanceId(String instanceId) {
         GeneralStatic.instanceId = instanceId;
     }
+
 }

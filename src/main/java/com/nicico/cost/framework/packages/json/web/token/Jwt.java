@@ -3,6 +3,7 @@ package com.nicico.cost.framework.packages.json.web.token;
 import com.nicico.cost.framework.domain.dto.BaseDTO;
 import com.nicico.cost.framework.packages.json.web.token.view.JwtObjReqVM;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 /**
  * @author nima mousavi
@@ -14,9 +15,10 @@ public interface Jwt {
     /**
      * @param jwtObjReqVM is an object that have some main field for create jwt and a map for custom fields
      * @param secretKey   is your own secret key for generate jwt
+     * @param signatureAlgorithm is your algorithm for sign your jwt
      * @return a String of jwt
      */
-    BaseDTO<String> generateJwt(JwtObjReqVM jwtObjReqVM, String secretKey);
+    BaseDTO<String> generateJwt(JwtObjReqVM jwtObjReqVM, String secretKey, SignatureAlgorithm signatureAlgorithm);
 
     /**
      * @param jwtObjReqVM is an object that have some main field for create jwt and a map for custom fields
@@ -132,6 +134,7 @@ public interface Jwt {
 
     /**
      * @param text input text for Hash
+     * @apiNote this method used default SHA-256 for hash your text
      * @return hash of text
      */
     BaseDTO<String> hash(String text);
