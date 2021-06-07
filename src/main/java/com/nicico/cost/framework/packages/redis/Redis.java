@@ -31,7 +31,7 @@ public interface Redis {
     /**
      * @param key is the unique key in redis service
      * @param o   is object that you want to save in value
-     * @return boolean of result
+     * @return boolean for result
      */
     BaseDTO<Object> updateIfPresent(String key, Object o);
 
@@ -89,7 +89,7 @@ public interface Redis {
 
     /**
      * @param key is the unique key in redis service
-     * @return boolean of result
+     * @return boolean for result
      */
 
     BaseDTO<Boolean> delete(String key);

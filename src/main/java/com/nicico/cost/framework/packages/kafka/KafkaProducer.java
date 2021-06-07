@@ -48,7 +48,7 @@ public interface KafkaProducer {
     /**
      * @param topic  of kafka that you must import it
      * @param o      object that serialize and push it to kafka server
-     * @param @param config that is the kafka config for connect
+     * @param config that is the kafka config for connect
      * @return boolean response of call kafka server
      * @apiNote : you must know method not call server Async and it can delay for get response but you can manage result of kafka
      */
