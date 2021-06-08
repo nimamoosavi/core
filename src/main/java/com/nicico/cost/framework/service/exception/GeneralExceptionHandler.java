@@ -27,7 +27,7 @@ public abstract class GeneralExceptionHandler {
     private Mapper mapper;
 
     @ExceptionHandler(ServiceException.class)
-    protected ResponseEntity<BaseDTO<Object>> serviceException(ServiceException e) {
+    public ResponseEntity<BaseDTO<Object>> serviceException(ServiceException e) {
         BaseDTO<Object> baseDTO = BaseDTO.builder().code(e.exceptionCode).message(e.exceptionMessage).status(Status.ERROR).build();
         return new ResponseEntity<>(baseDTO, e.httpStatus != null ? e.httpStatus : HttpStatus.INTERNAL_SERVER_ERROR);
     }
