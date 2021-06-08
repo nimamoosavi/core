@@ -72,7 +72,7 @@ public interface Jdbc <T extends BaseObject<I>, I extends Serializable> {
      * @param sql                is the native query for execute in Data Base
      * @param sqlParameterSource is the parameter source for execute parametric
      * @return Map<String, Object> the result of Data base
-     * @apiNote you must know if the result not been single the methode throw Runtime Exception
+     * @apiNote you must know if the result not been single result the methode throw Runtime Exception
      */
     Map<String, Object> query(String sql, MapSqlParameterSource sqlParameterSource);
 
@@ -101,7 +101,6 @@ public interface Jdbc <T extends BaseObject<I>, I extends Serializable> {
     /**
      * @param t the Entity View Model that you must Add To Data Base
      * @return the Optional Of Entity that save it in data base
-     * @apiNote this method used SpringJpa
      */
     T save(T t);
 
