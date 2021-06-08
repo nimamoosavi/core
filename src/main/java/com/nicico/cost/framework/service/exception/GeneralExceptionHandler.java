@@ -3,6 +3,7 @@ package com.nicico.cost.framework.service.exception;
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
 import com.nicico.cost.framework.enums.Status;
+import com.nicico.cost.framework.mapper.jackson.Mapper;
 import com.nicico.cost.framework.utility.response.impl.ApplicationResourceImpl;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.client.HttpClientErrorException;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -21,10 +23,12 @@ public abstract class GeneralExceptionHandler {
 
     @Autowired
     private ApplicationResourceImpl applicationResource;
+    @Autowired
+    private Mapper mapper;
 
     @ExceptionHandler(ServiceException.class)
     protected ResponseEntity<BaseDTO<Object>> serviceException(ServiceException e) {
-        BaseDTO<Object> baseDTO = BaseDTO.builder().code(e.exceptionCode.toString()).message(e.exceptionMessage).status(Status.ERROR).build();
+        BaseDTO<Object> baseDTO = BaseDTO.builder().code(e.exceptionCode).message(e.exceptionMessage).status(Status.ERROR).build();
         return new ResponseEntity<>(baseDTO, e.httpStatus != null ? e.httpStatus : HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
