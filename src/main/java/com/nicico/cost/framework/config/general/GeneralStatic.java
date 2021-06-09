@@ -65,7 +65,7 @@ public class GeneralStatic {
         GeneralStatic.basicAuthentication = basicAuthentication;
     }
 
-    @Value("${application.name}")
+    @Value("${spring.application.name}")
     public void setApplicationName(String applicationName) {
         GeneralStatic.applicationName = applicationName;
     }
