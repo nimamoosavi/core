@@ -1,34 +1,32 @@
 package com.nicico.cost.framework.config.general;
 
-import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class GeneralStatic {
 
-    private static String refreshToken;
-    public static String basic;
-    public static String datePersianPatternWithDetail;
-    public static String datePersianPattern;
-    private static String basicAuthentication;
-    public static String applicationName;
-    private static String roles;
-    private static String userName;
-    private static String userId;
     public static final String AUTHORIZATION = "Authorization";
     public static final String APP_KEY = "appKey";
     public static final String CORRELATION_ID = "correlationId";
     public static final String CLIENT_VERSION = "client-version";
+    public static String basic;
+    public static String datePersianPatternWithDetail;
+    public static String datePersianPattern;
+    public static String applicationName;
+    public static String instanceId;
+    public static int connectionTimeOut;
+    public static int readTimeOut;
+    private static String refreshToken;
+    private static String basicAuthentication;
+    private static String roles;
+    private static String userName;
+    private static String userId;
     private static String requestId;
     private static String swaggerTittle;
     private static String swaggerDescription;
     private static String swaggerLicence;
     private static String swaggerVersion;
-    public static String instanceId;
-    public static int connectionTimeOut;
-    public static int readTimeOut;
-
 
     @Value("${connection.timeout:5000}")
     public void setConnectionTimeOut(int connectionTimeOut) {
