@@ -5,9 +5,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class GeneralStatic {
-    private GeneralStatic() {
-        throw new IllegalStateException("GeneralStatic class");
-    }
 
     public static final String AUTHORIZATION = "Authorization";
     public static final String APP_KEY = "appKey";

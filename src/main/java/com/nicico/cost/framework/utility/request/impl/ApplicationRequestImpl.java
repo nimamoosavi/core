@@ -1,6 +1,9 @@
 package com.nicico.cost.framework.utility.request.impl;
 
 import com.nicico.cost.framework.utility.request.ApplicationRequest;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
@@ -17,15 +20,11 @@ import java.util.*;
 import static com.nicico.cost.framework.config.general.GeneralStatic.*;
 
 @Component
+@RequiredArgsConstructor
 public class ApplicationRequestImpl implements ApplicationRequest {
 
 
     private final RestTemplate restTemplate;
-
-    public ApplicationRequestImpl(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
-
 
     protected static final String[] IP_HEADER_CANDIDATES = {
             "X-Forwarded-For",
