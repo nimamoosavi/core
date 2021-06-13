@@ -1,6 +1,5 @@
 package com.nicico.cost.framework.packages.jdbc;
 
-import com.nicico.cost.framework.packages.jdbc.base.BaseObject;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -11,7 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * @param <T> is the entity class that you must Extended to BaseEntity class {@link BaseObject}
+ * @param <T> is the entity class
  * @param <I> is the IncrementalId Type Of Relation Data base
  * @author nima
  * @version 1.0.1
@@ -19,7 +18,7 @@ import java.util.Optional;
  * and Used NameParameterJdbcTemplate And JdbcTemplate of Spring Framework For native Query.
  * you must create an interface and extended of it and generate a bean of your interface
  */
-public interface Jdbc <T extends BaseObject<I>, I extends Serializable> {
+public interface Jdbc<T, I extends Serializable> {
 
     /**
      * @param sql                is the native query for execute in Data Base
@@ -105,12 +104,11 @@ public interface Jdbc <T extends BaseObject<I>, I extends Serializable> {
     T save(T t);
 
     /**
-     * @param id the incrementalId of data base Object
-     * @param t  the Entity View Model that you must Add To Data Base
+     * @param t the Entity View Model that you must Add To Data Base
      * @return the Entity that save it in data base
      * @apiNote this method used SpringJpa
      */
-    T update(I id, T t);
+    T update(T t);
 
     /**
      * @param tList the list of Entity that you must save it in Data base
