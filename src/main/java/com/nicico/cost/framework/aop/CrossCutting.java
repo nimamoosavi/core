@@ -48,6 +48,4 @@ public class CrossCutting {
         if (annotation != null)
             unauthorizedService.unauthorized(annotation);
     }
-
-
 }
