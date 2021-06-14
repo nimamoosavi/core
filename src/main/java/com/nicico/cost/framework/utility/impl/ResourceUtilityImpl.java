@@ -1,4 +1,4 @@
-package com.nicico.cost.framework.utility.response.impl;
+package com.nicico.cost.framework.utility.impl;
 
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
@@ -6,8 +6,8 @@ import com.nicico.cost.framework.enums.Status;
 import com.nicico.cost.framework.enums.exception.ExceptionEnum;
 import com.nicico.cost.framework.service.exception.ApplicationException;
 import com.nicico.cost.framework.service.exception.ServiceException;
-import com.nicico.cost.framework.utility.response.ApplicationResource;
-import com.nicico.cost.framework.utility.response.Message;
+import com.nicico.cost.framework.utility.ResourceUtility;
+import com.nicico.cost.framework.utility.view.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -18,7 +18,7 @@ import static com.nicico.cost.framework.service.GeneralResponse.successCustomRes
 
 
 @Component
-public class ApplicationResourceImpl implements ApplicationResource {
+public class ResourceUtilityImpl implements ResourceUtility {
 
     @Autowired
     public Environment environment;
@@ -31,12 +31,12 @@ public class ApplicationResourceImpl implements ApplicationResource {
 
     @Value("${SUCCESS.code}")
     public void setSuccessCode(String successCode) {
-        ApplicationResourceImpl.successCode = successCode;
+        ResourceUtilityImpl.successCode = successCode;
     }
 
     @Value("${SUCCESS.message}")
     public void setSuccessText(String successText) {
-        ApplicationResourceImpl.successText = successText;
+        ResourceUtilityImpl.successText = successText;
     }
 
     public BaseDTO<String> getResourceData(String resourceText) {

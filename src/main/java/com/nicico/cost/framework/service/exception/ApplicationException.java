@@ -1,7 +1,7 @@
 package com.nicico.cost.framework.service.exception;
 
 import com.nicico.cost.framework.domain.dto.Notification;
-import com.nicico.cost.framework.utility.response.Message;
+import com.nicico.cost.framework.utility.view.Message;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;

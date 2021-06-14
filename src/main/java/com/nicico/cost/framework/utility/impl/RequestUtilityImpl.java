@@ -1,9 +1,7 @@
-package com.nicico.cost.framework.utility.request.impl;
+package com.nicico.cost.framework.utility.impl;
 
-import com.nicico.cost.framework.utility.request.ApplicationRequest;
+import com.nicico.cost.framework.utility.RequestUtility;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
@@ -21,7 +19,7 @@ import static com.nicico.cost.framework.config.general.GeneralStatic.*;
 
 @Component
 @RequiredArgsConstructor
-public class ApplicationRequestImpl implements ApplicationRequest {
+public class RequestUtilityImpl implements RequestUtility {
 
 
     private final RestTemplate restTemplate;
@@ -191,6 +189,10 @@ public class ApplicationRequestImpl implements ApplicationRequest {
         request.getSession().removeAttribute(name);
     }
 
+    public Map<String, String[]> getRequestParam() {
+        HttpServletRequest request = requestContextHolder();
+        return request.getParameterMap();
+    }
 
     public <U> ResponseEntity<U> httpRequest(String domain, HttpMethod httpMethod, Map<String, String> headers, Object body, Class<U> targetClass) {
         HttpHeaders httpHeaders = new HttpHeaders();

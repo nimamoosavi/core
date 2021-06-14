@@ -4,7 +4,7 @@ package com.nicico.cost.framework.service.exception;
 import com.nicico.cost.framework.domain.dto.BaseDTO;
 import com.nicico.cost.framework.enums.Status;
 import com.nicico.cost.framework.mapper.jackson.Mapper;
-import com.nicico.cost.framework.utility.response.impl.ApplicationResourceImpl;
+import com.nicico.cost.framework.utility.ResourceUtility;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,7 @@ import javax.validation.ConstraintViolationException;
 public abstract class GeneralExceptionHandler {
 
     @Autowired
-    private ApplicationResourceImpl applicationResource;
+    private ResourceUtility applicationResource;
     @Autowired
     private Mapper mapper;
 

@@ -1,12 +1,13 @@
-package com.nicico.cost.framework.utility.response;
+package com.nicico.cost.framework.utility;
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
+import com.nicico.cost.framework.utility.view.Message;
 
 /**
  * @author nima
  * @apiNote this class used for get all Data From Properties Resources
  */
-public interface ApplicationResource {
+public interface ResourceUtility {
 
     /**
      * @param resourceText is the Key From Resource

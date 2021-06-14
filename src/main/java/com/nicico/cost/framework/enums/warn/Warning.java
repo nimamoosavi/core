@@ -1,6 +1,6 @@
 package com.nicico.cost.framework.enums.warn;
 
-import com.nicico.cost.framework.utility.response.Message;
+import com.nicico.cost.framework.utility.view.Message;
 import lombok.Getter;
 
 @Getter

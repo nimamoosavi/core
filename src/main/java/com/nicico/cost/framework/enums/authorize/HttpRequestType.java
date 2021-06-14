@@ -1,66 +1,52 @@
-package com.nicico.cost.framework.enums.exception;
+package com.nicico.cost.framework.enums.authorize;
 
 import com.nicico.cost.framework.utility.view.Message;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-
 @Getter
 @AllArgsConstructor
-public enum ExceptionEnum implements Message {
-    NOTFOUND {
+public enum HttpRequestType implements Message {
+    NONE {
         @Override
         public String key() {
             return this.name();
         }
     },
-    SERVER_DENY {
+    ALL {
         @Override
         public String key() {
             return this.name();
         }
     },
-    NOT_DEVELOP {
+    GET {
         @Override
         public String key() {
             return this.name();
         }
     },
-    INTERNAL_SERVER {
+    POST {
         @Override
         public String key() {
             return this.name();
         }
     },
-    NOT_SAVE {
+    DELETE {
         @Override
         public String key() {
             return this.name();
         }
     },
-    NOT_UPDATE {
+    PUT {
         @Override
         public String key() {
             return this.name();
         }
     },
-    NOT_DELETE {
+    OPTION {
         @Override
         public String key() {
             return this.name();
         }
     },
-    ENVIRONMENT_NOT_FOUND {
-        @Override
-        public String key() {
-            return this.name();
-        }
-    },
-    ACCESS_DENIED {
-        @Override
-        public String key() {
-            return this.name();
-        }
-    };
-
 }

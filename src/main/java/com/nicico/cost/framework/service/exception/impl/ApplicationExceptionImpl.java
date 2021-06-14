@@ -4,8 +4,8 @@ import com.nicico.cost.framework.domain.dto.Notification;
 import com.nicico.cost.framework.enums.Status;
 import com.nicico.cost.framework.service.exception.ApplicationException;
 import com.nicico.cost.framework.service.exception.ServiceException;
-import com.nicico.cost.framework.utility.response.Message;
-import com.nicico.cost.framework.utility.response.impl.ApplicationResourceImpl;
+import com.nicico.cost.framework.utility.ResourceUtility;
+import com.nicico.cost.framework.utility.view.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ import java.util.List;
 public class ApplicationExceptionImpl implements ApplicationException<ServiceException> {
 
     @Autowired
-    ApplicationResourceImpl applicationResource;
+    ResourceUtility applicationResource;
 
 
     @Value("${ENVIRONMENT_NOT_FOUND.code}")

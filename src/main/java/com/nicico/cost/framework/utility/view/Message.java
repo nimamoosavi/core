@@ -1,4 +1,4 @@
-package com.nicico.cost.framework.utility.response;
+package com.nicico.cost.framework.utility.view;
 
 /**
  * @apiNote this class used for get Key of All Resource such as Exceptions

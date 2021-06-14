@@ -1,4 +1,4 @@
-package com.nicico.cost.framework.utility.request;
+package com.nicico.cost.framework.utility;
 
 
 import org.springframework.http.HttpMethod;
@@ -13,7 +13,7 @@ import java.util.Map;
  * @author nima
  * @apiNote this class used for get all data from request
  */
-public interface ApplicationRequest {
+public interface RequestUtility {
     /**
      * @return the requestIp
      */
@@ -152,6 +152,8 @@ public interface ApplicationRequest {
      * @apiNote this methode Used For Remove the session Object
      */
     void removeSession(String name);
+
+    Map<String, String[]> getRequestParam();
 
     /**
      * @param domain      is the Url Of Request
