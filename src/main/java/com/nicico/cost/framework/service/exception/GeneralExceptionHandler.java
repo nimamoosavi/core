@@ -22,8 +22,6 @@ public abstract class GeneralExceptionHandler {
 
     @Autowired
     private ResourceUtility applicationResource;
-    @Autowired
-    private Mapper mapper;
 
     @ExceptionHandler(ServiceException.class)
     public ResponseEntity<BaseDTO<Object>> serviceException(ServiceException e) {
