@@ -21,7 +21,7 @@ import javax.validation.ConstraintViolationException;
 public abstract class GeneralExceptionHandler {
 
     @Autowired
-    private ResourceUtility applicationResource;
+    public ResourceUtility applicationResource;
 
     @ExceptionHandler(ServiceException.class)
     public ResponseEntity<BaseDTO<Object>> serviceException(ServiceException e) {
