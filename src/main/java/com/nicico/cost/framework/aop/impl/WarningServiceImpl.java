@@ -33,7 +33,7 @@ public class WarningServiceImpl implements WarningService {
             if (warnings.length > 0) {
                 List<Notification> warning = applicationException.createApplicationWarning(warnings);
                 ResponseEntity<BaseDTO<Object>> responseEntity = (ResponseEntity<BaseDTO<Object>>) result;
-                if (null != responseEntity && responseEntity.getBody() != null) {
+                if (responseEntity != null && responseEntity.getBody() != null) {
                     List<Notification> list = responseEntity.getBody().getNotifies();
                     if (list != null)
                         list.addAll(warning);
