@@ -7,10 +7,8 @@ import org.springframework.stereotype.Component;
 public class GeneralStatic {
 
     public static final String AUTHORIZATION = "Authorization";
-    public static final String APP_KEY = "appKey";
     public static final String CORRELATION_ID = "correlationId";
     public static final String CLIENT_VERSION = "client-version";
-    public static final String BASIC = "basic";
     public static String datePersianPatternWithDetail;
     public static String datePersianPattern;
     public static String applicationName;
