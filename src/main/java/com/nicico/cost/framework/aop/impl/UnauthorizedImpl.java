@@ -11,7 +11,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import static com.nicico.cost.framework.enums.exception.ExceptionEnum.ACCESS_DENIED;
+import static com.nicico.cost.framework.enums.exception.ExceptionEnum.*;
 
 @Component
 @RequiredArgsConstructor
@@ -33,26 +33,26 @@ public class UnauthorizedImpl implements UnauthorizedService {
         for (HttpRequestType httpRequestType : httpRequestTypes) {
             if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpMethod.POST.name())) &&
                     Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(HttpMethod.POST.name())))
-                throw applicationException.createApplicationException(ACCESS_DENIED, HttpStatus.UNAUTHORIZED);
+                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
 
             if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpMethod.GET.name())) &&
                     Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(HttpMethod.GET.name())))
-                throw applicationException.createApplicationException(ACCESS_DENIED, HttpStatus.UNAUTHORIZED);
+                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
 
             if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpMethod.DELETE.name())) &&
                     Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(HttpMethod.DELETE.name())))
-                throw applicationException.createApplicationException(ACCESS_DENIED, HttpStatus.UNAUTHORIZED);
+                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
 
             if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpMethod.PUT.name())) &&
                     Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(HttpMethod.PUT.name())))
-                throw applicationException.createApplicationException(ACCESS_DENIED, HttpStatus.UNAUTHORIZED);
+                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
 
             if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpMethod.OPTIONS.name())) &&
                     Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(HttpMethod.OPTIONS.name())))
-                throw applicationException.createApplicationException(ACCESS_DENIED, HttpStatus.UNAUTHORIZED);
+                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
 
             if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpRequestType.ALL.name())))
-                throw applicationException.createApplicationException(ACCESS_DENIED, HttpStatus.UNAUTHORIZED);
+                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
         }
 
 
@@ -61,7 +61,7 @@ public class UnauthorizedImpl implements UnauthorizedService {
     private void checkUrls(String[] urls) {
         for (String url : urls) {
             if (Boolean.TRUE.equals(applicationRequest.getRequestURI().equalsIgnoreCase(url)))
-                throw applicationException.createApplicationException(ACCESS_DENIED, HttpStatus.UNAUTHORIZED);
+                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
         }
     }
 }

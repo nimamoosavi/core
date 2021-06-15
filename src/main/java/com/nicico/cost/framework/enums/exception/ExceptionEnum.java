@@ -56,6 +56,12 @@ public enum ExceptionEnum implements Message {
             return this.name();
         }
     },
+    NOT_IMPLEMENT {
+        @Override
+        public String key() {
+            return this.name();
+        }
+    },
     ACCESS_DENIED {
         @Override
         public String key() {
