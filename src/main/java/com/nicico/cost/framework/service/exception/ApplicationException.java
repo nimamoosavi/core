@@ -12,7 +12,7 @@ import java.util.List;
  * @since 1.0.1
  * @param <R> is the type Of Exception that you can return From Method
  */
-public interface ApplicationException<R extends ServiceException> {
+public interface ApplicationException<R extends RuntimeException> {
 
     /**
      * @param exceptionKey this key that fetch from Resource properties
