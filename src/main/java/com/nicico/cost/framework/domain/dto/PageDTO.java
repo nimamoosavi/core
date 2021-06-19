@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 public class PageDTO<T> {
     private Long totalElement;
     private Integer pageSize;
+    private Integer totalPages;
     private T object;
 }
