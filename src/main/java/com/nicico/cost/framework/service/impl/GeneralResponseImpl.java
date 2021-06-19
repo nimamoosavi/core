@@ -1,7 +1,6 @@
 package com.nicico.cost.framework.service.impl;
 
 import com.nicico.cost.framework.domain.dto.BaseDTO;
-import com.nicico.cost.framework.domain.dto.PageDTO;
 import com.nicico.cost.framework.enums.Status;
 import com.nicico.cost.framework.service.GeneralResponse;
 import com.nicico.cost.framework.utility.impl.ResourceUtilityImpl;
