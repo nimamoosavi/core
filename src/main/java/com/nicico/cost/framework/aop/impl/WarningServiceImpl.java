@@ -24,6 +24,7 @@ public class WarningServiceImpl implements WarningService {
 
 
     @Override
+    @SuppressWarnings("unchecked")
     public void warnings(JoinPoint joinPoint, Object result) {
         try {
             MethodSignature signature = (MethodSignature) joinPoint.getSignature();
@@ -33,12 +34,14 @@ public class WarningServiceImpl implements WarningService {
             if (warnings.length > 0) {
                 List<Notification> warning = applicationException.createApplicationWarning(warnings);
                 ResponseEntity<BaseDTO<Object>> responseEntity = (ResponseEntity<BaseDTO<Object>>) result;
-                if (responseEntity != null && responseEntity.getBody() != null) {
-                    List<Notification> list = responseEntity.getBody().getNotifies();
+                BaseDTO<Object> body = responseEntity.getBody();
+                if (body != null) {
+                    List<Notification> list = body.getNotifies();
                     if (list != null)
                         list.addAll(warning);
-                    else
-                        responseEntity.getBody().setNotifies(warning);
+                    else{
+                        body.setNotifies(warning);
+                    }
                 }
             }
         } catch (Exception e) {
