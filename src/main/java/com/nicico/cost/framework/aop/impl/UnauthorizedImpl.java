@@ -11,7 +11,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import static com.nicico.cost.framework.enums.exception.ExceptionEnum.*;
+import static com.nicico.cost.framework.enums.exception.ExceptionEnum.NOT_IMPLEMENT;
 
 @Component
 @RequiredArgsConstructor
@@ -31,31 +31,20 @@ public class UnauthorizedImpl implements UnauthorizedService {
 
     private void checkHttpMethod(HttpRequestType[] httpRequestTypes) {
         for (HttpRequestType httpRequestType : httpRequestTypes) {
-            if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpMethod.POST.name())) &&
-                    Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(HttpMethod.POST.name())))
-                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
-
-            if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpMethod.GET.name())) &&
-                    Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(HttpMethod.GET.name())))
-                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
-
-            if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpMethod.DELETE.name())) &&
-                    Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(HttpMethod.DELETE.name())))
-                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
-
-            if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpMethod.PUT.name())) &&
-                    Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(HttpMethod.PUT.name())))
-                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
-
-            if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpMethod.OPTIONS.name())) &&
-                    Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(HttpMethod.OPTIONS.name())))
-                throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
-
+            check(httpRequestType, HttpMethod.POST);
+            check(httpRequestType, HttpMethod.GET);
+            check(httpRequestType, HttpMethod.DELETE);
+            check(httpRequestType, HttpMethod.PUT);
+            check(httpRequestType, HttpMethod.OPTIONS);
             if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(HttpRequestType.ALL.name())))
                 throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
         }
+    }
 
-
+    private void check(HttpRequestType httpRequestType, HttpMethod httpMethod) {
+        if (Boolean.TRUE.equals(httpRequestType.key().equalsIgnoreCase(httpMethod.name())) &&
+                Boolean.TRUE.equals(applicationRequest.getMethod().equalsIgnoreCase(httpMethod.name())))
+            throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
     }
 
     private void checkUrls(String[] urls) {
