@@ -1,5 +1,6 @@
 package com.nicico.cost.framework.packages.jdbc;
 
+import com.nicico.cost.framework.packages.crud.view.Criteria;
 import com.nicico.cost.framework.packages.crud.view.Sort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -130,6 +131,18 @@ public interface Jdbc<T, I extends Serializable> {
      * @apiNote this method used SpringJpa
      */
     List<T> findAll();
+
+    /**
+     * @return the List Of Entities
+     * @apiNote this method used SpringJpa
+     */
+    List<T> findAll(Criteria criteria);
+
+    /**
+     * @return the List Of Entities
+     * @apiNote this method used SpringJpa
+     */
+    List<T> findAll(List<Sort> sorts);
 
     /**
      * @param page     the page number that you must fetch it

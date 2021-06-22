@@ -12,4 +12,5 @@ public class Criteria {
     private String start;
     private String end;
     private List<Criteria> criteria;
+    private List<Sort> sorts;
 }
