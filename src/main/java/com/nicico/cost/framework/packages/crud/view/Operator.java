@@ -22,6 +22,5 @@ public enum Operator {
     NOT_NULL,
     AND,
     NOT,
-    OR,
-    BETWEEN;
+    OR
 }
