@@ -1,5 +1,6 @@
 package com.nicico.cost.framework.packages.jdbc;
 
+import com.nicico.cost.framework.domain.dto.PageDTO;
 import com.nicico.cost.framework.packages.crud.view.Criteria;
 import com.nicico.cost.framework.packages.crud.view.Sort;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -149,7 +150,7 @@ public interface Jdbc<T, I extends Serializable> {
      * @param pageSize the page Size of that you need to split Data
      * @apiNote this method used SpringJpa
      */
-    List<T> findAll(int page, int pageSize);
+    PageDTO<List<T>> findAll(int page, int pageSize);
 
     /**
      * @param page     the page number that you must fetch it
@@ -158,7 +159,15 @@ public interface Jdbc<T, I extends Serializable> {
      * @return the List Of Entity from Response Of Data Base
      * @apiNote this method used SpringJpa
      */
-    List<T> findAll(int page, int pageSize, List<Sort> sorts);
+    PageDTO<List<T>> findAll(int page, int pageSize, List<Sort> sorts);
+
+    /**
+     * @param page     the page number that you must fetch it
+     * @param criteria is the criteria for find in where Clause
+     * @param pageSize the page Size of that you need to split Data
+     * @return the Optional List Of Entity from Response Of Data Base
+     */
+    PageDTO<List<T>> findAll(int page, int pageSize, Criteria criteria);
 
     /**
      * @return the Number Of data
