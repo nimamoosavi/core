@@ -1,4 +1,4 @@
-mage: devops01.icico.net.ir/docker:01
+image: devops01.icico.net.ir/docker:01
 
 stages:
   - deploy
