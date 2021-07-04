@@ -2,6 +2,7 @@ package com.nicico.cost.framework.mapper.jackson;
 
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
 
 import java.util.Map;
 
@@ -48,4 +49,12 @@ public interface Mapper {
      */
     <G> G jsonToObject(String json, TypeReference<G> reference);
 
+    <G,T> JavaType castToJavaType(Class<G> g,Class<T> t);
+    /**
+     * @param json is the json that Type is String
+     * @return the Object of the Json
+     * @param <G> is the type Of Response Class
+     * @throws Exception not Throw In this Method
+     */
+    <G> G jsonToObject(String json,JavaType javaType);
 }

@@ -2,6 +2,7 @@ package com.nicico.cost.framework.mapper.jackson;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nicico.cost.framework.service.exception.ApplicationException;
 import com.nicico.cost.framework.service.exception.ServiceException;
@@ -68,5 +69,17 @@ public class MapperImpl implements Mapper {
         }
     }
 
+    @Override
+    public <G, T> JavaType castToJavaType(Class<G> g, Class<T> t) {
+        return objectMapper.getTypeFactory().constructParametricType(g,t);
+    }
 
+    @Override
+    public <G> G jsonToObject(String json, JavaType javaType) {
+        try {
+            return objectMapper.readValue(json,javaType);
+        }catch (IOException e) {
+            return null;
+        }
+    }
 }
