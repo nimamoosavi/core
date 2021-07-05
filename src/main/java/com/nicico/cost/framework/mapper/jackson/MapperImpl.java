@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
 import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
 import java.util.Map;
 
 import static com.nicico.cost.framework.enums.exception.ExceptionEnum.INTERNAL_SERVER;
