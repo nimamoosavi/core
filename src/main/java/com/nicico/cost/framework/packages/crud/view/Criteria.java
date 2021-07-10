@@ -9,10 +9,7 @@ public class Criteria {
     private String fieldName;
     private Operator operator;
     private Object value;
-    private String start;
-    private String end;
     private List<Criteria> criteriaChain;
-    private List<Sort> sorts;
     public static CriteriaBuilder builder(){
         return new CriteriaBuilder();
     }
@@ -21,10 +18,7 @@ public class Criteria {
         private String fieldName;
         private Operator operator;
         private Object value;
-        private String start;
-        private String end;
         private List<Criteria> criteriaChain;
-        private List<Sort> sorts;
 
         private CriteriaBuilder() {
         }
@@ -48,23 +42,8 @@ public class Criteria {
             return this;
         }
 
-        public CriteriaBuilder start(String start) {
-            this.start = start;
-            return this;
-        }
-
-        public CriteriaBuilder end(String end) {
-            this.end = end;
-            return this;
-        }
-
         public CriteriaBuilder criteria(List<Criteria> criteriaChain) {
             this.criteriaChain = criteriaChain;
-            return this;
-        }
-
-        public CriteriaBuilder sorts(List<Sort> sorts) {
-            this.sorts = sorts;
             return this;
         }
 
@@ -73,10 +52,7 @@ public class Criteria {
             criteria.setFieldName(fieldName);
             criteria.setOperator(operator);
             criteria.setValue(value);
-            criteria.setStart(start);
-            criteria.setEnd(end);
             criteria.setCriteriaChain(this.criteriaChain);
-            criteria.setSorts(sorts);
             return criteria;
         }
     }

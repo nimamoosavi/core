@@ -2,6 +2,7 @@ package com.nicico.cost.framework.packages.jdbc;
 
 import com.nicico.cost.framework.domain.dto.PageDTO;
 import com.nicico.cost.framework.packages.crud.view.Criteria;
+import com.nicico.cost.framework.packages.crud.view.Query;
 import com.nicico.cost.framework.packages.crud.view.Sort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -137,13 +138,7 @@ public interface Jdbc<T, I extends Serializable> {
      * @return the List Of Entities
      * @apiNote this method used SpringJpa
      */
-    List<T> findAll(Criteria criteria);
-
-    /**
-     * @return the List Of Entities
-     * @apiNote this method used SpringJpa
-     */
-    List<T> findAll(List<Sort> sorts);
+    List<T> findAll(Query query);
 
     /**
      * @param page     the page number that you must fetch it
@@ -155,25 +150,24 @@ public interface Jdbc<T, I extends Serializable> {
     /**
      * @param page     the page number that you must fetch it
      * @param pageSize the page Size of that you need to split Data
-     * @param sorts   is the list of fields and your direction such as Asc and Desc for Sorting
+     * @param query   is the Object for query list
      * @return the List Of Entity from Response Of Data Base
      * @apiNote this method used SpringJpa
      */
-    PageDTO<List<T>> findAll(int page, int pageSize, List<Sort> sorts);
+    PageDTO<List<T>> findAll(int page, int pageSize, Query query);
 
-    /**
-     * @param page     the page number that you must fetch it
-     * @param criteria is the criteria for find in where Clause
-     * @param pageSize the page Size of that you need to split Data
-     * @return the Optional List Of Entity from Response Of Data Base
-     */
-    PageDTO<List<T>> findAll(int page, int pageSize, Criteria criteria);
 
     /**
      * @return the Number Of data
      * @apiNote this method used SpringJpa
      */
     long count();
+
+    /**
+     * @return the Number Of data
+     * @apiNote this method used SpringJpa
+     */
+    long count(Query query);
 
     /**
      * @param id is the incrementalId of Object that you need too remove it from Data Base
