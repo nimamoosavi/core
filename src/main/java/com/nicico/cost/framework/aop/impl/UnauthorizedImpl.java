@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import static com.nicico.cost.framework.enums.exception.ExceptionEnum.ACCESS_DENIED;
+import static com.nicico.cost.framework.enums.exception.ExceptionEnum.NOT_IMPLEMENT;
 
 @Component
 @RequiredArgsConstructor
@@ -17,6 +17,6 @@ public class UnauthorizedImpl implements UnauthorizedService {
 
     @Override
     public void unauthorized(Unauthorized unauthorized) {
-        throw applicationException.createApplicationException(ACCESS_DENIED, HttpStatus.UNAUTHORIZED);
+        throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
     }
 }

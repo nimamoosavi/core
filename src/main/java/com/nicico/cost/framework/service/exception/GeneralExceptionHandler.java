@@ -6,6 +6,7 @@ import com.nicico.cost.framework.enums.Status;
 import com.nicico.cost.framework.utility.ResourceUtility;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -58,6 +59,15 @@ public abstract class GeneralExceptionHandler {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     protected ResponseEntity<BaseDTO<String>> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
+        BaseDTO<String> baseDTO = BaseDTO.<String>builder().code(
+                applicationResource.getResourceText("JSON_CAST_ERROR.code"))
+                .message(applicationResource.getResourceText("JSON_CAST_ERROR.message"))
+                .status(Status.ERROR).build();
+        return new ResponseEntity<>(baseDTO, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(EmptyResultDataAccessException.class)
+    protected ResponseEntity<BaseDTO<String>> handleEmptyResultDataAccessException(EmptyResultDataAccessException e) {
         BaseDTO<String> baseDTO = BaseDTO.<String>builder().code(
                 applicationResource.getResourceText("JSON_CAST_ERROR.code"))
                 .message(applicationResource.getResourceText("JSON_CAST_ERROR.message"))
