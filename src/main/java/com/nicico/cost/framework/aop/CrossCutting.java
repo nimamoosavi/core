@@ -29,21 +29,14 @@ public class CrossCutting {
         // Do Nothing ,Aop Running
     }
 
-    @Pointcut("within(@com.nicico.cost.framework.anotations.Unauthorized *)")
-    public void unauthorizedClass() {
-        // Do Nothing ,Aop Running
-    }
 
     @AfterReturning(pointcut = "warnings()", returning = "result")
     public void logAfterReturning(JoinPoint joinPoint, Object result) {
         warningService.warnings(joinPoint, result);
     }
 
-    @Before("unauthorized() || unauthorizedClass()")
+    @Before("unauthorized()")
     public void logBefore(JoinPoint joinPoint) {
-        Unauthorized classAnnotationInAOP = generalUtility.findClassAnnotationInAOP(joinPoint, Unauthorized.class);
-        if (classAnnotationInAOP != null)
-            unauthorizedService.unauthorized(classAnnotationInAOP);
         Unauthorized annotation = generalUtility.findMethodAnnotationInAOP(joinPoint, Unauthorized.class);
         if (annotation != null)
             unauthorizedService.unauthorized(annotation);
