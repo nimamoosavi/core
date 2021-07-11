@@ -27,6 +27,7 @@ public class Config {
         return restTemplateBuilder
                 .setConnectTimeout(Duration.ofMillis(connectionTimeOut))
                 .setReadTimeout(Duration.ofMillis(readTimeOut))
+                .errorHandler(new RestTemplateResponseErrorHandler())
                 .build();
     }
 

@@ -26,7 +26,7 @@ public class BaseDTO<T> {
 
     @JsonIgnore
     public boolean isPresent() {
-        return !Boolean.TRUE.equals(data == null);
+        return !Status.ERROR.equals(status);
     }
 
     public BaseDTO<T> orElseThrow(@NotNull ServiceException e) {
