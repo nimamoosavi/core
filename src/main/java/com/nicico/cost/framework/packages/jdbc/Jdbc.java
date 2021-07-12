@@ -1,9 +1,7 @@
 package com.nicico.cost.framework.packages.jdbc;
 
 import com.nicico.cost.framework.domain.dto.PageDTO;
-import com.nicico.cost.framework.packages.crud.view.Criteria;
 import com.nicico.cost.framework.packages.crud.view.Query;
-import com.nicico.cost.framework.packages.crud.view.Sort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
