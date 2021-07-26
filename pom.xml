@@ -8,7 +8,7 @@
         <version>2.3.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.nicico.cost</groupId>
+    <groupId>ir.webold</groupId>
     <artifactId>framework</artifactId>
     <version>1.0.1-Released</version>
     <name>framework</name>
