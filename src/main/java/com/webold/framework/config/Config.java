@@ -18,7 +18,7 @@ import static com.webold.framework.config.general.GeneralStatic.readTimeOut;
 @Configuration
 @PropertySource(value = "classpath:exceptions.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 @PropertySource(value = "classpath:warning.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
-@ComponentScan(basePackages = {"com.nicico.cost.framework"})
+@ComponentScan(basePackages = {"com.webold.framework"})
 public class Config {
 
     @Bean
