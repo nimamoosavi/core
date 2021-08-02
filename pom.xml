@@ -8,11 +8,11 @@
         <version>2.3.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.webold</groupId>
-    <artifactId>framework</artifactId>
+    <groupId>app.ladderproject</groupId>
+    <artifactId>core</artifactId>
     <version>1.0.1-Released</version>
-    <name>framework</name>
-    <description>Core project for WeBold</description>
+    <name>core</name>
+    <description>Core project for Ladder</description>
 
     <properties>
         <java.version>1.8</java.version>
