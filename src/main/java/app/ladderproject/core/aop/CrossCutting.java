@@ -1,7 +1,7 @@
 package app.ladderproject.core.aop;
 
-import app.ladderproject.core.utility.GeneralUtility;
 import app.ladderproject.core.anotations.Unauthorized;
+import app.ladderproject.core.utility.GeneralUtility;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -19,12 +19,12 @@ public class CrossCutting {
     private final UnauthorizedService unauthorizedService;
     private final GeneralUtility generalUtility;
 
-    @Pointcut("@annotation(com.webold.framework.anotations.Warnings)")
+    @Pointcut("@annotation(app.ladderproject.core.anotations.Warnings)")
     public void warnings() {
         // Do Nothing ,Aop Running
     }
 
-    @Pointcut("@annotation(com.webold.framework.anotations.Unauthorized)")
+    @Pointcut("@annotation(app.ladderproject.core.anotations.Unauthorized)")
     public void unauthorized() {
         // Do Nothing ,Aop Running
     }

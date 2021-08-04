@@ -1,7 +1,7 @@
 package app.ladderproject.core.utility;
 
-import app.ladderproject.core.utility.view.Message;
 import app.ladderproject.core.domain.dto.BaseDTO;
+import app.ladderproject.core.utility.view.Message;
 
 /**
  * @author nima

@@ -1,22 +1,21 @@
 package app.ladderproject.core.service;
 
-import app.ladderproject.core.utility.impl.ResourceUtilityImpl;
 import app.ladderproject.core.domain.dto.BaseDTO;
 import app.ladderproject.core.enums.Status;
+import app.ladderproject.core.utility.impl.ResourceUtilityImpl;
 
 import java.util.List;
 
 /**
+ * @param <R> the type Of Response that you can return it
  * @author nima
  * @since 1.0.1
- * @param <R> the type Of Response that you can return it
  */
 public interface GeneralResponse<R> {
 
 
     /**
-     *
-     * @param o the Input Object that you can input to methode
+     * @param o   the Input Object that you can input to methode
      * @param <G> the Type Of Return BaseDTO Object
      * @return the BaseDTO Object
      */

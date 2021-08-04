@@ -1,10 +1,10 @@
 package app.ladderproject.core.domain.dto;
 
 
+import app.ladderproject.core.enums.Status;
 import app.ladderproject.core.service.GeneralResponse;
 import app.ladderproject.core.service.exception.ServiceException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import app.ladderproject.core.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

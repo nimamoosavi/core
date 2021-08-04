@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author nima
  * @version 1.0.1
- * @apiNote you must know that all data consume in list of Object in memory .. and when you dont empty this list ... application may be crashed
+ * @apiNote you must know that all data consume in list of Object in memory . and when you don't empty this list ... application may be crashed
  * @since 1.0.1
  */
 public interface KafkaConsumer {

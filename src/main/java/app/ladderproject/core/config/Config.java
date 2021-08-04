@@ -16,7 +16,7 @@ import java.time.Duration;
 @Configuration
 @PropertySource(value = "classpath:exceptions.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
 @PropertySource(value = "classpath:warning.properties", encoding = "UTF-8", ignoreResourceNotFound = true)
-@ComponentScan(basePackages = {"com.webold.framework"})
+@ComponentScan(basePackages = {"app.ladderproject.core"})
 public class Config {
 
     @Bean
