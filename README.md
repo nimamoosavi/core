@@ -1,5 +1,4 @@
-##### This is the home of the ladder project: the foundation for all ladder projects And includes Some Library
-- Audit Project
+##### Core of ladder project:The foundation of all ladder projects.
 - CRUD Project
 - JSON-WEB Project
 - Kafka Client Project
@@ -12,8 +11,8 @@
 - Swagger Project
 
 # Structure
-##### All Project Used JDK 11 and in Spring Frame Work version 2.3.0 And other Library
-- All Project depends On FrameWork and You Must add It to Pom File
+##### All Projects Used JDK 11 and in Spring Frame Work version 2.3.0 And other Libraries
+- All Projects depend on core, and You Must add It to Pom File.
 
 ![](/images/core-diagram.png "Framework Diagram")
 
@@ -45,45 +44,45 @@
 ~~~
 
 ## Audit Project
-this project used for log all data in all Microservices
+This project is used for log all data in all Microservices
 
 ## CRUD Project
-this project used for generate All crud Default Services in three layer
+This project is used for generating all default crud Services in three layers
 - Controller
 - Service
 - Repository
 
-Repository Layer Implement in Some Other Library JDBC client , Mongo client , Microservice client
+Repository Layer Implements in Some other Libraries such as, JDBC client , Mongo client , Microservice client.
 
 ## JSON-WEB Project
-this project used for work with JWT,JWE,JWS, ...
+This project is used for work with JWT,JWE,JWS, ...
 
 ## Kafka Client Project
-this project used for Produce and Consume From Kafka
+This project is used for producing and consuming data from Kafka.
 
 ## Redis Client Project
-this project used For connect to Redis
+This project is used for connecting to Redis.
 
 ## Elasticsearch Client Project
-this project used For connect to Elasticsearch and impl repository of Crud Project
+This project is used for connecting to Elasticsearch and implement repository layer in Crud Project.
 
 ## Mongo Client Project
-this project used For connect to Mongo and impl repository of Crud Project
+This project is used for connecting to Mongo and implement repository layer in Crud Project.
 
 ## JDBC Client Project
-this project used For connect to Jdbc and impl repository of Crud Project
+This project is used for connecting to Jdbc and implementing repository layer in Crud Project.
 
 ## Microservice Client Project
-this project used For connect to Another Microservice And Create Crud For Aggregation Structure
+This project is used for connecting to crud project, and also create Crud for Aggregation structure.
 
 ## Oauth Client Project
-thi project Used for connect to standard Oath2 Project
+This project is used for connecting to the Oath2 standard  Project.
 
 ## Swagger Project
-this project used For create Swagger For your Project
+This project is used for creating Swagger in your Project.
 
 # Releases
-##### Last Release Version in Frame Work 1.0.1-Released
+##### Last Version in Core 1.0.1-Released 
 
 ~~~
 <dependency>
