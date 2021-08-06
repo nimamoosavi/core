@@ -131,11 +131,4 @@ public interface Jwt {
      * @return your claims body object
      */
     <R> BaseDTO<R> getJwtParam(String jwt, String secretKey, String paramName, Class<R> tClass);
-
-    /**
-     * @param text input text for Hash
-     * @apiNote this method used default SHA-256 for hash your text
-     * @return hash of text
-     */
-    BaseDTO<String> hash(String text);
 }
