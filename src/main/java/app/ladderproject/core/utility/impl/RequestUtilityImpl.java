@@ -19,7 +19,7 @@ import static app.ladderproject.core.config.general.GeneralStatic.*;
 
 @Component
 @RequiredArgsConstructor
-public class RequestUtilityImpl implements RequestUtility {
+class RequestUtilityImpl implements RequestUtility {
 
 
     private final RestTemplate restTemplate;

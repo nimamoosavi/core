@@ -20,7 +20,7 @@ import static app.ladderproject.core.service.GeneralResponse.successCustomRespon
 
 @Component
 @RequiredArgsConstructor
-public class GeneralUtilityImpl implements GeneralUtility {
+class GeneralUtilityImpl implements GeneralUtility {
 
     private final ApplicationException<ServiceException> applicationException;
 
