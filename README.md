@@ -13,9 +13,9 @@
 
 # Structure
 ##### All Project Used JDK 11 and in Spring Frame Work version 2.3.0 And other Library
-- All Project depends On FrameWork and You Must add It to Pom File
+- All Project depends On Core and You Must add It to Pom File
 
-[[/wiki/images/core-diagram.png |"Framework Diagram"]]
+[[https://raw.githubusercontent.com/wiki/nimamoosavi/core/images/core-diagram.png |"Core Diagram"]]
 
 
 # Maven Central
