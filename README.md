@@ -16,7 +16,6 @@
 - All Project depends On Core and You Must add It to Pom File
 
 ![Core](https://github.com/nimamoosavi/core/wiki/images/core-diagram.png)
-[[images/core-diagram.png]]
 
 
 # Maven Central
