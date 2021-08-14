@@ -15,7 +15,8 @@
 ##### All Project Used JDK 11 and in Spring Frame Work version 2.3.0 And other Library
 - All Project depends On Core and You Must add It to Pom File
 
-[[https://raw.githubusercontent.com/wiki/nimamoosavi/core/images/core-diagram.png |"Core Diagram"]]
+![](/wiki/images/core-diagram.png)
+[/wiki/images/core-diagram.png |"Core Diagram"]
 
 
 # Maven Central
