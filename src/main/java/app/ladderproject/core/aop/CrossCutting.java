@@ -21,12 +21,12 @@ public class CrossCutting {
 
     @Pointcut("@annotation(app.ladderproject.core.anotations.Warnings)")
     public void warnings() {
-        // Do Nothing ,Aop Running
+        // Do Nothing, Aop Running
     }
 
     @Pointcut("@annotation(app.ladderproject.core.anotations.Unauthorized)")
     public void unauthorized() {
-        // Do Nothing ,Aop Running
+        // Do Nothing, Aop Running
     }
 
 

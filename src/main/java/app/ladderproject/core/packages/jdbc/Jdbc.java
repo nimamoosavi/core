@@ -16,22 +16,22 @@ import java.util.Optional;
  * @param <I> is the IncrementalId Type Of Relation Data base
  * @author nima
  * @version 1.0.1
- * @apiNote this interface is the implementation of JpaRepository of Spring Data you can find know about it in {@link <a https://spring.io/projects/spring-data-jpa</a>}
+ * @apiNote this interface is the implementation of JpaRepository of Spring Data you can find know about it in {@link <a <a href="https://spring.io/projects/spring-data-jpa">...</a></a>}
  * and Used NameParameterJdbcTemplate And JdbcTemplate of Spring Framework For native Query.
- * you must create an interface and extended of it and generate a bean of your interface
+ * you must create an interface and extend it and generate a bean of your interface
  */
 public interface Jdbc<T, I extends Serializable> {
 
     /**
      * @param sql                is the native query for execute in Data Base
-     * @param sqlParameterSource is the parameter source for execute parametric
-     * @return List<Map < String, Object>> of the result of data base
+     * @param sqlParameterSource is the parameter source for executed parametric
+     * @return List<Map < String, Object>> of the result of database
      */
     List<Map<String, Object>> queryForList(String sql, MapSqlParameterSource sqlParameterSource);
 
     /**
      * @param sql                is the native query for execute in Data Base
-     * @param sqlParameterSource is the parameter source for execute parametric
+     * @param sqlParameterSource is the parameter source for executed parametric
      * @param tClass             the class you want cast it
      * @return List<T> the object that cast it
      */
@@ -54,7 +54,7 @@ public interface Jdbc<T, I extends Serializable> {
 
     /**
      * @param sql                is the native query for execute in Data Base
-     * @param sqlParameterSource is the parameter source for execute parametric
+     * @param sqlParameterSource is the parameter source for executed parametric
      * @param tClass             the class you want cast it
      * @return the single result that result from data Base
      * @apiNote you must know if the result not been single the methode throw Runtime Exception
@@ -65,15 +65,15 @@ public interface Jdbc<T, I extends Serializable> {
      * @param sql          is the native query for execute in Data Base
      * @param queryTimeOut is the time that you want method wait for response
      * @param tClass       the class you want cast it
-     * @return T is the Object of result from data base
+     * @return T is the Object of result from a database
      */
     T query(String sql, int queryTimeOut, Class<T> tClass);
 
     /**
      * @param sql                is the native query for execute in Data Base
-     * @param sqlParameterSource is the parameter source for execute parametric
+     * @param sqlParameterSource is the parameter source for executed parametric
      * @return Map<String, Object> the result of Data base
-     * @apiNote you must know if the result not been single result the methode throw Runtime Exception
+     * @apiNote you must know if the result not been a single result the methode throw Runtime Exception
      */
     Map<String, Object> query(String sql, MapSqlParameterSource sqlParameterSource);
 
@@ -88,26 +88,26 @@ public interface Jdbc<T, I extends Serializable> {
     int queryTimeOut();
 
     /**
-     * @param namedParameterJdbcTemplate is the Object of Spring that you must used it for execute query
+     * @param namedParameterJdbcTemplate is the Object of Spring that you must use it for an executed query
      * @return the Object Time out of Connection
      */
     int queryTimeOut(NamedParameterJdbcTemplate namedParameterJdbcTemplate);
 
     /**
-     * @param jdbcTemplate is the Object of Spring that you must used it for execute query
+     * @param jdbcTemplate is the Object of Spring that you must use it for an executed query
      * @return the Object Time out of Connection
      */
     int queryTimeOut(JdbcTemplate jdbcTemplate);
 
     /**
      * @param t the Entity View Model that you must Add To Data Base
-     * @return the Optional Of Entity that save it in data base
+     * @return the Optional Of Entity that saves it in a database
      */
     T save(T t);
 
     /**
      * @param t the Entity View Model that you must Add To Data Base
-     * @return the Entity that save it in data base
+     * @return the Entity that saves it in a database
      * @apiNote this method used SpringJpa
      */
     T update(T t);
@@ -120,8 +120,8 @@ public interface Jdbc<T, I extends Serializable> {
     List<T> saveAll(List<T> tList);
 
     /**
-     * @param id the incrementalId of data base Object
-     * @return the Entity that save it in data base
+     * @param id the incrementalId of database Object
+     * @return the Entity that saves it in a database
      * @apiNote used for fetch Data By IncrementalId And this method used SpringJpa
      */
     Optional<T> findById(I id);
@@ -140,14 +140,14 @@ public interface Jdbc<T, I extends Serializable> {
 
     /**
      * @param page     the page number that you must fetch it
-     * @param pageSize the page Size of that you need to split Data
+     * @param pageSize the page Size of that you needs to split Data
      * @apiNote this method used SpringJpa
      */
     PageDTO<List<T>> findAll(int page, int pageSize);
 
     /**
      * @param page     the page number that you must fetch it
-     * @param pageSize the page Size of that you need to split Data
+     * @param pageSize the page Sizes of that you need to split Data
      * @param query   is the Object for query list
      * @return the List Of Entity from Response Of Data Base
      * @apiNote this method used SpringJpa

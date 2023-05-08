@@ -46,7 +46,7 @@ public class BaseDTO<T> {
     /**
      * @param e is an Object of RunTime Exception
      * @return this
-     * @apiNote this method Throw An Exception if the Result Not Present
+     * @apiNote this method Throws An Exception if the Result Not Present
      */
     public BaseDTO<T> ifNotSuccessThrow(@NotNull ServiceException e) {
         if (Boolean.FALSE.equals(status.name().equals(Status.SUCCESS.name())))
