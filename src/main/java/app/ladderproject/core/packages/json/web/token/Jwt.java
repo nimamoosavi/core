@@ -13,41 +13,41 @@ import io.jsonwebtoken.SignatureAlgorithm;
  */
 public interface Jwt {
     /**
-     * @param jwtObjReqVM is an object that have some main field for create jwt and a map for custom fields
-     * @param secretKey   is your own secret key for generate jwt
+     * @param jwtObjReqVM is an object that has some main field for create jwt and a map for custom fields
+     * @param secretKey   is your own secret key for generated jwt
      * @param signatureAlgorithm is your algorithm for sign your jwt
      * @return a String of jwt
      */
     BaseDTO<String> generateJwt(JwtObjReqVM jwtObjReqVM, String secretKey, SignatureAlgorithm signatureAlgorithm);
 
     /**
-     * @param jwtObjReqVM is an object that have some main field for create jwt and a map for custom fields
+     * @param jwtObjReqVM is an object that has some main field for create jwt and a map for custom fields
      * @return a String of jwt
      * @implNote secret key is a default field in your application properties
      */
     BaseDTO<String> generateJwt(JwtObjReqVM jwtObjReqVM);
 
     /**
-     * @param jwt       is your input jwt
+     * @param jwt       is your input jwt?
      * @param secretKey is your own secret key for valid jwt
-     * @return Boolean for process
-     * @apiNote method is for valid jwt without check expire time .. its important expire time not important in this method
+     * @return Boolean for a process
+     * @apiNote method is for valid jwt without check expire time. its important expiry time is not important in this method
      */
 
     BaseDTO<Boolean> isTokenWithoutCheckExpireTime(String jwt, String secretKey);
 
     /**
-     * @param jwt       is your input jwt
+     * @param jwt       is your input jwt?
      * @param secretKey is your own secret key for valid jwt
-     * @return Boolean for process
+     * @return Boolean for a process
      */
     BaseDTO<Boolean> isValid(String jwt, String secretKey);
 
     /**
-     * @param jwt is your input jwt
-     * @return Boolean for process
+     * @param jwt is your input jwt?
+     * @return Boolean for a process
      * @apiNote secret key is a default field in your application properties
-     * @apiNote method is for valid jwt without check expire time .. its important expire time not important in this method
+     * @apiNote method is for valid jwt without check expire time. its important expiry time is not important in this method
      */
     BaseDTO<Boolean> isValidWithoutCheckExpireTime(String jwt);
 
@@ -67,14 +67,14 @@ public interface Jwt {
     BaseDTO<Claims> getJwtBodyWithoutCheckExpireTime(String jwt);
 
     /**
-     * @param jwt is your input jwt
+     * @param jwt is your input jwt?
      * @return object of claims that is your json body
      * @apiNote secret key is a default field in your application properties
      */
     BaseDTO<Claims> getJwtBody(String jwt);
 
     /**
-     * @param jwt       is your input jwt
+     * @param jwt       is your input jwt?
      * @param secretKey is your own secret key for valid jwt
      * @return object of claims that is your json body
      * @apiNote this method not validate expireTime
@@ -82,18 +82,18 @@ public interface Jwt {
     BaseDTO<Claims> getJwtBodyWithoutCheckExpireTime(String jwt, String secretKey);
 
     /**
-     * @param jwt       is your input jwt
+     * @param jwt       is your input jwt?
      * @param secretKey is your own secret key for valid jwt
      * @return object of claims that is your json body
      */
     BaseDTO<Claims> getJwtBody(String jwt, String secretKey);
 
     /**
-     * @param jwt       is your input jwt
+     * @param jwt       is your input jwt?
      * @param paramName is your key that you want fetch from claims
      * @param tClass    is object that you want cast to it
      * @param <R>       the class type
-     * @return a object of <T>
+     * @return an object of <T>
      */
     <R> BaseDTO<R> getJwtParam(String jwt, String paramName, Class<R> tClass);
 
@@ -107,13 +107,13 @@ public interface Jwt {
     <R> BaseDTO<R> getJwtParam(Claims claims, String paramName, Class<R> tClass);
 
     /**
-     * @param jwt is your input jwt
+     * @param jwt is your input jwt?
      * @return your claims body object
      */
     BaseDTO<Object> getJwtParam(String jwt);
 
     /**
-     * @param jwt       is your input jwt
+     * @param jwt       is your input jwt?
      * @param secretKey is your own secret key for valid jwt
      * @param paramName is your key that you want fetch from claims
      * @param tClass    is object that you want cast to it
@@ -123,7 +123,7 @@ public interface Jwt {
     <R> BaseDTO<R> getJwtParamWithoutCheckExpireTime(String jwt, String secretKey, String paramName, Class<R> tClass);
 
     /**
-     * @param jwt       is your input jwt
+     * @param jwt       is your input jwt?
      * @param secretKey is your own secret key for valid jwt
      * @param paramName is your key that you want fetch from claims
      * @param tClass    is object that you want cast to it

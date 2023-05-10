@@ -7,7 +7,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ExceptionEnum implements Message {
+public enum Exceptions implements Message {
     NOTFOUND {
         @Override
         public String key() {

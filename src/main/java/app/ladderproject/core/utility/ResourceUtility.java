@@ -5,7 +5,7 @@ import app.ladderproject.core.utility.view.Message;
 
 /**
  * @author nima
- * @apiNote this class used for get all Data From Properties Resources
+ * @apiNote this class used for get all Data From Property Resources
  */
 public interface ResourceUtility {
 
@@ -22,7 +22,7 @@ public interface ResourceUtility {
     String getResourceText(String resourceText);
 
     /**
-     * @param message is the Parent of  From Resource {@link Message}
+     * @param message is the Parent of From Resource {@link Message}
      * @return the value Of Value
      */
     String getResourceText(Message message);

@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.InputStream;
 
 /**
- * @param <R> type of excel service response
+ * @param <R> type of Excel service response
  * @author seyyed
  * @version 0.8
  */

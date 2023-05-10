@@ -2,7 +2,7 @@ package app.ladderproject.core.enums.message;
 
 import app.ladderproject.core.utility.view.Message;
 
-public enum MessageEnum implements Message {
+public enum Messages implements Message {
 
     SUCCESS {
         @Override

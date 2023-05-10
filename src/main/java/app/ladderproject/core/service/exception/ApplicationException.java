@@ -15,7 +15,7 @@ import java.util.List;
 public interface ApplicationException<R extends ServiceException> {
 
     /**
-     * @param exceptionKey this key that fetch from Resource properties
+     * @param exceptionKey this key that fetches from Resource properties
      * @return the Object Of Exception Class that you can throw it
      */
     R createApplicationException(String exceptionKey);
@@ -41,7 +41,7 @@ public interface ApplicationException<R extends ServiceException> {
     List<Notification> createApplicationWarning(Message[] messages);
 
     /**
-     * @param exceptionKey this key that fetch from Resource properties
+     * @param exceptionKey this key that fetches from Resource properties
      * @param httpStatus   is the status of Http Response {@link org.springframework.http.HttpStatus}
      * @return the Object Of Exception Class that you can throw it
      */

@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Base64;
 
-import static app.ladderproject.core.enums.exception.ExceptionEnum.INTERNAL_SERVER;
+import static app.ladderproject.core.enums.exception.Exceptions.INTERNAL_SERVER;
 import static app.ladderproject.core.service.GeneralResponse.successCustomResponse;
 
 @Component

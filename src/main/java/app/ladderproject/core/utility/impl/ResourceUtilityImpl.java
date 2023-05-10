@@ -3,7 +3,6 @@ package app.ladderproject.core.utility.impl;
 
 import app.ladderproject.core.domain.dto.BaseDTO;
 import app.ladderproject.core.enums.Status;
-import app.ladderproject.core.enums.exception.ExceptionEnum;
 import app.ladderproject.core.service.exception.ApplicationException;
 import app.ladderproject.core.service.exception.ServiceException;
 import app.ladderproject.core.utility.ResourceUtility;
@@ -14,6 +13,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import static app.ladderproject.core.enums.exception.Exceptions.ENVIRONMENT_NOT_FOUND;
 import static app.ladderproject.core.service.GeneralResponse.successCustomResponse;
 
 
@@ -58,7 +58,7 @@ public class ResourceUtilityImpl implements ResourceUtility {
         try {
             text = environment.getProperty(resourceText);
         } catch (Exception e) {
-            throw applicationException.createApplicationException(ExceptionEnum.ENVIRONMENT_NOT_FOUND, HttpStatus.BAD_GATEWAY);
+            throw applicationException.createApplicationException(ENVIRONMENT_NOT_FOUND, HttpStatus.BAD_GATEWAY);
         }
         return successCustomResponse(text);
     }

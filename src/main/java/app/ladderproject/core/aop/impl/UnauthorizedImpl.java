@@ -1,6 +1,5 @@
 package app.ladderproject.core.aop.impl;
 
-import app.ladderproject.core.enums.exception.ExceptionEnum;
 import app.ladderproject.core.service.exception.ApplicationException;
 import app.ladderproject.core.service.exception.ServiceException;
 import app.ladderproject.core.anotations.Unauthorized;
@@ -9,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import static app.ladderproject.core.enums.exception.Exceptions.NOT_IMPLEMENT;
+
 @Component
 @RequiredArgsConstructor
 public class UnauthorizedImpl implements UnauthorizedService {
@@ -16,6 +17,6 @@ public class UnauthorizedImpl implements UnauthorizedService {
 
     @Override
     public void unauthorized(Unauthorized unauthorized) {
-        throw applicationException.createApplicationException(ExceptionEnum.NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
+        throw applicationException.createApplicationException(NOT_IMPLEMENT, HttpStatus.NOT_IMPLEMENTED);
     }
 }

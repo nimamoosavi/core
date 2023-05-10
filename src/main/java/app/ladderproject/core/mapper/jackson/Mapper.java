@@ -14,7 +14,6 @@ public interface Mapper {
     /**
      * @param o is the Object that you need To convert To json
      * @return the Json String
-     * @throws Exception not Throw In this Method
      */
     String convertToJson(Object o);
 
@@ -22,21 +21,18 @@ public interface Mapper {
      * @param json is the json that Type is String
      * @param <G>  is the type Of Response Class
      * @return the Object of the Json
-     * @throws Exception not Throw In this Method
      */
     <G> G jsonToObject(String json, Class<G> aClass);
 
     /**
      * @param <G> is the type Of Response Class
      * @return the Object of the Json
-     * @throws Exception not Throw In this Method
      */
     <G> G mapToObject(Map<String, Object> obj, Class<G> aClass);
 
     /**
      * @param <G> is the type Of Response Class
      * @return the Object of the Json
-     * @throws Exception not Throw In this Method
      */
     <G> G mapStrToObject(Map<String, String> obj, Class<G> aClass);
 
@@ -45,7 +41,6 @@ public interface Mapper {
      * @param json is the json that Type is String
      * @param <G>  is the type Of Response Class
      * @return the Object of the Json
-     * @throws Exception not Throw In this Method
      */
     <G> G jsonToObject(String json, TypeReference<G> reference);
 
@@ -55,7 +50,6 @@ public interface Mapper {
      * @param json is the json that Type is String
      * @param <G>  is the type Of Response Class
      * @return the Object of the Json
-     * @throws Exception not Throw In this Method
      */
     <G> G jsonToObject(String json, JavaType javaType);
 }

@@ -14,7 +14,8 @@ import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.util.Map;
 
-import static app.ladderproject.core.enums.exception.ExceptionEnum.INTERNAL_SERVER;
+import static app.ladderproject.core.enums.exception.Exceptions.INTERNAL_SERVER;
+
 
 @Component
 @RequiredArgsConstructor
