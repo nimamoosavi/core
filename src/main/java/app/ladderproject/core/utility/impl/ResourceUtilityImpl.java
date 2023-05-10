@@ -7,23 +7,26 @@ import app.ladderproject.core.service.exception.ApplicationException;
 import app.ladderproject.core.service.exception.ServiceException;
 import app.ladderproject.core.utility.ResourceUtility;
 import app.ladderproject.core.utility.view.Message;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import static app.ladderproject.core.enums.Status.SUCCESS;
 import static app.ladderproject.core.enums.exception.Exceptions.ENVIRONMENT_NOT_FOUND;
 import static app.ladderproject.core.service.GeneralResponse.successCustomResponse;
+import static org.springframework.http.HttpStatus.BAD_GATEWAY;
 
 
 @Component
+@RequiredArgsConstructor
 public class ResourceUtilityImpl implements ResourceUtility {
 
-    @Autowired
-    public Environment environment;
-    @Autowired
-    public ApplicationException<ServiceException> applicationException;
+    private final Environment environment;
+
+    private final ApplicationException<ServiceException> applicationException;
 
 
     private static String successCode;
@@ -58,13 +61,17 @@ public class ResourceUtilityImpl implements ResourceUtility {
         try {
             text = environment.getProperty(resourceText);
         } catch (Exception e) {
-            throw applicationException.createApplicationException(ENVIRONMENT_NOT_FOUND, HttpStatus.BAD_GATEWAY);
+            throw applicationException.createApplicationException(ENVIRONMENT_NOT_FOUND, BAD_GATEWAY);
         }
         return successCustomResponse(text);
     }
 
     public static BaseDTO<Object> successResource() {
-        return BaseDTO.builder().code(successCode).message(successText).status(Status.SUCCESS).build();
+        return BaseDTO.builder()
+                .code(successCode)
+                .message(successText)
+                .status(SUCCESS)
+                .build();
     }
 
 
